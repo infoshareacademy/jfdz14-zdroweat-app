@@ -1,0 +1,13 @@
+.text {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  line-height: 2rem;
+  text-align: center;
+}
+
+.wrapper {
+  margin-bottom: 4rem;
+  width: 90%;
+}
