@@ -28,10 +28,10 @@ const useStyles = makeStyles({
           textColor="primary"
           centered
         >
-          <Tab label="Item One" />
-          <Tab label="Item Two" />
-          <Tab label="Item Three" />
-          <Tab label="Item Four" />
+          <Tab label="STRONA GŁÓWNA" />
+          <Tab label="ZDROWEATOWE PRZEPISY" />
+          <Tab label="ZDROWEAT W LICZBACH" />
+          <Tab label="NASI FANI" />
         </Tabs>
       </Paper>
     );
