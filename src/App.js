@@ -1,18 +1,11 @@
 import React from 'react'
-import GridWrapper from './components/GridWrapper';
-import Container from '@material-ui/core/Container';
-
+import MainSection from './components/MainSection';
 import './App.css'
-
-
-
 
 function App() {
 
   return (
-    <Container>
-      <GridWrapper />
-    </Container>
+    <MainSection />
   );
 }
 
