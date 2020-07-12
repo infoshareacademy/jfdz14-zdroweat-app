@@ -9,8 +9,9 @@ export default function MenuItems({item}) {
     const Icon = item.icon
     return (
         <ListItem button key={item.name}>
-            <ListItemIcon><Icon /></ListItemIcon>
+            
             <NavLink exact activeClassName="active-nav" to={item.url} >
+            <ListItemIcon><Icon fontSize="large" /></ListItemIcon>
                 {item.name}
             </NavLink>
         </ListItem>
