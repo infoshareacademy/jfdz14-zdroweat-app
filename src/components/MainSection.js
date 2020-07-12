@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Navbar from './Navbar';
 import MenuList from './MenuList';
 import DashboardWrapper from './Dashboard/DasboardWrapper';
+import Search from './SearchForm/Search';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -10,6 +11,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import Typography from '@material-ui/core/Typography';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -18,7 +20,9 @@ const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex'
+    display: 'flex',
+    padding: 100
+
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -95,9 +99,9 @@ export default function MainSection() {
   };
 
   return (
+    <BrowserRouter>
+    <CssBaseline />
     <div className={classes.root}>
-      <CssBaseline />
-        <BrowserRouter>
           <AppBar
             position="fixed"
             className={clsx(classes.appBar, {
@@ -107,6 +111,7 @@ export default function MainSection() {
             <Toolbar>
               <IconButton
                 color="inherit"
+                fontSize="large"
                 aria-label="open drawer"
                 onClick={handleDrawerOpen}
                 edge="start"
@@ -114,9 +119,11 @@ export default function MainSection() {
                   [classes.hide]: open,
                 })}
               >
-                <MenuIcon />
+                <MenuIcon/>
               </IconButton>
-              <Navbar />
+              <Typography>
+                <Navbar />
+              </Typography> 
             </Toolbar>
           </AppBar>
       <Drawer
@@ -142,11 +149,12 @@ export default function MainSection() {
       <main className={classes.content}>
         <div className={classes.toolbar} />
         <Switch>
-          <Route path="/DashboardWrapper" component={DashboardWrapper} />
-          <Route path="/" render = {() => <div>Tu coś będzie</div>} /> 
+          <Route exact path="/DashboardWrapper" component = {DashboardWrapper} />
+          <Route exact path="/" render = {() => <div>Tu coś będzie</div>} />
+          <Route exact path="/Search" component = {Search} />           
         </Switch>
       </main>
-      </BrowserRouter>
     </div>
+    </BrowserRouter>
   );
 }
