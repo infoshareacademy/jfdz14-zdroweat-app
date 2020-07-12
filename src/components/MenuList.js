@@ -22,7 +22,7 @@ const entries = [
     { 
         name: 'ZdrowEatowe Przepisy',
         icon: EcoOutlinedIcon,
-        url: "/"
+        url: "/Search"
     },
     { 
         name: 'ZdrowEat w Liczbach',
@@ -62,7 +62,7 @@ export default function MenuList() {
         <List>
             {aboutUs.map((item) => (
             <ListItem button key={item.text}>  
-                <NavLink exact activeClassName="active-nav" to="/DashboardWrapper">
+                <NavLink exact activeClassName="active-nav" to={item.url}>
                 <ListItemIcon>{item.index % 2 === 0 ? <FaceOutlinedIcon fontSize = "large" /> : <MailOutlineIcon fontSize = "large" />}</ListItemIcon>
                     {item.text}
                 </NavLink> 
