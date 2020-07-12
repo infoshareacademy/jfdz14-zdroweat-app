@@ -61,9 +61,9 @@ export default function MenuList() {
         <Divider />
         <List>
             {aboutUs.map((item) => (
-            <ListItem button key={item.text}>
-                <ListItemIcon>{item.index % 2 === 0 ? <FaceOutlinedIcon fontSize = "large" /> : <MailOutlineIcon fontSize = "large" />}</ListItemIcon>
+            <ListItem button key={item.text}>  
                 <NavLink exact activeClassName="active-nav" to="/DashboardWrapper">
+                <ListItemIcon>{item.index % 2 === 0 ? <FaceOutlinedIcon fontSize = "large" /> : <MailOutlineIcon fontSize = "large" />}</ListItemIcon>
                     {item.text}
                 </NavLink> 
             </ListItem>
