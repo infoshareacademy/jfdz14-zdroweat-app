@@ -1,18 +1,15 @@
 import React from 'react'
-import GridWrapper from './components/GridWrapper';
-import Container from '@material-ui/core/Container';
-
+import MainSection from './components/MainSection';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css'
-
-
-
 
 function App() {
 
   return (
-    <Container>
-      <GridWrapper />
-    </Container>
+    <React.Fragment>
+      <CssBaseline />
+      <MainSection />
+    </React.Fragment>
   );
 }
 
