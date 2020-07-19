@@ -1,6 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-import Navbar from './Navbar';
 import MenuList from './MenuList';
 import DashboardWrapper from './Dashboard/DasboardWrapper';
 import Search from './SearchForm/Search';
@@ -10,7 +9,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import Typography from '@material-ui/core/Typography';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
@@ -119,9 +117,6 @@ export default function MainSection() {
               >
                 <MenuIcon/>
               </IconButton>
-              <Typography>
-                <Navbar />
-              </Typography> 
             </Toolbar>
           </AppBar>
       <Drawer
