@@ -12,6 +12,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import RecipeReviewCard from './RecipeCard';
+import RecipeCards from './RecipeCards';
 
 const drawerWidth = 300;
 
@@ -143,8 +145,9 @@ export default function MainSection() {
         <div className={classes.toolbar} />
         <Switch>
           <Route exact path="/DashboardWrapper" component = {DashboardWrapper} />
-          <Route exact path="/" render = {() => <div>Tu coś będzie</div>} />
-          <Route exact path="/Search" component = {Search} />           
+          <Route exact path="/" component = {RecipeCards} />
+          <Route exact path="/Search" component = {Search} />
+          
         </Switch>
       </main>
     </div>
