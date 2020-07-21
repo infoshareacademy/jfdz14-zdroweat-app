@@ -14,6 +14,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import RecipeReviewCard from './RecipeCard';
 import RecipeCards from './RecipeCards';
 import Logo from './Logo'
+import './MainSection.css'
 
 const drawerWidth = 300;
 
@@ -118,7 +119,10 @@ export default function MainSection() {
               >
                 <Logo />
               </IconButton>
+              <div className="navContainer">
               <div className="header">Zdroweat</div>
+              <div className="loggedUser">paulinamalinowska</div>
+              </div>
             </Toolbar>
           </AppBar>
       <Drawer

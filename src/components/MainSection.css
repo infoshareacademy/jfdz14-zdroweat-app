@@ -1,0 +1,13 @@
+.header {
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    padding-left: .5rem;
+}
+
+
+.navContainer {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    width: -webkit-fill-available;
+}
