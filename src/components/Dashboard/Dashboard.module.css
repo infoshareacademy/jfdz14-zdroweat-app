@@ -1,13 +1,119 @@
-.text {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-  line-height: 2rem;
-  text-align: center;
+body {
+  background-color: #fefae0;
 }
 
-.wrapper {
-  margin-bottom: 4rem;
-  width: 90%;
+.firstContainer {
+  background-color: #faf9f0;
+  box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
+  margin-bottom: 10rem;
+  border-radius: 0.5rem;
+}
+.secondContainer,
+.thirdContainer {
+  display: flex;
+  background-color: #faf9f0;
+  box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
+  margin-bottom: 3rem;
+  border-radius: 0.5rem;
+  padding: 6rem;
+}
+
+.textOne {
+  display: block;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 3rem;
+  font-weight: 600;
+}
+
+.textTwo,
+.textThree {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 2rem;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 1rem;
+}
+.column2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  position: relative;
+}
+.map {
+  padding: 2rem;
+}
+
+/* First container */
+
+.container {
+  display: flex;
+  box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
+  margin-bottom: 3rem;
+  border-radius: 0.5rem;
+  padding: 6rem;
+  background-color: #d6ce93;
+}
+.basic {
+  width: 25%;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+.basicContainerTwo {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+.containerTitle {
+  letter-spacing: 0.25rem;
+  color: rgb(105, 105, 105);
+  font-size: 1.5rem;
+}
+.containerTitle,
+.containerContent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.containerData,
+.containerText {
+  padding: 1rem;
+  font-size: 3rem;
+}
+
+.faceIcon {
+  color: #bb8588;
+  font-weight: 600;
+}
+.userIcon {
+  color: #a3a380;
+  font-weight: 600;
+}
+
+/* Third container */
+
+.favoriteIcon {
+  color: #bb8588;
+  font-weight: 600;
 }

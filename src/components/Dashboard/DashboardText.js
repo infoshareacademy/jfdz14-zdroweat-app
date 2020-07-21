@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react'
 
-const DashboardText = ({ text }) => {
-  return <div>{text}</div>;
-};
+const DashboardText = ({ className, text, text2 }) => {
+  return (
+    <>
+      <div className={className}>
+        <p>{text}</p> <p>{text2}</p>
+      </div>
+    </>
+  )
+}
 
-export default DashboardText;
+export default DashboardText

@@ -17,23 +17,13 @@ const mapData = {
 const Map = () => {
   return (
     <div>
-      <div
-        style={{
-          textAlign: "center",
-          padding: "4rem",
-        }}
-      >
-        <p>ZdrowEat jest dostępny na całym świecie!</p>
-        <p>Zobacz, skąd pochodzą nasi użytkownicy.</p>
-      </div>
-      <hr />
       <VectorMap
         map={"world_mill"}
-        backgroundColor="transparent"
+        backgroundColor="#fff"
         zoomOnScroll={true}
         containerStyle={{
           width: "100%",
-          height: "300px",
+          height: "350px",
           marginBottom: "2rem",
         }}
         containerClassName="map"
@@ -55,13 +45,12 @@ const Map = () => {
           regions: [
             {
               values: mapData,
-              scale: ["#A2D18D", "#3E9914"],
+              scale: ["#A2D18D", "#283618"],
               normalizeFunction: "polynomial",
             },
           ],
         }}
       />
-      <hr />
     </div>
   );
 };
