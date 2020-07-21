@@ -8,12 +8,12 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import RecipeReviewCard from './RecipeCard';
 import RecipeCards from './RecipeCards';
+import Logo from './Logo'
 
 const drawerWidth = 300;
 
@@ -83,7 +83,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 export default function MainSection() {
   const classes = useStyles();
   const theme = useTheme();
@@ -117,8 +116,9 @@ export default function MainSection() {
                   [classes.hide]: open,
                 })}
               >
-                <MenuIcon/>
+                <Logo />
               </IconButton>
+              <div className="header">Zdroweat</div>
             </Toolbar>
           </AppBar>
       <Drawer
