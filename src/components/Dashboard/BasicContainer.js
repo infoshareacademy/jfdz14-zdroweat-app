@@ -2,7 +2,7 @@ import React from 'react'
 import styles from "./Dashboard.module.css";
 const BasicContainer = (props) => {
     return (
-        <div >
+        <div className={styles.basic}>
 
             <div className={styles.containerTitle}>{props.title} </div>
             <div className={styles.containerContent}>

@@ -1,6 +1,6 @@
 import React from "react";
 import { VectorMap } from "react-jvectormap";
-
+import styles from './Dashboard.module.css'
 const mapData = {
   CN: 2000,
   SA: 86,
@@ -16,7 +16,7 @@ const mapData = {
 
 const Map = () => {
   return (
-    <div>
+    <div className={styles.map}>
       <VectorMap
         map={"world_mill"}
         backgroundColor="#fff"
@@ -45,7 +45,7 @@ const Map = () => {
           regions: [
             {
               values: mapData,
-              scale: ["#A2D18D", "#283618"],
+              scale: ["#EFEBCE", "#A99C37"],
               normalizeFunction: "polynomial",
             },
           ],

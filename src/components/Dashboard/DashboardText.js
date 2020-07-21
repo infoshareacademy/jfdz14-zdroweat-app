@@ -4,7 +4,8 @@ const DashboardText = ({ className, text, text2 }) => {
   return (
     <>
       <div className={className}>
-        <p>{text}</p> <p>{text2}</p>
+        <div>{text}</div>
+        <div>{text2}</div>
       </div>
     </>
   )

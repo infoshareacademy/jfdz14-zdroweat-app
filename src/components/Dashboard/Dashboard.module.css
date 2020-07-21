@@ -1,15 +1,15 @@
-body {
-  background-color: #fefae0;
+
+/* Containers */
+.container {
+  display: flex;
+  box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
+  margin-bottom: 3rem;
+  border-radius: 0.5rem;
+  padding: 6rem;
+  background-color: #d6ce93;
 }
 
-.firstContainer {
-  background-color: #faf9f0;
-  box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
-  margin-bottom: 10rem;
-  border-radius: 0.5rem;
-}
-.secondContainer,
-.thirdContainer {
+.secondContainer{
   display: flex;
   background-color: #faf9f0;
   box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
@@ -18,7 +18,39 @@ body {
   padding: 6rem;
 }
 
-.textOne {
+.mapContainer {
+  background-color: #faf9f0;
+  box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
+  border-radius: 0.5rem;
+padding:6rem;
+} 
+
+/* Basic container  */
+.basic {
+  width: 25%;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Basic container - 2 */
+.basicContainerTwo {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Text */
+
+/* .textOne {
   display: block;
   text-align: center;
   font-size: 1.5rem;
@@ -34,7 +66,7 @@ body {
   padding: 2rem;
   margin: 0 auto;
   z-index: 1;
-}
+} */
 
 .column {
   display: flex;
@@ -49,39 +81,26 @@ body {
   width: 40%;
   position: relative;
 }
+
+/* Map */
 .map {
   padding: 2rem;
 }
-
-/* First container */
-
-.container {
+.mapText{
+  width: 100%;
   display: flex;
-  box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
-  margin-bottom: 3rem;
-  border-radius: 0.5rem;
-  padding: 6rem;
-  background-color: #d6ce93;
-}
-.basic {
-  width: 25%;
-
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
+  justify-content: center;
+  text-align: center;
   padding: 1rem;
-  margin: 1rem;
-  border-radius: 0.5rem;
-}
-.basicContainerTwo {
-  width: 25%;
-  display: flex;
+  letter-spacing: 0.25rem;
+  color: rgb(105, 105, 105);
+  font-size: 1.5rem;
   flex-direction: column;
-  background-color: #fff;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 0.5rem;
 }
+
+
+/* Text */
+
 .containerTitle {
   letter-spacing: 0.25rem;
   color: rgb(105, 105, 105);
@@ -102,18 +121,4 @@ body {
   font-size: 3rem;
 }
 
-.faceIcon {
-  color: #bb8588;
-  font-weight: 600;
-}
-.userIcon {
-  color: #a3a380;
-  font-weight: 600;
-}
 
-/* Third container */
-
-.favoriteIcon {
-  color: #bb8588;
-  font-weight: 600;
-}

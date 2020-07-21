@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './Dashboard.module.css'
 
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 const data = [
@@ -17,38 +18,40 @@ const data = [
 ]
 const StackedAreaChart = () => {
   return (
-    <AreaChart
-      width={900}
-      height={500}
-      data={data}
-      margin={{ top: 10, right: 0, left: 0, bottom: 0 }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Area
-        type="monotone"
-        dataKey="2018"
-        stackId="1"
-        stroke="#8884d8"
-        fill="#8884d8"
-      />
-      <Area
-        type="monotone"
-        dataKey="2019"
-        stackId="1"
-        stroke="#82ca9d"
-        fill="#82ca9d"
-      />
-      <Area
-        type="monotone"
-        dataKey="2020"
-        stackId="1"
-        stroke="#ffc658"
-        fill="#ffc658"
-      />
-    </AreaChart>
+    <div className={styles.column}>
+      <AreaChart
+        width={900}
+        height={500}
+        data={data}
+        margin={{ top: 10, right: 0, left: 0, bottom: 0 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Area
+          type="monotone"
+          dataKey="2018"
+          stackId="1"
+          stroke="#694F5D"
+          fill="#694F5D"
+        />
+        <Area
+          type="monotone"
+          dataKey="2019"
+          stackId="1"
+          stroke="#95B1A0"
+          fill="#95B1A0"
+        />
+        <Area
+          type="monotone"
+          dataKey="2020"
+          stackId="1"
+          stroke="#D6CE93"
+          fill="#D6CE93"
+        />
+      </AreaChart>
+    </div>
   )
 }
 
