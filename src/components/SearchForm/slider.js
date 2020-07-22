@@ -23,13 +23,15 @@ const RangeSlider = () => {
 
     return (
         <div className={classes.root}>
+
             <Typography id="range-slider" gutterBottom>
                 zakres cen
-            </Typography>
+                </Typography>
+
             <Slider
                 value={value}
                 onChange={handleChange}
-                valueLabelDisplay="auto"
+                valueLabelDisplay="on"
                 aria-labelledby="range-slider"
                 getAriaValueText={valuetext}
             />

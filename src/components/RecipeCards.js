@@ -10,13 +10,14 @@ const RecipeCards = () => {
                 {
                     recipes.map(recipe => {
                         return (
-                            <RecipeReviewCard 
+                            <RecipeReviewCard
+                                key={recipe.id}
                                 title={recipe.name}
-                                readyInMinutes = {recipe.readyInMinutes}
-                                photoURL = {recipe.photoURL}
-                                servings = {recipe.servings}
-                                price = {recipe.price}
-                                />
+                                readyInMinutes={recipe.readyInMinutes}
+                                photoURL={recipe.photoURL}
+                                servings={recipe.servings}
+                                price={recipe.price}
+                            />
                         )
                     })
                 }

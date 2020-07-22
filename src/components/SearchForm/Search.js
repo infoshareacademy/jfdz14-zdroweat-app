@@ -2,8 +2,13 @@ import React from 'react';
 import RangeSlider from "./slider"
 import ControlledOpenSelect from "./dropdown"
 import BasicTextFields from "./inputSearch"
-import styles from "./search.module.css"
 import OutlinedButtons from './button';
+
+import { recipes } from "../../data/Recipes"
+import RecipeReviewCard from "../RecipeCard"
+import styles from "./search.module.css"
+
+
 
 const SearchContainer = () => {
   return (
@@ -14,7 +19,25 @@ const SearchContainer = () => {
         <ControlledOpenSelect />
         <OutlinedButtons />
       </div>
+      <div className={styles.recipesList}>
+        {
+          recipes.map(recipe => {
+            return (
+              <div className={styles.recipeCard}>
+                <RecipeReviewCard
+                  key={recipe.id}
+                  title={recipe.name}
+                  readyInMinutes={recipe.readyInMinutes}
+                  photoURL={recipe.photoURL}
+                  servings={recipe.servings}
+                  price={recipe.price}
+                />
 
+              </div>
+            )
+          })
+        }
+      </div>
 
     </>
   )
