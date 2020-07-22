@@ -1,13 +1,100 @@
-.text {
+/* Containers */
+.container {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
-  align-items: center;
-  line-height: 2rem;
-  text-align: center;
+  box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
+  margin-bottom: 3rem;
+  border-radius: 0.5rem;
+  padding: 6rem;
+  background-color: #d6ce93;
 }
 
-.wrapper {
-  margin-bottom: 4rem;
-  width: 90%;
+.secondContainer {
+  display: flex;
+  background-color: #faf9f0;
+  box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
+  margin-bottom: 3rem;
+  border-radius: 0.5rem;
+  padding: 6rem;
+}
+
+.mapContainer {
+  background-color: #faf9f0;
+  box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
+  border-radius: 0.5rem;
+  padding: 6rem;
+}
+
+/* Basic container  */
+.basic {
+  width: 25%;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* Basic container - 2 */
+.basicContainerTwo {
+  width: 33%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 0.5rem;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  padding: 1rem;
+}
+.column2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  position: relative;
+}
+
+/* Map */
+.map {
+  padding: 2rem;
+}
+.mapText {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  letter-spacing: 0.25rem;
+  color: rgb(105, 105, 105);
+  font-size: 1.5rem;
+  flex-direction: column;
+}
+
+/* Text */
+
+.containerTitle {
+  letter-spacing: 0.25rem;
+  color: rgb(105, 105, 105);
+  font-size: 1.5rem;
+}
+.containerTitle,
+.containerContent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.containerData,
+.containerText {
+  padding: 1rem;
+  font-size: 3rem;
 }
