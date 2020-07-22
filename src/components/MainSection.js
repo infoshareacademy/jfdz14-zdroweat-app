@@ -14,6 +14,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import RecipeReviewCard from './RecipeCard';
 import RecipeCards from './RecipeCards';
+import MyFavouriteList from './MyFavouriteList'
 
 const drawerWidth = 300;
 
@@ -147,6 +148,7 @@ export default function MainSection() {
           <Route exact path="/DashboardWrapper" component = {DashboardWrapper} />
           <Route exact path="/" component = {RecipeCards} />
           <Route exact path="/Search" component = {Search} />
+          <Route exact path="/MyFavouriteList" component = {MyFavouriteList} />
           
         </Switch>
       </main>
