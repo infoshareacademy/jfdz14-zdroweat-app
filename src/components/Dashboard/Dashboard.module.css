@@ -1,4 +1,3 @@
-
 /* Containers */
 .container {
   display: flex;
@@ -9,7 +8,7 @@
   background-color: #d6ce93;
 }
 
-.secondContainer{
+.secondContainer {
   display: flex;
   background-color: #faf9f0;
   box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
@@ -22,8 +21,8 @@
   background-color: #faf9f0;
   box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
   border-radius: 0.5rem;
-padding:6rem;
-} 
+  padding: 6rem;
+}
 
 /* Basic container  */
 .basic {
@@ -39,7 +38,7 @@ padding:6rem;
 
 /* Basic container - 2 */
 .basicContainerTwo {
-  width: 25%;
+  width: 33%;
   display: flex;
   flex-direction: column;
   background-color: #fff;
@@ -47,26 +46,6 @@ padding:6rem;
   margin: 1rem;
   border-radius: 0.5rem;
 }
-
-/* Text */
-
-/* .textOne {
-  display: block;
-  text-align: center;
-  font-size: 1.5rem;
-  padding: 3rem;
-  font-weight: 600;
-}
-
-.textTwo,
-.textThree {
-  text-align: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  padding: 2rem;
-  margin: 0 auto;
-  z-index: 1;
-} */
 
 .column {
   display: flex;
@@ -86,7 +65,7 @@ padding:6rem;
 .map {
   padding: 2rem;
 }
-.mapText{
+.mapText {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -97,7 +76,6 @@ padding:6rem;
   font-size: 1.5rem;
   flex-direction: column;
 }
-
 
 /* Text */
 
@@ -120,5 +98,3 @@ padding:6rem;
   padding: 1rem;
   font-size: 3rem;
 }
-
-

@@ -1,21 +1,14 @@
-import React from 'react'
+import React from "react";
 
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-} from 'recharts'
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from "recharts";
 const data = [
-  { name: 'II', "dodane w tym roku": 20 },
-  { name: 'IV', "dodane w tym roku": 40 },
-  { name: 'VI', "dodane w tym roku": 50 },
-  { name: 'VIII', "dodane w tym roku": 60 },
-  { name: 'X', "dodane w tym roku": 80 },
-  { name: 'XII', "dodane w tym roku": 100 },
-]
+  { name: "II", "dodane w tym roku": 20 },
+  { name: "IV", "dodane w tym roku": 40 },
+  { name: "VI", "dodane w tym roku": 50 },
+  { name: "VIII", "dodane w tym roku": 60 },
+  { name: "X", "dodane w tym roku": 80 },
+  { name: "XII", "dodane w tym roku": 100 },
+];
 const SimpleLineChart = () => {
   return (
     <LineChart
@@ -30,9 +23,14 @@ const SimpleLineChart = () => {
       <Tooltip />
       <Legend verticalAlign="bottom" align="center" />
 
-      <Line type="monotone" dataKey="dodane w tym roku" stroke="#A3A380" />
+      <Line
+        strokeWidth={2}
+        type="monotone"
+        dataKey="dodane w tym roku"
+        stroke="#A3A380"
+      />
     </LineChart>
-  )
-}
+  );
+};
 
-export default SimpleLineChart
+export default SimpleLineChart;
