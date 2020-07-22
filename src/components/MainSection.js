@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import MenuList from './MenuList';
 import DashboardWrapper from './Dashboard/DasboardWrapper';
-import Search from './SearchForm/Search';
+import SearchContainer from './SearchForm/Search';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -12,6 +12,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+
 
 const drawerWidth = 300;
 
@@ -43,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   drawer: {
-    
+
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
@@ -97,57 +98,58 @@ export default function MainSection() {
 
   return (
     <BrowserRouter>
-    <div className={classes.root}>
-          <AppBar
-            position="fixed"
-            className={clsx(classes.appBar, {
+      <div className={classes.root}>
+        <AppBar
+          position="fixed"
+          className={clsx(classes.appBar, {
             [classes.appBarShift]: open,
           })}
-          >
-            <Toolbar>
-              <IconButton
-                color="inherit"
-                fontSize="large"
-                aria-label="open drawer"
-                onClick={handleDrawerOpen}
-                edge="start"
-                className={clsx(classes.menuButton, {
-                  [classes.hide]: open,
-                })}
-              >
-                <MenuIcon/>
-              </IconButton>
-            </Toolbar>
-          </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              fontSize="large"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, {
+                [classes.hide]: open,
+              })}
+            >
+              <MenuIcon />
+            </IconButton>
+
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant="permanent"
+          className={clsx(classes.drawer, {
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
-        })}
-        classes={{
+          })}
+          classes={{
             paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </div>
-        <MenuList />
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Switch>
-          <Route exact path="/DashboardWrapper" component = {DashboardWrapper} />
-          <Route exact path="/" render = {() => <div>Tu coś będzie</div>} />
-          <Route exact path="/Search" component = {Search} />           
-        </Switch>
-      </main>
-    </div>
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open,
+            }),
+          }}
+        >
+          <div className={classes.toolbar}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </div>
+          <MenuList />
+        </Drawer>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          <Switch>
+            <Route exact path="/DashboardWrapper" component={DashboardWrapper} />
+            <Route exact path="/" render={() => <div>Tu coś będzie</div>} />
+            <Route exact path="/Search" component={SearchContainer} />
+          </Switch>
+        </main>
+      </div>
     </BrowserRouter>
   );
 }

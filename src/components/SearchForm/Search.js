@@ -1,12 +1,22 @@
 import React from 'react';
+import RangeSlider from "./slider"
+import ControlledOpenSelect from "./dropdown"
+import BasicTextFields from "./inputSearch"
+import styles from "./search.module.css"
+import OutlinedButtons from './button';
 
-
-export default function Search() {
+const SearchContainer = () => {
   return (
-    <React.Fragment>
-    <div>Tu będzie wyszukiwarka</div>
-    </React.Fragment>
+    <>
+      <div className={styles.flexBar}>
+        <BasicTextFields />
+        <RangeSlider />
+        <ControlledOpenSelect />
+        <OutlinedButtons />
+      </div>
+
+
+    </>
   )
 }
-
-
+export default SearchContainer
