@@ -10,6 +10,7 @@ import TrendingUpOutlinedIcon from '@material-ui/icons/TrendingUpOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import FaceOutlinedIcon from '@material-ui/icons/FaceOutlined';
+import GroupIcon from '@material-ui/icons/Group';
 import { NavLink } from "react-router-dom";
 
 
@@ -31,8 +32,13 @@ const entries = [
     },
     { 
         name: 'Nasi Fani',
-        icon: FavoriteBorderOutlinedIcon,
+        icon: GroupIcon,
         url: "/"
+    },
+    {
+        name: 'Twoje ulubione przepisy',
+        icon: FavoriteBorderOutlinedIcon,
+        url: "/MyFavouriteList"
     }
 ]
 
