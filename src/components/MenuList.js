@@ -40,7 +40,7 @@ const aboutUs = [
     { 
         text: 'O nas',
         index: 1,
-        url: "/"
+        url: "/Home"
     },
     { 
         text: 'Kontakt',

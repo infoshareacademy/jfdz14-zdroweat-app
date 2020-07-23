@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+
+.clientImage {
+    height: 300px;
+}
+
+.fanContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.quote {
+    display: flex;
+    flex-direction: column;
+    margin: 150px ;
+    background-color: bisque;
+}
+
+.fanContainer p {
+    text-align: end;
+    font-size: 2rem;
+}
+
+
+.clientQuote {
+    text-align: justify;
+}

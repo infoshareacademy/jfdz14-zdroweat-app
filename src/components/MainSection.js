@@ -8,12 +8,14 @@ import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import RecipeReviewCard from './RecipeCard';
 import RecipeCards from './RecipeCards';
+import Logo from './Logo'
+import Home from './Home/Home'
+import './MainSection.css'
 
 const drawerWidth = 300;
 
@@ -83,7 +85,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-
 export default function MainSection() {
   const classes = useStyles();
   const theme = useTheme();
@@ -117,8 +118,12 @@ export default function MainSection() {
                   [classes.hide]: open,
                 })}
               >
-                <MenuIcon/>
+                <Logo />
               </IconButton>
+              <div className="navContainer">
+              <div className="header">Zdroweat</div>
+              <div className="loggedUser">paulinamalinowska</div>
+              </div>
             </Toolbar>
           </AppBar>
       <Drawer
@@ -147,6 +152,7 @@ export default function MainSection() {
           <Route exact path="/DashboardWrapper" component = {DashboardWrapper} />
           <Route exact path="/" component = {RecipeCards} />
           <Route exact path="/Search" component = {Search} />
+          <Route exact path="/Home" component = {Home} />
           
         </Switch>
       </main>
