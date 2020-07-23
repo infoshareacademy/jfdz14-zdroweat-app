@@ -14,6 +14,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import RecipeReviewCard from './RecipeCard';
 import RecipeCards from './RecipeCards';
 import Logo from './Logo'
+import Home from './Home/Home'
 import './MainSection.css'
 
 const drawerWidth = 300;
@@ -151,6 +152,7 @@ export default function MainSection() {
           <Route exact path="/DashboardWrapper" component = {DashboardWrapper} />
           <Route exact path="/" component = {RecipeCards} />
           <Route exact path="/Search" component = {Search} />
+          <Route exact path="/Home" component = {Home} />
           
         </Switch>
       </main>
