@@ -10,36 +10,45 @@ import styles from "./search.module.css"
 
 
 
-const SearchContainer = () => {
-  return (
-    <>
-      <div className={styles.flexBar}>
-        <BasicTextFields />
-        <RangeSlider />
-        <ControlledOpenSelect />
-        <OutlinedButtons />
-      </div>
-      <div className={styles.recipesList}>
-        {
-          recipes.map(recipe => {
-            return (
-              <div className={styles.recipeCard}>
-                <RecipeReviewCard
-                  key={recipe.id}
-                  title={recipe.name}
-                  readyInMinutes={recipe.readyInMinutes}
-                  photoURL={recipe.photoURL}
-                  servings={recipe.servings}
-                  price={recipe.price}
-                />
 
-              </div>
-            )
-          })
-        }
-      </div>
+class SearchContainer extends React.Component {
+  state = {
+    filter: ""
+  }
 
-    </>
-  )
+
+
+  render() {
+    return (
+      <>
+        <div className={styles.flexBar}>
+          <BasicTextFields />
+          <RangeSlider />
+          <ControlledOpenSelect />
+          <OutlinedButtons />
+        </div>
+        <div className={styles.recipesList}>
+          {
+            recipes.map(recipe => {
+              return (
+                <div className={styles.recipeCard}>
+                  <RecipeReviewCard
+                    key={recipe.id}
+                    title={recipe.name}
+                    readyInMinutes={recipe.readyInMinutes}
+                    photoURL={recipe.photoURL}
+                    servings={recipe.servings}
+                    price={recipe.price}
+                  />
+
+                </div>
+              )
+            })
+          }
+        </div>
+
+      </>
+    )
+  }
 }
 export default SearchContainer

@@ -15,7 +15,7 @@ function valuetext(value) {
 
 const RangeSlider = () => {
     const classes = useStyles();
-    const [value, setValue] = React.useState([10, 90]);
+    const [value, setValue] = React.useState([0, 100]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -24,9 +24,9 @@ const RangeSlider = () => {
     return (
         <div className={classes.root}>
 
-            <Typography id="range-slider" gutterBottom>
+            <Typography style={{ textAlign: "center" }} id="range-slider" gutterBottom>
                 zakres cen
-                </Typography>
+            </Typography>
 
             <Slider
                 value={value}
@@ -35,7 +35,7 @@ const RangeSlider = () => {
                 aria-labelledby="range-slider"
                 getAriaValueText={valuetext}
             />
-        </div>
+        </div >
     );
 }
 
