@@ -13,13 +13,19 @@ import styles from "./search.module.css"
 
 class SearchContainer extends React.Component {
   state = {
-    recipesList: recipes,
+    recipesList: [],
     filter: ""
   }
 
   handleOnFormChange = (textFilter) => {
     this.setState({
       filter: textFilter
+    })
+  }
+
+  componentDidMount() {
+    this.setState({
+      recipesList: recipes
     })
   }
 
