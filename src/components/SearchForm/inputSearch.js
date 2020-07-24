@@ -11,15 +11,23 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const BasicTextFields = () => {
-    const classes = useStyles();
+
+const BasicTextFields = (props) => {
+    const classes = useStyles()
+
+    const handleOnChange = (event) => {
+        props.onFormChange(event.target.value)
+    }
+
 
     return (
-        <form className={classes.root} noValidate autoComplete="off">
+        <form className={classes.root} noValidate autoComplete="off" >
 
-            <TextField id="outlined-basic" label="Wyszukaj przepis" variant="outlined" />
+            <TextField id="outlined-basic" label="Wyszukaj przepis" variant="outlined" value={props.filterValue}
+                onChange={handleOnChange} />
         </form>
     );
 }
+
 
 export default BasicTextFields
