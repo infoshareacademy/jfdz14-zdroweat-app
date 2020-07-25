@@ -15,6 +15,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import EcoIcon from '@material-ui/icons/Eco';
+import styles from './styles.module.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,14 +42,27 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RecipeReviewCard(props) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
+  const [addedToFavourite, addToFavourite] = React.useState(true);
+
+  let iconColor;
+
+  const onClickHandler = () => {
+    console.log(props.title);
+    addToFavourite(!addedToFavourite)
+  
+    if (addedToFavourite) {
+      console.log('added')
+      localStorage.setItem('Favourite dish: ' + props.title, props.title);
+     } else {
+        console.log('removed')
+        localStorage.removeItem('Favourite dish: ' + props.title, props.title);
+      }
+
   };
 
   return (
-    <Card className={classes.root}>
+    <Card className={classes.root} className={styles.singleCardMaterialUI}>
       <CardHeader
         action={
           <IconButton aria-label="eco">
@@ -60,6 +74,7 @@ export default function RecipeReviewCard(props) {
       />
       <CardMedia
         className={classes.media}
+        // className= {styles.photos}
         image={props.photoURL}
       />
       {/* <CardContent>
@@ -73,7 +88,7 @@ export default function RecipeReviewCard(props) {
       </CardContent> */}
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <FavoriteIcon onClick={onClickHandler}/>
         </IconButton>
 
       </CardActions>

@@ -19,21 +19,23 @@ const data = [
 ];
 const Barchart = () => {
   return (
-    <ResponsiveContainer width="100%" height={400}>
+    <ResponsiveContainer width="100%" height={600}>
       <BarChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis
           dataKey="name"
+          tick={{ fontSize: 5 }}
           label={{ value: "Wiek", position: "insideBottomRight", offset: 0 }}
         />
         <YAxis
           domain={[0, 100]}
+          tick={{ fontSize: 5 }}
           label={{ value: "Udział [%]", angle: -90, position: "insideLeft" }}
         />
         <Tooltip />
         <Legend />
 
-        <Bar dataKey="%" fill="#3E9914" />
+        <Bar dataKey="%" fill="#CB997E" />
       </BarChart>
     </ResponsiveContainer>
   );
