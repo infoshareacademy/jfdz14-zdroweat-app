@@ -3,7 +3,6 @@ import RangeSlider from "./slider"
 import ControlledOpenSelect from "./dropdown"
 import BasicTextFields from "./inputSearch"
 import OutlinedButtons from './button';
-
 import { recipes } from "../../data/Recipes"
 import RecipeReviewCard from "../RecipeCard"
 import styles from "./search.module.css"
@@ -47,17 +46,15 @@ class Search extends React.Component {
               })
               .map(recipe => {
                 return (
-                  <div className={styles.recipeCard}>
-                    <RecipeReviewCard
-                      key={recipe.id}
-                      title={recipe.name}
-                      readyInMinutes={recipe.readyInMinutes}
-                      photoURL={recipe.photoURL}
-                      servings={recipe.servings}
-                      price={recipe.price}
-                    />
-
-                  </div>
+                  <RecipeReviewCard
+                    key={recipe.id}
+                    title={recipe.name}
+                    photoURL={recipe.photoURL}
+                    servings={recipe.servings}
+                    price={recipe.price}
+                    readyInMinutes={recipe.readyInMinutes}
+                    recipe={recipe.recipe}
+                  />
                 )
               })
           }
