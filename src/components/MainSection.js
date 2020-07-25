@@ -19,6 +19,7 @@ import Home from './Home/Home'
 import './MainSection.css'
 
 
+
 const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => ({
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   drawer: {
-    
+
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
@@ -102,65 +103,65 @@ export default function MainSection() {
 
   return (
     <BrowserRouter>
-    <div className={classes.root}>
-          <AppBar
-            position="fixed"
-            className={clsx(classes.appBar, {
+      <div className={classes.root}>
+        <AppBar
+          position="fixed"
+          className={clsx(classes.appBar, {
             [classes.appBarShift]: open,
           })}
-          >
-            <Toolbar>
-              <IconButton
-                color="inherit"
-                fontSize="large"
-                aria-label="open drawer"
-                onClick={handleDrawerOpen}
-                edge="start"
-                className={clsx(classes.menuButton, {
-                  [classes.hide]: open,
-                })}
-              >
-                <Logo />
-              </IconButton>
-              <div className="navContainer">
+        >
+          <Toolbar>
+            <IconButton
+              color="inherit"
+              fontSize="large"
+              aria-label="open drawer"
+              onClick={handleDrawerOpen}
+              edge="start"
+              className={clsx(classes.menuButton, {
+                [classes.hide]: open,
+              })}
+            >
+              <Logo />
+            </IconButton>
+            <div className="navContainer">
               <div className="header">Zdroweat</div>
               <div className="loggedUser">paulinamalinowska</div>
-              </div>
-            </Toolbar>
-          </AppBar>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
+            </div>
+          </Toolbar>
+        </AppBar>
+        <Drawer
+          variant="permanent"
+          className={clsx(classes.drawer, {
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
-        })}
-        classes={{
+          })}
+          classes={{
             paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </div>
-        <MenuList />
-      </Drawer>
-      <main className={classes.content}>
-        <div className={classes.toolbar} />
-        <Switch>
-          <Route exact path="/DashboardWrapper" component = {DashboardWrapper} />
-          <Route exact path="/" component = {RecipeCards} />
-          <Route exact path="/Search" component = {Search} />
-          <Route exact path="/MyFavouriteList" component = {MyFavouriteList} />
-          <Route exact path="/Home" component = {Home} />
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open,
+            }),
+          }}
+        >
+          <div className={classes.toolbar}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </div>
+          <MenuList />
+        </Drawer>
+        <main className={classes.content}>
+          <div className={classes.toolbar} />
+          <Switch>
+            <Route exact path="/DashboardWrapper" component={DashboardWrapper} />
+            <Route exact path="/" component={RecipeCards} />
+            <Route exact path="/Search" component={Search} />
+            <Route exact path="/MyFavouriteList" component={MyFavouriteList} />
+            <Route exact path="/Home" component={Home} />
 
-          
-        </Switch>
-      </main>
-    </div>
+
+          </Switch>
+        </main>
+      </div>
     </BrowserRouter>
   );
 }

@@ -11,32 +11,33 @@ const RecipeCards = () => {
                 {
                     recipes.map(recipe => {
                         return (
-                            <RecipeReviewCard 
+                            <RecipeReviewCard
+                                key={recipe.id}
                                 title={recipe.name}
                                 photoURL={recipe.photoURL}
-                                servings = {recipe.servings}
-                                price = {recipe.price}
-                                readyInMinutes = {recipe.readyInMinutes}
-                                recipe = {recipe.recipe}
-                                />
+                                servings={recipe.servings}
+                                price={recipe.price}
+                                readyInMinutes={recipe.readyInMinutes}
+                                recipe={recipe.recipe}
+                            />
                         )
                     })
-                }   
+                }
 
-{
+                {
                     recipes.map(recipe => {
                         return (
-                            <MyRecipeCard 
+                            <MyRecipeCard
                                 name={recipe.name}
                                 photoURL={recipe.photoURL}
-                                servings = {recipe.servings}
-                                price = {recipe.price}
-                                readyInMinutes = {recipe.readyInMinutes}
-                                recipe = {recipe.recipe}
-                                />
+                                servings={recipe.servings}
+                                price={recipe.price}
+                                readyInMinutes={recipe.readyInMinutes}
+                                recipe={recipe.recipe}
+                            />
                         )
                     })
-                }   
+                }
             </div>
         </>
     );

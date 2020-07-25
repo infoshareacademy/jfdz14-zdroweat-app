@@ -1,0 +1,21 @@
+.flexBar{
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: 2px black solid;
+   margin-bottom: 15px;
+}
+
+.recipesList{
+    margin-top:25px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+/* .recipeCard{
+    width: 30%;
+    height: auto;
+    margin-top: 15px;
+    
+} */
