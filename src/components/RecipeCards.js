@@ -1,6 +1,5 @@
 import React from "react";
 import RecipeReviewCard from './RecipeCard';
-import MyRecipeCard from './MyRecipeCard';
 import { recipes } from "../data/Recipes";
 import styles from './styles.module.css';
 
@@ -22,22 +21,6 @@ const RecipeCards = () => {
                             />
                         )
                     })
-                }
-
-                {
-                    recipes.map(recipe => {
-                        return (
-                            <MyRecipeCard
-                                name={recipe.name}
-                                photoURL={recipe.photoURL}
-                                servings={recipe.servings}
-                                price={recipe.price}
-                                readyInMinutes={recipe.readyInMinutes}
-                                recipe={recipe.recipe}
-                            />
-                        )
-                    })
-                }
             </div>
         </>
     );
