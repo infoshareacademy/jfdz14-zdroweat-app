@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import MenuList from './MenuList';
 import DashboardWrapper from './Dashboard/DasboardWrapper';
-import SearchContainer from './SearchForm/Search';
+import Search from './SearchForm/Search';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
@@ -148,7 +148,7 @@ export default function MainSection() {
           <Switch>
             <Route exact path="/DashboardWrapper" component={DashboardWrapper} />
             <Route exact path="/" component={RecipeCards} />
-            <Route exact path="/Search" component={SearchContainer} />
+            <Route exact path="/Search" component={Search} />
 
           </Switch>
         </main>

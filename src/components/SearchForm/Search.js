@@ -11,7 +11,7 @@ import styles from "./search.module.css"
 
 
 
-class SearchContainer extends React.Component {
+class Search extends React.Component {
   state = {
     recipesList: [],
     filter: ""
@@ -67,4 +67,4 @@ class SearchContainer extends React.Component {
     )
   }
 }
-export default SearchContainer
+export default Search
