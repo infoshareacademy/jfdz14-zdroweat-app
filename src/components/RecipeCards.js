@@ -5,7 +5,6 @@ import styles from './styles.module.css';
 
 const RecipeCards = () => {
     return (
-        <>
             <div className={styles.recipeContainer}>
                 {
                     recipes.map(recipe => {
@@ -21,8 +20,8 @@ const RecipeCards = () => {
                             />
                         )
                     })
+                }
             </div>
-        </>
     );
 };
 
