@@ -1,5 +1,5 @@
 import React from "react";
-import { PieChart, Pie, ResponsiveContainer, Cell } from "recharts";
+import { PieChart, Pie, Cell } from "recharts";
 
 const data = [{ name: "100%", value: 100, label: "100%" }];
 
