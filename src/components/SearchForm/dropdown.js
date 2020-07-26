@@ -48,9 +48,7 @@ const ControlledOpenSelect = () => {
                     value={age}
                     onChange={handleChange}
                 >
-                    <MenuItem value="">
 
-                    </MenuItem>
                     <MenuItem value={0}>dowolny</MenuItem>
                     <MenuItem value={10}>5-15 minut</MenuItem>
                     <MenuItem value={20}>15-30 minut</MenuItem>

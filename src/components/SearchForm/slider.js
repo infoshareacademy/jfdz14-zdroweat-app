@@ -19,7 +19,10 @@ const RangeSlider = () => {
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+
     };
+
+    console.log(value)
 
     return (
         <div className={classes.root}>

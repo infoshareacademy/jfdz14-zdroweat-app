@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-evenly;
     border-bottom: 2px black solid;
-   margin-bottom: 15px;
+    margin-bottom: 15px;
+    
 }
 
 .recipesList{
@@ -10,12 +11,5 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
 }
 
-/* .recipeCard{
-    width: 30%;
-    height: auto;
-    margin-top: 15px;
-    
-} */
