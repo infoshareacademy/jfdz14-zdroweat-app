@@ -153,8 +153,7 @@ export default function MainSection() {
           <div className={classes.toolbar} />
           <Switch>
             <Route exact path="/DashboardWrapper" component={DashboardWrapper} />
-            <Route exact path="/" component={RecipeCards} />
-            <Route exact path="/Search" component={Search} />
+            <Route exact path="/" component={Search} />
             <Route exact path="/MyFavouriteList" component={MyFavouriteList} />
             <Route exact path="/Home" component={Home} />
 
