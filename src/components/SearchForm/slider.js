@@ -13,12 +13,16 @@ function valuetext(value) {
     return `${value} PLN`;
 }
 
-const RangeSlider = () => {
+
+
+
+const RangeSlider = (props) => {
     const classes = useStyles();
-    const [value, setValue] = React.useState([0, 100]);
+    const [value, setValue] = React.useState([props.initialValueMin, props.initialValueMax]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
+        props.onSliderChange(newValue);
 
     };
 
@@ -37,6 +41,7 @@ const RangeSlider = () => {
                 valueLabelDisplay="on"
                 aria-labelledby="range-slider"
                 getAriaValueText={valuetext}
+
             />
         </div >
     );
