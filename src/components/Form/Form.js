@@ -4,15 +4,11 @@ import UploadButton from './UploadButton'
 
 
 export default function Form () {
-    const [values, setValues] = useState ({name: '', servings: '', readyInMinutes: '', price: '', recipe:''});
+    const [values, setValues] = useState ({recipeName: '', servings: '', readyInMinutes: '', price: '', recipe:''});
 
     const handleChange = (event) => {
-        console.log(event.target.name);
-        console.log(event.target.value);
-        setValues({
-        ...values,
-        [event.target.name]: event.target.value
-        })
+        const { name , value } = event.target;
+        setValues(values => ({...values, [name]: value }))
     }
 
     return(
@@ -27,7 +23,7 @@ export default function Form () {
                             name="recipeName" 
                             type="text" 
                             placeholder="wpisz nazwę przepisu" 
-                            value={values.name}
+                            value={values.recipeName}
                             onChange={handleChange}
                         />
                     </div>
