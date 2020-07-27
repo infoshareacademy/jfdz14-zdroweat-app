@@ -152,10 +152,10 @@ export default function MainSection() {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Switch>
-            <Route exact path="/DashboardWrapper" component={DashboardWrapper} />
+            <Route exact path="/zdroweat-w-liczbach" component={DashboardWrapper} />
             <Route exact path="/" component={Search} />
-            <Route exact path="/MyFavouriteList" component={MyFavouriteList} />
-            <Route exact path="/Home" component={Home} />
+            <Route exact path="/lista-ulubionych" component={MyFavouriteList} />
+            <Route exact path="/nasi-fani" component={Home} />
 
 
           </Switch>
