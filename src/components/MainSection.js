@@ -14,7 +14,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MyFavouriteList from './MyFavouriteList'
 import Logo from './Logo'
 import Home from './Home/Home'
-import Form from './Form';
+import Form from './Form/Form';
 import './MainSection.css'
 
 
@@ -24,7 +24,7 @@ const drawerWidth = 300;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    padding: 100
+    padding: 50
 
   },
   appBar: {
