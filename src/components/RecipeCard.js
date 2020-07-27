@@ -1,21 +1,20 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React from 'react'
+import { makeStyles } from '@material-ui/core/styles'
 
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardMedia from '@material-ui/core/CardMedia';
+import Card from '@material-ui/core/Card'
+import CardHeader from '@material-ui/core/CardHeader'
+import CardMedia from '@material-ui/core/CardMedia'
 
-import CardActions from '@material-ui/core/CardActions';
+import CardActions from '@material-ui/core/CardActions'
 
-import IconButton from '@material-ui/core/IconButton';
+import IconButton from '@material-ui/core/IconButton'
 
-import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import { red } from '@material-ui/core/colors'
+import FavoriteIcon from '@material-ui/icons/Favorite'
 
-
-import EcoIcon from '@material-ui/icons/Eco';
-import styles from './styles.module.css';
-
+import EcoIcon from '@material-ui/icons/Eco'
+import styles from './styles.module.css'
+import { Link } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 345,
@@ -37,35 +36,37 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
-}));
+}))
 
 export default function RecipeReviewCard(props) {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const [addedToFavourite, addToFavourite] = React.useState(true);
+  const [addedToFavourite, addToFavourite] = React.useState(true)
 
   const onClickHandler = () => {
     addToFavourite(!addedToFavourite)
 
     if (addedToFavourite) {
-      localStorage.setItem(props.title, props.title);
-     } else {
-        localStorage.removeItem(props.title, props.title);
-      }
-
-  };
+      localStorage.setItem(props.title, props.title)
+    } else {
+      localStorage.removeItem(props.title, props.title)
+    }
+  }
 
   return (
     <Card className={classes.root} className={styles.singleCardMaterialUI}>
-      <CardHeader
-        action={
-          <IconButton aria-label="eco">
-            <EcoIcon />
-          </IconButton>
-        }
-        title={props.title}
-        // subheader={props.readyInMinutes}
-      />
+      <Link to={`Search/${props.id}`}>
+        <CardHeader
+          action={
+            <IconButton aria-label="eco">
+              <EcoIcon />
+            </IconButton>
+          }
+          title={props.title}
+
+          // subheader={props.readyInMinutes}
+        />
+      </Link>
       <CardMedia
         className={classes.media}
         // className= {styles.photos}
@@ -82,11 +83,9 @@ export default function RecipeReviewCard(props) {
       </CardContent> */}
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon onClick={onClickHandler}/>
+          <FavoriteIcon onClick={onClickHandler} />
         </IconButton>
-
       </CardActions>
-      
     </Card>
-  );
+  )
 }
