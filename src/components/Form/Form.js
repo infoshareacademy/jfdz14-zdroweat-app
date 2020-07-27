@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Form.css';
-import AddIcon from '@material-ui/icons/Add';
 import UploadButton from './UploadButton'
 
 
 export default function Form () {
-    
+    const [values, setValues] = useState ({name: '', servings: '', readyInMinutes: '', price: '', recipe:''});
+
+    const handleChange = (event) => {
+        console.log(event.target.name);
+        console.log(event.target.value);
+        setValues({
+        ...values,
+        [event.target.name]: event.target.value
+        })
+    }
+
     return(
         <div className="formContainer">
             <h1>Dodaj swój własny przepis</h1>
@@ -14,31 +23,61 @@ export default function Form () {
                 <div className="recipeName">
                     <label>Nazwa przepisu</label>
                     <div className="input">
-                        <input name="recipeName" type="text" placeholder="wpisz nazwę przepisu"></input>
+                        <input 
+                            name="recipeName" 
+                            type="text" 
+                            placeholder="wpisz nazwę przepisu" 
+                            value={values.name}
+                            onChange={handleChange}
+                        />
                     </div>
                 </div>
                 <div className="recipeServings">
                     <label>Ilość porcji</label>
                     <div>
-                        <input name="servings" type="number" placeholder="podaj liczbę porcji"></input>
+                        <input 
+                            name="servings" 
+                            type="number" 
+                            placeholder="podaj liczbę porcji" 
+                            value={values.servings}
+                            onChange={handleChange}
+                        />
+                            
                     </div>
                 </div>
                 <div className="recipeTime">
                     <label>Czas przygotowania</label>
                     <div>
-                        <input name="time" type="number" placeholder="...minut"></input>
+                        <input 
+                            name="readyInMinutes" 
+                            type="number" 
+                            placeholder="...minut" 
+                            value={values.readyInMinutes}
+                            onChange={handleChange} 
+                            />
                     </div>
                 </div>
                 <div className="recipePrice">
                     <label>Szacowany koszt</label>
                     <div>
-                        <input name="cost" type="number" placeholder="...zł"></input>
+                        <input 
+                            name="price" 
+                            type="number" 
+                            placeholder="...zł" 
+                            value={values.price} 
+                            onChange={handleChange}
+                        />
                     </div>
                 </div>
                 <div className="recipeText">
                     <label>Przepis</label>
                     <div>
-                        <input name="cost" type="text"></input>
+                        <input 
+                            name="recipe" 
+                            type="text" 
+                            value={values.recipe}
+                            onChange={handleChange} 
+                        />
                     </div>
                 </div>
                 <div className="recipeText">
