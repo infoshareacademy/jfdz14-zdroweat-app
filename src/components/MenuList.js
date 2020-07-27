@@ -23,17 +23,17 @@ const entries = [
     {
         name: 'ZdrowEat w Liczbach',
         icon: TrendingUpOutlinedIcon,
-        url: "/DashboardWrapper"
+        url: "/zdroweat-w-liczbach"
     },
     {
         name: 'Nasi Fani',
         icon: GroupIcon,
-        url: "/Home"
+        url: "/nasi-fani"
     },
     {
         name: 'Twoje ulubione przepisy',
         icon: FavoriteBorderOutlinedIcon,
-        url: "/MyFavouriteList"
+        url: "/lista-ulubionych"
     }
 ]
 

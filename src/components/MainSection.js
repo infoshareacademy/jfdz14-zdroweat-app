@@ -23,7 +23,9 @@ const drawerWidth = 300;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    padding: 100
+    paddingTop: 20,
+    paddingLeft: 50,
+    paddingRight: 50
 
   },
   appBar: {
@@ -123,7 +125,7 @@ export default function MainSection() {
             </IconButton>
             <div className="navContainer">
               <div className="header">ZdrowEat</div>
-              <div className="loggedUser">Zalogowany użytkowanik</div>
+              <div className="loggedUser">Zalogowany użytkownik</div>
             </div>
           </Toolbar>
         </AppBar>
@@ -150,10 +152,10 @@ export default function MainSection() {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Switch>
-            <Route exact path="/DashboardWrapper" component={DashboardWrapper} />
+            <Route exact path="/zdroweat-w-liczbach" component={DashboardWrapper} />
             <Route exact path="/" component={Search} />
-            <Route exact path="/MyFavouriteList" component={MyFavouriteList} />
-            <Route exact path="/Home" component={Home} />
+            <Route exact path="/lista-ulubionych" component={MyFavouriteList} />
+            <Route exact path="/nasi-fani" component={Home} />
 
 
           </Switch>
