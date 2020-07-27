@@ -26,7 +26,7 @@ const RangeSlider = (props) => {
 
     };
 
-    console.log(value)
+
 
     return (
         <div className={classes.root}>

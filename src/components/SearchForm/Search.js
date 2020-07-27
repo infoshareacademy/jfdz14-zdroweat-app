@@ -24,7 +24,7 @@ class Search extends React.Component {
 
 
   handleOnSliderChange = (upDateRange) => {
-    console.log(upDateRange)
+
     this.setState({
       priceMin: upDateRange[0],
       priceMax: upDateRange[1]
