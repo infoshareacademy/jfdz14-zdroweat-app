@@ -5,10 +5,9 @@ import styles from './styles.module.css';
 
 const MyFavouriteList = () => {
     let favourites = [];
-        for(let i = 0; i < 20; i++){
-            favourites.push(localStorage.key(i))
+        for(let i = 0; i < 25; i++){
+            favourites.push(localStorage.key(i));
         }
-    console.log(favourites);
         
     return (
         <>
