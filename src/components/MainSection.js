@@ -14,6 +14,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import MyFavouriteList from './MyFavouriteList'
 import Logo from './Logo'
 import Home from './Home/Home'
+import Form from './Form';
 import './MainSection.css'
 
 
@@ -154,6 +155,7 @@ export default function MainSection() {
             <Route exact path="/" component={Search} />
             <Route exact path="/MyFavouriteList" component={MyFavouriteList} />
             <Route exact path="/Home" component={Home} />
+            <Route exact path="/Formularz" component={Form} />
 
 
           </Switch>
