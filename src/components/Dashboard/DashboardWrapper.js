@@ -1,20 +1,20 @@
-import React from "react";
-import CountUp from "react-countup";
+import React from 'react'
+import CountUp from 'react-countup'
 
-import Piechart from "./Piechart";
-import Map from "./Map";
-import DashboardText from "./DashboardText";
-import styles from "./Dashboard.module.css";
-import StackedAreaChart from "./StackedAreaChart";
-import BasicContainer from "./BasicContainer";
-import SimpleLineChart from "./SimpleLineChart";
-import TinyBarChart from "./TinyBarChart";
-import BasicContainerTwo from "./BasicContainerTwo";
+import Piechart from './Piechart'
+import Map from './Map'
+import DashboardText from './DashboardText'
+import styles from './Dashboard.module.css'
+import StackedAreaChart from './StackedAreaChart'
+import BasicContainer from './BasicContainer'
+import SimpleLineChart from './SimpleLineChart'
+import TinyBarChart from './TinyBarChart'
+import BasicContainerTwo from './BasicContainerTwo'
 // icons
-import Favorite from "@material-ui/icons/Favorite";
-import FaceIcon from "@material-ui/icons/Face";
-import ShareIcon from "@material-ui/icons/Share";
-import SupervisedUserCircleIcon from "@material-ui/icons/SupervisedUserCircle";
+import Favorite from '@material-ui/icons/Favorite'
+import FaceIcon from '@material-ui/icons/Face'
+import ShareIcon from '@material-ui/icons/Share'
+import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle'
 
 const DashboardWrapper = () => {
   return (
@@ -26,7 +26,7 @@ const DashboardWrapper = () => {
           data={
             <FaceIcon
               className={styles.faceIcon}
-              style={{ fontSize: 60, color: "#DDBEA9" }}
+              style={{ fontSize: 60, color: '#DDBEA9' }}
             />
           }
         />
@@ -36,7 +36,7 @@ const DashboardWrapper = () => {
           data={
             <Favorite
               className={styles.favoriteIcon}
-              style={{ fontSize: 60, color: "#bb8588" }}
+              style={{ fontSize: 60, color: '#bb8588' }}
             />
           }
         />
@@ -47,14 +47,14 @@ const DashboardWrapper = () => {
           data={
             <SupervisedUserCircleIcon
               className={styles.userIcon}
-              style={{ fontSize: 60, color: "#a3a380" }}
+              style={{ fontSize: 60, color: '#a3a380' }}
             />
           }
         />
         <BasicContainer
           title="UDOSTĘPNIONO"
           text={<CountUp end={555} duration={3} />}
-          data={<ShareIcon style={{ fontSize: 60, color: "#D8A48F" }} />}
+          data={<ShareIcon style={{ fontSize: 60, color: '#D8A48F' }} />}
         />
       </div>
 
@@ -62,7 +62,7 @@ const DashboardWrapper = () => {
         <div className={styles.column2}>
           <DashboardText
             className={styles.containerTitle}
-            text="Z naszej aplikacji co roku korzysta co raz więcej osób!"
+            text="Z naszej aplikacji co roku korzysta coraz więcej osób!"
           />
         </div>
 
@@ -85,7 +85,7 @@ const DashboardWrapper = () => {
         <Map />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DashboardWrapper;
+export default DashboardWrapper
