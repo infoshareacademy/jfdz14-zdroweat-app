@@ -14,6 +14,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import MyFavouriteList from './MyFavouriteList'
 import Logo from './Logo'
 import Home from './Home/Home'
+import Form from './Form/Form';
 import './MainSection.css'
 import RecipeReviewCard from './RecipeCard'
 import SingleRecipe from './SingleRecipe'
@@ -25,6 +26,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 20,
     paddingLeft: 50,
     paddingRight: 50,
+
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -158,9 +160,11 @@ export default function MainSection() {
               component={DashboardWrapper}
             />
             <Route exact path="/" component={Search} />
+            <Route exact path="/Formularz" component={Form} />
             <Route exact path="/Search/:id" component={SingleRecipe} />
             <Route exact path="/lista-ulubionych" component={MyFavouriteList} />
             <Route exact path="/nasi-fani" component={Home} />
+
           </Switch>
         </main>
       </div>
