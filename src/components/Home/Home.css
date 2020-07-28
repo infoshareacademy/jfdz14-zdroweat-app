@@ -2,8 +2,15 @@
     box-sizing: border-box;
 }
 
+h1 {
+    font-family:  Arial, Helvetica, sans-serif;
+    letter-spacing: .5rem;
+    font-weight: lighter;
+}
+
 .clientImage {
     height: 300px;
+    border-radius: 50%;
 }
 
 .fanContainer {
@@ -12,12 +19,23 @@
     align-items: center;
 }
 
-.quote {
+.fanContainer2 {
     display: flex;
-    flex-direction: column;
-    margin: 150px ;
-    background-color: bisque;
+    flex-direction: row-reverse;
+    align-items: center;
 }
+
+.quote {
+    margin: 100px;
+    width: 700px;
+    background: #eee;
+    padding: 2em;
+    border-radius: 1em;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 2rem;
+  }
+
 
 .fanContainer p {
     text-align: end;
@@ -27,4 +45,5 @@
 
 .clientQuote {
     text-align: justify;
+    font-size: 50px;
 }

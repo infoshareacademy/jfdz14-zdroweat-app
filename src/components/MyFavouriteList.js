@@ -5,14 +5,13 @@ import styles from './styles.module.css';
 
 const MyFavouriteList = () => {
     let favourites = [];
-        for(let i = 0; i < 20; i++){
-            favourites.push(localStorage.key(i))
+        for(let i = 0; i < 25; i++){
+            favourites.push(localStorage.key(i));
         }
-    console.log(favourites);
         
     return (
         <>
-            <h1>Twoje ulubione przepisy</h1>
+            <h1>TWOJE ULUBIONE PRZEPISY</h1>
             <div className={styles.recipeContainer}>
                 {
                     recipes.map(recipe => {

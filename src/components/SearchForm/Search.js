@@ -6,10 +6,29 @@ import { recipes } from '../../data/Recipes'
 import RecipeReviewCard from '../RecipeCard'
 import styles from './search.module.css'
 
+const compareNumbers = (a, b) => {
+  return a - b
+}
+const getStartRange = recipes
+  .map((recipe) => {
+    return recipe.price
+  })
+  .sort(compareNumbers)
+
 class Search extends React.Component {
   state = {
     recipesList: [],
     filter: '',
+    priceMin: getStartRange[0],
+    priceMax: getStartRange[getStartRange.length - 1],
+  }
+
+  handleOnSliderChange = (upDateRange) => {
+    console.log(upDateRange)
+    this.setState({
+      priceMin: upDateRange[0],
+      priceMax: upDateRange[1],
+    })
   }
 
   handleOnFormChange = (textFilter) => {
@@ -33,7 +52,12 @@ class Search extends React.Component {
             filterValue={this.state.filter}
           />
 
-          <RangeSlider />
+          <RangeSlider
+            onSliderChange={this.handleOnSliderChange}
+            initialValueMin={this.state.priceMin}
+            initialValueMax={this.state.priceMax}
+          />
+
           <ControlledOpenSelect />
         </div>
         <div className={styles.recipesList}>
@@ -43,9 +67,16 @@ class Search extends React.Component {
                 .toLowerCase()
                 .includes(this.state.filter.toLowerCase())
             })
+            .filter((recipe) => {
+              return (
+                recipe.price >= this.state.priceMin &&
+                recipe.price <= this.state.priceMax
+              )
+            })
             .map((recipe) => {
               return (
                 <RecipeReviewCard
+                  className={styles.recipeItem}
                   key={recipe.id}
                   id={recipe.id}
                   title={recipe.name}

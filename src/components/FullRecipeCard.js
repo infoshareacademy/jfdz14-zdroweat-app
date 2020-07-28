@@ -10,14 +10,15 @@ import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
-import FavoriteIcon from '@material-ui/icons/Favorite';
+import Button from '@material-ui/core/Button';
+import DeleteIcon from '@material-ui/icons/Delete';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import EcoIcon from '@material-ui/icons/Eco';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import TimerIcon from '@material-ui/icons/Timer';
 import LocalDiningIcon from '@material-ui/icons/LocalDining';
-import UnlikeButton from './UnlikeButton';
 import styles from './styles.module.css';
+import { StylesProvider } from '@material-ui/styles'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,26 +41,32 @@ const useStyles = makeStyles((theme) => ({
   avatar: {
     backgroundColor: red[500],
   },
+
+  button: {
+    margin: theme.spacing(1),
+    backgroundColor: 'rgba(209, 26, 42, 0.7)',
+    color: 'white',
+    padding: '0.75rem',
+    fontSize: '1rem'
+  },
+
 }));
 
 export default function FullRecipeCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
-  const [addedToFavourite, addToFavourite] = React.useState(false);
+
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  const onClickHandler = () => {
-    addToFavourite(!addedToFavourite)
-  
-    if (!addedToFavourite) {
+  const onClickHandlerButton = () => {
         localStorage.removeItem(props.title, props.title);
         window.location.reload(true);
      } 
 
-  };
+  
 
   return (
     <Card className={classes.root} className={styles.singleCardMaterialUI}>
@@ -88,13 +95,17 @@ export default function FullRecipeCard(props) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon onClick={onClickHandler}/>
-          
-          
-        </IconButton>
-        <UnlikeButton onClick={onClickHandler}/>
         
+          <Button
+            onClick={onClickHandlerButton}
+            variant="contained"
+            color="secondary"
+            className={classes.button}
+            startIcon={<DeleteIcon />}
+          >
+            Usuń z ulubionych
+          </Button>
+
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,
