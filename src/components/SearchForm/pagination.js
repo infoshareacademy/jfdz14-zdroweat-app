@@ -15,7 +15,7 @@ export default function BasicPagination() {
     return (
         <div className={classes.root}>
 
-            <Pagination count={10} color="primary" />
+            <Pagination count={3} color="primary" />
 
         </div>
     );

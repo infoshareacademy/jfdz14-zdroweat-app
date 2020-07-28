@@ -22,7 +22,9 @@ class Search extends React.Component {
     filter: '',
     priceMin: getStartRange[0],
     priceMax: getStartRange[getStartRange.length - 1],
-    timeToPrepare: 0
+    timeToPrepare: 0,
+    currentPage: 1,
+    postsPerPage: 10,
   }
 
   handleOnSliderChange = (upDateRange) => {
