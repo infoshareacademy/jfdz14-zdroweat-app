@@ -15,8 +15,6 @@ import TimerIcon from '@material-ui/icons/Timer'
 import EcoIcon from '@material-ui/icons/Eco'
 import styles from './styles.module.css'
 
-import EcoIcon from '@material-ui/icons/Eco'
-import styles from './styles.module.css'
 import { Link } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   root: {
