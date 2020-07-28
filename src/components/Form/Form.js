@@ -4,10 +4,16 @@ import './Form.css';
 import UploadButton from './UploadButton'
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Backdrop from '@material-ui/core/Backdrop';
+import done from './images/done.gif'
 
 const useStyles = makeStyles((theme) => ({
     button: {
       margin: theme.spacing(1),
+    },
+    backdrop: {
+        zIndex: theme.zIndex.drawer + 1,
+        color: '#fff',
     },
   }));
 
@@ -15,14 +21,22 @@ export default function Form () {
     const classes = useStyles();
     const [values, setValues] = useState ({recipeName: '', servings: '', readyInMinutes: '', price: '', recipe:''});
 
+    const [open, setOpen] = React.useState(false);
+    const handleClose = () => {
+        setOpen(false);
+    };
+     const handleOnClick = () => {
+        setOpen(!open);
+    };
+
     const handleChange = (event) => {
         const { name , value } = event.target;
         setValues(values => ({...values, [name]: value }))
     }
 
-    const  handleOnClick = () => {
-        alert('Sukces! Przepis został wysłany do bazy danych')
-    }
+    // const  handleOnClick = () => {
+    //     alert('Sukces! Przepis został wysłany do bazy danych')
+    // }
 
     return(
         <div className="mainContainer">
@@ -77,7 +91,7 @@ export default function Form () {
                     value={values.recipe}
                     onChange={handleChange} 
                 />
-            <UploadButton size='lg' />
+            <UploadButton />
             <Button
                 onClick={handleOnClick}
                 variant="contained"
@@ -86,6 +100,14 @@ export default function Form () {
             >
                 Prześlij przepis
             </Button>
+            <Backdrop className={classes.backdrop} open={open} onClick={handleClose}>
+                <div className="backdropMessage">
+                    <div>
+                        <img src={done} alt="success icon" height='60px'/>
+                    </div>
+                    <h2>Dziękujemy za przesłanie przepisu na {values.recipeName} </h2>
+                </div>
+            </Backdrop>
 
             </div>
         </form> 
