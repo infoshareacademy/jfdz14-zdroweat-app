@@ -11,7 +11,7 @@ const MyFavouriteList = () => {
         
     return (
         <>
-            <h1>Twoje ulubione przepisy</h1>
+            <h1>TWOJE ULUBIONE PRZEPISY</h1>
             <div className={styles.recipeContainer}>
                 {
                     recipes.map(recipe => {
