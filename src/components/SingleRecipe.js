@@ -23,10 +23,10 @@ const SingleRecipe = (props) => {
 
   let favColor = () => {
     if (!addedToFavourite) {
-      localStorage.setItem(`${props.title} color`, red[500])
+      localStorage.setItem(`${Recipe.name} color`, red[500])
       return red[500]
     } else {
-      localStorage.removeItem(`${props.title} color`)
+      localStorage.removeItem(`${Recipe.name} color`)
       return grey[500]
     }
   }
@@ -35,9 +35,9 @@ const SingleRecipe = (props) => {
     addToFavourite(!addedToFavourite)
 
     if (addedToFavourite) {
-      localStorage.setItem(props.title, props.title)
+      localStorage.setItem(Recipe.name, Recipe.name)
     } else {
-      localStorage.removeItem(props.title)
+      localStorage.removeItem(Recipe.name)
     }
   }
 
@@ -72,6 +72,7 @@ const SingleRecipe = (props) => {
           </IconButton>
         </CardActions>
       </div>
+
       <div className={styles.main}>
         <p className={styles.title} style={{ fontSize: '1.5rem' }}>
           Sposób przygotowania
