@@ -1,12 +1,12 @@
 .wrapper {
   font-size: 1.5rem;
-  box-shadow: 0px 0px 12px 0px rgb(209, 199, 183);
+  box-shadow: 0px 0px 12px 0px rgb(162, 163, 162);
   display: flex;
   justify-content: center;
   align-content: center;
   flex-direction: column;
   text-align: center;
-  background-color: rgb(245, 242, 239);
+  background-color: rgb(250, 250, 249);
   width: 100%;
   padding: 2rem;
 }
@@ -38,7 +38,7 @@
   padding: 1rem;
 }
 .icon {
-  color: #a3865b;
+  color: #bb8588;
   font-size: 1.5rem;
 }
 .main {
@@ -46,10 +46,6 @@
   margin: 0 auto;
   padding: 0;
 }
-/* 
-.second_title {
-
-} */
 
 .recipe {
   text-align: justify;
@@ -63,4 +59,5 @@
   color: #a3865b;
   font-size: 1.5rem;
   font-style: italic;
+  letter-spacing: 0.15rem;
 }

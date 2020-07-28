@@ -23,8 +23,8 @@ const SingleRecipe = (props) => {
 
   let favColor = () => {
     if (!addedToFavourite) {
-      localStorage.setItem(`${Recipe.name} color`, red[500])
-      return red[500]
+      localStorage.setItem(`${Recipe.name} color`, '#bb8588')
+      return '#bb8588'
     } else {
       localStorage.removeItem(`${Recipe.name} color`)
       return grey[500]
