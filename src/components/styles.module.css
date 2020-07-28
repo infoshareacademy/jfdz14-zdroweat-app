@@ -1,16 +1,23 @@
 .recipeContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .singleCardMaterialUI {
-    margin: 1rem;
-    
+  margin: 1rem;
 }
 
 .paragraph {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+}
+
+.link:hover {
+  color: rgb(116, 115, 115);
 }

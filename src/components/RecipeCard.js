@@ -63,7 +63,7 @@ export default function RecipeReviewCard(props) {
 
   return (
     <Card className={classes.root} className={styles.singleCardMaterialUI}>
-      <Link to={`Search/${props.id}`}>
+      <Link to={`Search/${props.id}`} className={styles.link}>
         <CardHeader
           action={
             <IconButton aria-label="eco">
