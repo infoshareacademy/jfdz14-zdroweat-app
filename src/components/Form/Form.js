@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import './Form.css';
 import UploadButton from './UploadButton'
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
+const useStyles = makeStyles((theme) => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+  }));
 
 export default function Form () {
+    const classes = useStyles();
     const [values, setValues] = useState ({recipeName: '', servings: '', readyInMinutes: '', price: '', recipe:''});
 
     const handleChange = (event) => {
@@ -11,78 +20,76 @@ export default function Form () {
         setValues(values => ({...values, [name]: value }))
     }
 
-    return(
-        <div className="formContainer">
-            <h1>Dodaj swój własny przepis</h1>
+    const  handleOnClick = () => {
+        alert('Sukces! Przepis został wysłany do bazy danych')
+    }
 
-            <form noValidate>
-                <div className="recipeName">
-                    <label>Nazwa przepisu</label>
-                    <div className="input">
-                        <input 
-                            name="recipeName" 
-                            type="text" 
-                            placeholder="wpisz nazwę przepisu" 
-                            value={values.recipeName}
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
-                <div className="recipeServings">
-                    <label>Ilość porcji</label>
-                    <div>
-                        <input 
-                            name="servings" 
-                            type="number" 
-                            placeholder="podaj liczbę porcji" 
-                            value={values.servings}
-                            onChange={handleChange}
-                        />
-                            
-                    </div>
-                </div>
-                <div className="recipeTime">
-                    <label>Czas przygotowania</label>
-                    <div>
-                        <input 
-                            name="readyInMinutes" 
-                            type="number" 
-                            placeholder="...minut" 
-                            value={values.readyInMinutes}
-                            onChange={handleChange} 
-                            />
-                    </div>
-                </div>
-                <div className="recipePrice">
-                    <label>Szacowany koszt</label>
-                    <div>
-                        <input 
-                            name="price" 
-                            type="number" 
-                            placeholder="...zł" 
-                            value={values.price} 
-                            onChange={handleChange}
-                        />
-                    </div>
-                </div>
-                <div className="recipeText">
-                    <label>Przepis</label>
-                    <div>
-                        <input 
-                            name="recipe" 
-                            type="text" 
-                            value={values.recipe}
-                            onChange={handleChange} 
-                        />
-                    </div>
-                </div>
-                <div className="recipeText">
-                    <label>Dodaj zdjęcie</label>
-                    <UploadButton />
-                </div>
-                <button>Prześlij</button>
-            </form>
-        </div>
+    return(
+        <div className="mainContainer">
+        <h1>PODZIEL SIĘ SWOIM PRZEPISEM</h1>  
+        <form className="formContainer" noValidate autoComplete="off" >
+        <div className="formContainer_block">
+            <TextField 
+                className="input"
+                name="recipeName"
+                label="Podaj nazwę potrawy" 
+                variant="outlined" 
+                value={values.recipeName}
+                onChange={handleChange} 
+            />
+            <TextField 
+                className="input"
+                name="servings" 
+                type="number"
+                variant="outlined"  
+                label="Podaj liczbę porcji" 
+                value={values.servings}
+                onChange={handleChange}
+            />
+            <TextField 
+                className="input"
+                name="readyInMinutes" 
+                type="number" 
+                variant="outlined"  
+                label="Czas przygotowania" 
+                value={values.readyInMinutes}
+                onChange={handleChange}
+            />
+            <TextField 
+                className="input"
+                name="price" 
+                type="number" 
+                variant="outlined"  
+                label="Koszt porcji w PLN" 
+                value={values.price} 
+                onChange={handleChange}
+            />
+            </div>
+            <div className="formContainer_block">
+            <TextField 
+                    className="recipeInput"
+                    name="recipe"
+                    multiline
+                    rows={12} 
+                    type="text" 
+                    variant="outlined"  
+                    label="Treść przepisu" 
+                    value={values.recipe}
+                    onChange={handleChange} 
+                />
+            <UploadButton size='lg' />
+            <Button
+                onClick={handleOnClick}
+                variant="contained"
+                color="primary"
+                className={classes.button}
+            >
+                Prześlij przepis
+            </Button>
+
+            </div>
+        </form> 
+    </div>
 
     )
 }
