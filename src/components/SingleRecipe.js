@@ -2,10 +2,16 @@ import React from 'react'
 import { recipes } from '../data/Recipes'
 import { useParams } from 'react-router-dom'
 import CardActions from '@material-ui/core/CardActions'
+
+import { red, grey } from '@material-ui/core/colors'
+import styles from './SingleRecipe.module.css'
+
+// icons
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import IconButton from '@material-ui/core/IconButton'
-import CardMedia from '@material-ui/core/CardMedia'
-console.log(recipes)
+import AccessTimeIcon from '@material-ui/icons/AccessTime'
+import RestaurantIcon from '@material-ui/icons/Restaurant'
+
 const SingleRecipe = (props) => {
   const [addedToFavourite, addToFavourite] = React.useState(true)
 
@@ -15,43 +21,64 @@ const SingleRecipe = (props) => {
     return null
   }
 
+  let favColor = () => {
+    if (!addedToFavourite) {
+      localStorage.setItem(`${props.title} color`, red[500])
+      return red[500]
+    } else {
+      localStorage.removeItem(`${props.title} color`)
+      return grey[500]
+    }
+  }
+
   const onClickHandler = () => {
     addToFavourite(!addedToFavourite)
 
     if (addedToFavourite) {
       localStorage.setItem(props.title, props.title)
     } else {
-      localStorage.removeItem(props.title, props.title)
+      localStorage.removeItem(props.title)
     }
   }
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignContent: 'center',
-        flexDirection: 'column',
-        textAlign: 'center',
-      }}
-    >
-      <p style={{ fontSize: '30px' }}>{Recipe.name}</p>
-      <div style={{ width: '100%', height: '50vh' }}>
-        <img
-          src={Recipe.photoURL}
-          style={{ height: '300px', width: '500px' }}
-        />
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'row' }}>
-        <p>Porcje: {Recipe.servings}</p> <hr width="1" size="30" />
-        <p>{`${Recipe.readyInMinutes} min`}</p>
-      </div>
-      <p>Przepis: {Recipe.recipe}</p>
 
-      <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon onClick={onClickHandler} />
-        </IconButton>
-      </CardActions>
+  return (
+    <div className={styles.wrapper}>
+      <p className={styles.title}>{Recipe.name}</p>
+      <div className={styles.img_wrapper}>
+        <img src={Recipe.photoURL} className={styles.img} />
+      </div>
+      <div className={styles.row_wrapper}>
+        <p>
+          <RestaurantIcon
+            style={{ fontSize: '2rem' }}
+            className={styles.icon}
+          />{' '}
+          Porcje: {Recipe.servings}
+        </p>
+        {/* <hr width="1" size="30" /> */}
+        <p>
+          <AccessTimeIcon
+            style={{ fontSize: '2rem' }}
+            className={styles.icon}
+          />{' '}
+          {`${Recipe.readyInMinutes} min`}
+        </p>
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon
+              style={{ color: favColor() }}
+              onClick={onClickHandler}
+            />
+          </IconButton>
+        </CardActions>
+      </div>
+      <div className={styles.main}>
+        <p className={styles.title} style={{ fontSize: '1.5rem' }}>
+          Sposób przygotowania
+        </p>
+        <p className={styles.recipe}> {Recipe.recipe}</p>
+        <p className={styles.end_text}>Smacznego!</p>
+      </div>
     </div>
   )
 }

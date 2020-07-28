@@ -1,0 +1,66 @@
+.wrapper {
+  font-size: 1.5rem;
+  box-shadow: 0px 0px 12px 0px rgba(163, 134, 91, 1);
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: rgb(245, 242, 239);
+  width: 100%;
+  padding: 2rem;
+}
+.img_wrapper {
+  width: 100%;
+  height: 50%;
+  background-image: url;
+}
+.img {
+  height: 600px;
+  padding-top: 1.5%;
+}
+.title {
+  letter-spacing: 0.25rem;
+  color: #a3865b;
+
+  font-weight: 540;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.row_wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+}
+.row_wrapper p {
+  padding: 1rem;
+}
+.icon {
+  color: #a3865b;
+  font-size: 1.5rem;
+}
+.main {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+}
+/* 
+.second_title {
+
+} */
+
+.recipe {
+  text-align: justify;
+  padding: 1.5rem 3rem 3rem;
+  /* padding-top: 1rem; */
+  line-height: 3rem;
+}
+
+.end_text {
+  text-align: right;
+  color: #a3865b;
+  font-size: 1.5rem;
+  font-style: italic;
+}
