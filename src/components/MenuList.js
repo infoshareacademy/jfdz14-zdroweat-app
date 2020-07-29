@@ -14,6 +14,7 @@ import GroupIcon from '@material-ui/icons/Group';
 import { NavLink } from "react-router-dom";
 
 
+
 const entries = [
     {
         name: 'Strona Główna',
@@ -34,7 +35,7 @@ const entries = [
         name: 'Twoje ulubione przepisy',
         icon: FavoriteBorderOutlinedIcon,
         url: "/MyFavouriteList"
-    }
+    },
 ]
 
 // const aboutUs = [

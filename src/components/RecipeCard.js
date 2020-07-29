@@ -11,7 +11,6 @@ import { red, grey } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import TimerIcon from '@material-ui/icons/Timer';
-
 import EcoIcon from '@material-ui/icons/Eco';
 import styles from './styles.module.css';
 
@@ -82,22 +81,31 @@ export default function RecipeReviewCard(props) {
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           <div className={styles.paragraph}>
-            <TimerIcon style={{fontSize: '1.75rem'}} />: {props.readyInMinutes} min <hr/>
-            <AttachMoneyIcon style={{fontSize: '1.75rem'}}/>: {props.price} zł
+            <TimerIcon 
+              style={{fontSize: '1.75rem'}}
+              color='primary'
+            />
+              : {props.readyInMinutes} min <hr/>
+
+            <AttachMoneyIcon 
+              style={{fontSize: '1.75rem'}}
+              color='primary'
+            />
+            : {props.price} zł
           </div>
         </Typography>
       </CardContent>
 
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
-          <FavoriteIcon 
-            style={{ color: favColor() }} 
-            onClick={onClickHandler}
-          />
-        </IconButton>
-
+        
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon 
+              style={{ color: favColor() }} 
+              onClick={onClickHandler}
+            />
+          </IconButton>
+              <p className={styles.iconText}></p>
       </CardActions>
-      
     </Card>
   );
 }

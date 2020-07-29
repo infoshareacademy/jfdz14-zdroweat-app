@@ -1,6 +1,7 @@
 import React from 'react';
 import client from './images/klient.jpeg';
-import './Home.css'
+import './Home.css';
+
 
 export default function Home () {
     return (
@@ -12,7 +13,7 @@ export default function Home () {
                     <p> - Mateusz Marzęcki</p>
                 </div>
 
-
+            
             </div>
 
 

@@ -1,16 +1,21 @@
-.recipeContainer {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-
-}
-
 .singleCardMaterialUI {
     margin: 1rem;
-    
+}
+
+.recipesList{
+    display: grid;
+    grid-template-columns:  repeat(4, 1fr);;
 }
 
 .paragraph {
+    font-size: 1.25rem;
+}
+
+.header {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.iconText {
     font-size: 1.25rem;
 }

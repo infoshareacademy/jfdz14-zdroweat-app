@@ -1,11 +1,10 @@
 import React from "react";
 import RecipeReviewCard from './RecipeCard';
 import { recipes } from "../data/Recipes";
-import styles from './styles.module.css';
 
 const RecipeCards = () => {
     return (
-            <div className={styles.recipeContainer}>
+            <div>
                 {
                     recipes.map(recipe => {
                         return (

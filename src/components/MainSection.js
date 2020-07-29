@@ -11,7 +11,8 @@ import IconButton from '@material-ui/core/IconButton';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import MyFavouriteList from './MyFavouriteList'
+import MyFavouriteList from './MyFavouriteList';
+import ShareButton from './ShareButton';
 import Logo from './Logo'
 import Home from './Home/Home'
 import './MainSection.css'
@@ -123,7 +124,7 @@ export default function MainSection() {
             </IconButton>
             <div className="navContainer">
               <div className="header">ZdrowEat</div>
-              <div className="loggedUser">Zalogowany użytkowanik</div>
+              <div className="loggedUser"> Zalogowany użytkownik <ShareButton /></div>
             </div>
           </Toolbar>
         </AppBar>
