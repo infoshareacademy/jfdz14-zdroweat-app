@@ -4,6 +4,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+// import { propTypes } from 'react-visibility-sensor';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -17,17 +18,19 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ControlledOpenSelect = () => {
+const ControlledOpenSelect = (props) => {
     const classes = useStyles();
     const [age, setAge] = React.useState('');
     const [open, setOpen] = React.useState(false);
 
     const handleChange = (event) => {
         setAge(event.target.value);
+        props.onDropDownChange(event.target.value)
     };
 
     const handleClose = () => {
         setOpen(false);
+
     };
 
     const handleOpen = () => {
@@ -50,9 +53,9 @@ const ControlledOpenSelect = () => {
                 >
 
                     <MenuItem value={0}>dowolny</MenuItem>
-                    <MenuItem value={10}>5-15 minut</MenuItem>
-                    <MenuItem value={20}>15-30 minut</MenuItem>
-                    <MenuItem value={30}>&gt; 30 minut</MenuItem>
+                    <MenuItem value={10}>&lt; 30 minut</MenuItem>
+                    <MenuItem value={20}>30-45 minut</MenuItem>
+                    <MenuItem value={30}>&gt; 45 minut</MenuItem>
                 </Select>
             </FormControl>
         </div>

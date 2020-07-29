@@ -2,16 +2,11 @@ import React from 'react';
 import MenuItems from './MenuItems'
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import HomeIcon from '@material-ui/icons/Home';
-import EcoOutlinedIcon from '@material-ui/icons/EcoOutlined';
 import TrendingUpOutlinedIcon from '@material-ui/icons/TrendingUpOutlined';
 import FavoriteBorderOutlinedIcon from '@material-ui/icons/FavoriteBorderOutlined';
-import MailOutlineIcon from '@material-ui/icons/MailOutline';
-import FaceOutlinedIcon from '@material-ui/icons/FaceOutlined';
 import GroupIcon from '@material-ui/icons/Group';
-import { NavLink } from "react-router-dom";
+import AddIcon from '@material-ui/icons/Add'
 
 
 
@@ -24,18 +19,23 @@ const entries = [
     {
         name: 'ZdrowEat w Liczbach',
         icon: TrendingUpOutlinedIcon,
-        url: "/DashboardWrapper"
+        url: "/zdroweat-w-liczbach"
     },
     {
         name: 'Nasi Fani',
         icon: GroupIcon,
-        url: "/Home"
+        url: "/nasi-fani"
     },
     {
         name: 'Twoje ulubione przepisy',
         icon: FavoriteBorderOutlinedIcon,
-        url: "/MyFavouriteList"
+        url: "/lista-ulubionych"
     },
+    {
+        name: 'Dodaj przepis',
+        icon: AddIcon,
+        url: "/Formularz"
+    }
 ]
 
 // const aboutUs = [
@@ -61,7 +61,7 @@ export default function MenuList() {
                 ))}
             </List>
             {/* <Divider /> */}
-            {/* poniższy kod może być wykorzystany w przyszłości przy ewentualnym dodaniu kontaktu etc */}
+            {/* poniższy kod może być wykorzystany w przyszłości przy ewentualnym dodaniu kontaktu etc. Aby zadziałał należy zainportować komponenty w kodzie*/}
             {/* <List>
                 {aboutUs.map((item) => (
                     <ListItem button key={item.text}>

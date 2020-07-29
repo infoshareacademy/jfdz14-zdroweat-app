@@ -13,6 +13,8 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import TimerIcon from '@material-ui/icons/Timer';
 import EcoIcon from '@material-ui/icons/Eco';
 import styles from './styles.module.css';
+import { Link } from 'react-router-dom';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,66 +34,55 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-}));
+}))
 
 export default function RecipeReviewCard(props) {
-  const classes = useStyles();
+  const classes = useStyles()
 
-  const [addedToFavourite, addToFavourite] = React.useState(true);
-
+  const [addedToFavourite, addToFavourite] = React.useState(true)
 
   let favColor = () => {
-
     if (!addedToFavourite) {
-      localStorage.setItem(`${props.title} color`, red[500]);
-      return red[500];
+      localStorage.setItem(`${props.title} color`, red[500])
+      return red[500]
     } else {
       localStorage.removeItem(`${props.title} color`)
-      return grey[500];
+      return grey[500]
     }
   }
-
 
   const onClickHandler = () => {
     addToFavourite(!addedToFavourite)
 
     if (addedToFavourite) {
-      localStorage.setItem(props.title, props.title);
-     } else {
-        localStorage.removeItem(props.title);
-      }
-  };
+      localStorage.setItem(props.title, props.title)
+    } else {
+      localStorage.removeItem(props.title)
+    }
+  }
 
   return (
     <Card className={classes.root} className={styles.singleCardMaterialUI}>
-      <CardHeader
-        action={
-          <IconButton aria-label="eco">
-            <EcoIcon color='primary'/>
-          </IconButton>
-        }
-        title={props.title}
-      />
+      <Link to={`Search/${props.id}`} className={styles.link}>
+        <CardHeader
+          action={
+            <IconButton aria-label="eco">
+              <EcoIcon color="primary" />
+            </IconButton>
+          }
+          title={props.title}
+        />
+      </Link>
 
-      <CardMedia
-        className={classes.media}
-        image={props.photoURL}
-      />
+      <CardMedia className={classes.media} image={props.photoURL} />
 
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           <div className={styles.paragraph}>
-            <TimerIcon 
-              style={{fontSize: '1.75rem'}}
-              color='primary'
-            />
-              : {props.readyInMinutes} min <hr/>
-
-            <AttachMoneyIcon 
-              style={{fontSize: '1.75rem'}}
-              color='primary'
-            />
-            : {props.price} zł
+            <TimerIcon style={{ fontSize: '1.75rem' }} />:{' '}
+            {props.readyInMinutes} min <hr />
+            <AttachMoneyIcon style={{ fontSize: '1.75rem' }} />: {props.price}{' '}
+            zł
           </div>
         </Typography>
       </CardContent>
@@ -105,7 +96,8 @@ export default function RecipeReviewCard(props) {
             />
           </IconButton>
               <p className={styles.iconText}></p>
+
       </CardActions>
     </Card>
-  );
+  )
 }

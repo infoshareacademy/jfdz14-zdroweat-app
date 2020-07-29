@@ -11,6 +11,7 @@ const MyFavouriteList = () => {
         
     return (
         <>
+
             <h1 className={styles.header}>Twoje ulubione przepisy</h1>
             <div className={styles.recipesList}>
                 {

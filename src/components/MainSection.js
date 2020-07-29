@@ -1,30 +1,33 @@
-import React from 'react';
-import clsx from 'clsx';
-import MenuList from './MenuList';
-import DashboardWrapper from './Dashboard/DashboardWrapper';
-import Search from './SearchForm/Search';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import MyFavouriteList from './MyFavouriteList';
+import React from 'react'
+import clsx from 'clsx'
+import MenuList from './MenuList'
+import DashboardWrapper from './Dashboard/DashboardWrapper'
+import Search from './SearchForm/Search'
+import { makeStyles, useTheme } from '@material-ui/core/styles'
+import Drawer from '@material-ui/core/Drawer'
+import AppBar from '@material-ui/core/AppBar'
+import Toolbar from '@material-ui/core/Toolbar'
+import IconButton from '@material-ui/core/IconButton'
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
+import ChevronRightIcon from '@material-ui/icons/ChevronRight'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import MyFavouriteList from './MyFavouriteList'
 import ShareButton from './ShareButton';
 import Logo from './Logo'
 import Home from './Home/Home'
+import Form from './Form/Form';
 import './MainSection.css'
+import RecipeReviewCard from './RecipeCard'
+import SingleRecipe from './SingleRecipe';
 
-
-
-const drawerWidth = 300;
+const drawerWidth = 300
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    padding: 100
+    paddingTop: 20,
+    paddingLeft: 50,
+    paddingRight: 50,
 
   },
   appBar: {
@@ -49,7 +52,6 @@ const useStyles = makeStyles((theme) => ({
     display: 'none',
   },
   drawer: {
-
     width: drawerWidth,
     flexShrink: 0,
     whiteSpace: 'nowrap',
@@ -84,21 +86,20 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(4),
   },
-}));
-
+}))
 
 export default function MainSection() {
-  const classes = useStyles();
-  const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const classes = useStyles()
+  const theme = useTheme()
+  const [open, setOpen] = React.useState(false)
 
   const handleDrawerOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleDrawerClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
     <BrowserRouter>
@@ -143,7 +144,11 @@ export default function MainSection() {
         >
           <div className={classes.toolbar}>
             <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+              {theme.direction === 'rtl' ? (
+                <ChevronRightIcon />
+              ) : (
+                <ChevronLeftIcon />
+              )}
             </IconButton>
           </div>
           <MenuList />
@@ -151,15 +156,20 @@ export default function MainSection() {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Switch>
-            <Route exact path="/DashboardWrapper" component={DashboardWrapper} />
+            <Route
+              exact
+              path="/zdroweat-w-liczbach"
+              component={DashboardWrapper}
+            />
             <Route exact path="/" component={Search} />
-            <Route exact path="/MyFavouriteList" component={MyFavouriteList} />
-            <Route exact path="/Home" component={Home} />
-
+            <Route exact path="/Formularz" component={Form} />
+            <Route exact path="/Search/:id" component={SingleRecipe} />
+            <Route exact path="/lista-ulubionych" component={MyFavouriteList} />
+            <Route exact path="/nasi-fani" component={Home} />
 
           </Switch>
         </main>
       </div>
     </BrowserRouter>
-  );
+  )
 }

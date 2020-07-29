@@ -4,11 +4,27 @@
 
 .recipesList{
     display: grid;
-    grid-template-columns:  repeat(4, 1fr);;
+    grid-template-columns:  repeat(4, 1fr);
+}
+
+.recipeContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .paragraph {
-    font-size: 1.25rem;
+  font-size: 1.25rem;
+}
+
+.link {
+  text-decoration: none;
+  color: #000;
+}
+
+.link:hover {
+  color: rgb(116, 115, 115);
 }
 
 .header {
