@@ -11,7 +11,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import IconButton from '@material-ui/core/IconButton'
 import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import RestaurantIcon from '@material-ui/icons/Restaurant'
-
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney'
+import TimerIcon from '@material-ui/icons/Timer'
+import LocalDiningIcon from '@material-ui/icons/LocalDining'
 const SingleRecipe = (props) => {
   const [addedToFavourite, addToFavourite] = React.useState(true)
 
@@ -23,8 +25,8 @@ const SingleRecipe = (props) => {
 
   let favColor = () => {
     if (!addedToFavourite) {
-      localStorage.setItem(`${Recipe.name} color`, '#bb8588')
-      return '#bb8588'
+      localStorage.setItem(`${Recipe.name} color`, red)
+      return red[500]
     } else {
       localStorage.removeItem(`${Recipe.name} color`)
       return grey[500]
@@ -49,19 +51,23 @@ const SingleRecipe = (props) => {
       </div>
       <div className={styles.row_wrapper}>
         <p>
-          <RestaurantIcon
+          <LocalDiningIcon
             style={{ fontSize: '2rem' }}
             className={styles.icon}
-          />{' '}
-          Porcje: {Recipe.servings}
+          />
+          : {Recipe.servings}
         </p>
         {/* <hr width="1" size="30" /> */}
         <p>
-          <AccessTimeIcon
+          <TimerIcon style={{ fontSize: '2rem' }} className={styles.icon} /> :{' '}
+          {`${Recipe.readyInMinutes} min`}
+        </p>
+        <p>
+          <AttachMoneyIcon
             style={{ fontSize: '2rem' }}
             className={styles.icon}
-          />{' '}
-          {`${Recipe.readyInMinutes} min`}
+          />
+          : {`${Recipe.price} zł`}
         </p>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
@@ -78,7 +84,6 @@ const SingleRecipe = (props) => {
           Sposób przygotowania
         </p>
         <p className={styles.recipe}> {Recipe.recipe}</p>
-        <p className={styles.end_text}>Smacznego!</p>
       </div>
     </div>
   )

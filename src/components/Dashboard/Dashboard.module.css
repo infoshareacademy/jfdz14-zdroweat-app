@@ -66,6 +66,9 @@
   padding: 2rem;
 }
 .mapText {
+  position: absolute;
+  top: 10rem;
+  left: 2rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -75,6 +78,7 @@
   color: rgb(105, 105, 105);
   font-size: 1.5rem;
   flex-direction: column;
+  line-height: 3rem;
 }
 
 /* Text */
@@ -92,9 +96,45 @@
   text-align: center;
   padding: 1rem;
 }
+.containerTitleTwo {
+  letter-spacing: 0.25rem;
+  color: rgb(105, 105, 105);
+  font-size: 1.5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  position: absolute;
+  top: -25%;
+}
 
 .containerData,
 .containerText {
   padding: 1rem;
   font-size: 3rem;
+}
+
+.svg {
+  display: flex;
+  background-image: url(./chart.svg);
+  background-repeat: no-repeat;
+  background-position: 2% 50%;
+  position: relative;
+  margin: 1rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  height: 40vh;
+}
+
+.teamSvg {
+  display: flex;
+  background-image: url(./team.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 90%;
+  position: relative;
+
+  width: 100%;
+  height: 40vh;
+  margin-top: 4rem;
 }

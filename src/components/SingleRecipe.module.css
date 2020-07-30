@@ -21,7 +21,8 @@
 }
 .title {
   letter-spacing: 0.25rem;
-  color: #a3865b;
+
+  color: #004d34;
 
   font-weight: 540;
   font-size: 2rem;
@@ -52,12 +53,4 @@
   padding: 1.5rem 3rem 3rem;
   /* padding-top: 1rem; */
   line-height: 3rem;
-}
-
-.end_text {
-  text-align: right;
-  color: #a3865b;
-  font-size: 1.5rem;
-  font-style: italic;
-  letter-spacing: 0.15rem;
 }
