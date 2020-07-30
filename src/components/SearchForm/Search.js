@@ -17,6 +17,7 @@ const getStartRange = recipes
 
 class Search extends React.Component {
   state = {
+
     recipesList: [],
     filter: '',
     priceMin: getStartRange[0],
@@ -52,9 +53,12 @@ class Search extends React.Component {
 
   }
 
+
+
   componentDidMount() {
     this.setState({
       recipesList: recipes,
+
     })
   }
 
@@ -86,6 +90,8 @@ class Search extends React.Component {
           timeOfPreparation={this.state.timeToPrepare}
           currentPage={this.state.currentPage}
           recipesPerPage={this.state.recipesPerPage}
+
+
         />
         <BasicPagination
           recipesPerPage={this.state.recipesPerPage}

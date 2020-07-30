@@ -9,19 +9,19 @@ const RecipesList = (props) => {
     return (
         <div className={styles.recipesList}>
             {props.recipesList
-                .filter((recipe) => {
+                .filter(recipe => {
                     return (recipe.name
                         .toLowerCase()
                         .includes(props.filter.toLowerCase())
                     )
                 })
-                .filter((recipe) => {
+                .filter(recipe => {
                     return (
                         recipe.price >= props.priceMin &&
                         recipe.price <= props.priceMax
                     )
                 })
-                .filter((recipe) => {
+                .filter(recipe => {
                     switch (props.timeOfPreparation) {
 
                         case 10:
@@ -35,7 +35,8 @@ const RecipesList = (props) => {
                     }
                 })
                 .slice(firstIndex, lastIndex)
-                .map((recipe) => {
+                .map(recipe => {
+
                     return (
                         <RecipeReviewCard
                             className={styles.recipeItem}
@@ -49,7 +50,12 @@ const RecipesList = (props) => {
                             recipe={recipe.recipe}
                         />
                     )
-                })}
+                })
+
+
+            }
+
+
         </div>
     )
 }
