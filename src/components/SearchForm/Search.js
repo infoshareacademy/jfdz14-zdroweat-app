@@ -7,14 +7,13 @@ import RecipesList from "./recipesList"
 import styles from './search.module.css'
 import BasicPagination from './pagination'
 
-const compareNumbers = (a, b) => {
-  return a - b
-}
+
+
 const getStartRange = recipes
   .map((recipe) => {
     return recipe.price
   })
-  .sort(compareNumbers)
+  .sort((a, b) => a - b)
 
 class Search extends React.Component {
   state = {
@@ -24,7 +23,7 @@ class Search extends React.Component {
     priceMax: getStartRange[getStartRange.length - 1],
     timeToPrepare: 0,
     currentPage: 1,
-    postsPerPage: 10,
+    recipesPerPage: 8,
   }
 
   handleOnSliderChange = (upDateRange) => {
@@ -44,6 +43,13 @@ class Search extends React.Component {
     this.setState({
       timeToPrepare: dropDownValue
     })
+  }
+
+  pageChanged = (pageNumber) => {
+    this.setState({
+      currentPage: pageNumber
+    })
+
   }
 
   componentDidMount() {
@@ -78,8 +84,14 @@ class Search extends React.Component {
           priceMin={this.state.priceMin}
           priceMax={this.state.priceMax}
           timeOfPreparation={this.state.timeToPrepare}
+          currentPage={this.state.currentPage}
+          recipesPerPage={this.state.recipesPerPage}
         />
-        <BasicPagination />
+        <BasicPagination
+          recipesPerPage={this.state.recipesPerPage}
+          recipesLength={this.state.recipesList.length}
+          updatePage={this.pageChanged}
+        />
       </>
     )
   }

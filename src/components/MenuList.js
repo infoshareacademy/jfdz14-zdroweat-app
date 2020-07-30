@@ -56,7 +56,7 @@ export default function MenuList() {
             <Divider />
             <List>
                 {entries.map((item) => (
-                    <MenuItems item={item} />
+                    <MenuItems key={item.url} item={item} />
                 ))}
             </List>
             {/* <Divider /> */}
