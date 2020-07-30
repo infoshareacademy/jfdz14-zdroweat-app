@@ -11,8 +11,9 @@ const MyFavouriteList = () => {
         
     return (
         <>
-            <h1>TWOJE ULUBIONE PRZEPISY</h1>
-            <div className={styles.recipeContainer}>
+
+            <h1 className={styles.header}>Twoje ulubione przepisy</h1>
+            <div className={styles.recipesList}>
                 {
                     recipes.map(recipe => {
                         if(favourites.includes(recipe.name)){

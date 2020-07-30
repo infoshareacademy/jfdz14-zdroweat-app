@@ -3,6 +3,7 @@ import client from './images/klient.jpeg';
 import client2 from './images/klient2.png'
 import './Home.css'
 
+
 export default function Home () {
     return (
         <>

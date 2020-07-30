@@ -9,7 +9,6 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import { red } from '@material-ui/core/colors';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -18,7 +17,7 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import TimerIcon from '@material-ui/icons/Timer';
 import LocalDiningIcon from '@material-ui/icons/LocalDining';
 import styles from './styles.module.css';
-import { StylesProvider } from '@material-ui/styles'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,9 +37,6 @@ const useStyles = makeStyles((theme) => ({
   expandOpen: {
     transform: 'rotate(180deg)',
   },
-  avatar: {
-    backgroundColor: red[500],
-  },
 
   button: {
     margin: theme.spacing(1),
@@ -49,7 +45,6 @@ const useStyles = makeStyles((theme) => ({
     padding: '0.75rem',
     fontSize: '1rem'
   },
-
 }));
 
 export default function FullRecipeCard(props) {
@@ -73,7 +68,7 @@ export default function FullRecipeCard(props) {
       <CardHeader
         action={
           <IconButton aria-label="eco">
-            <EcoIcon />
+            <EcoIcon color='primary'/>
           </IconButton>
         }
         title={props.title}
@@ -105,7 +100,6 @@ export default function FullRecipeCard(props) {
           >
             Usuń z ulubionych
           </Button>
-
         <IconButton
           className={clsx(classes.expand, {
             [classes.expandOpen]: expanded,

@@ -12,12 +12,14 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import MyFavouriteList from './MyFavouriteList'
+import ShareButton from './ShareButton';
 import Logo from './Logo'
 import Home from './Home/Home'
 import Form from './Form/Form';
 import './MainSection.css'
 import RecipeReviewCard from './RecipeCard'
-import SingleRecipe from './SingleRecipe'
+import SingleRecipe from './SingleRecipe';
+
 const drawerWidth = 300
 
 const useStyles = makeStyles((theme) => ({
@@ -123,7 +125,7 @@ export default function MainSection() {
             </IconButton>
             <div className="navContainer">
               <div className="header">ZdrowEat</div>
-              <div className="loggedUser">Zalogowany użytkownik</div>
+              <div className="loggedUser"> Zalogowany użytkownik <ShareButton /></div>
             </div>
           </Toolbar>
         </AppBar>
