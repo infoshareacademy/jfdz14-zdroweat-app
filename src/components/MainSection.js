@@ -125,7 +125,8 @@ export default function MainSection() {
             </IconButton>
             <div className="navContainer">
               <div className="header">ZdrowEat</div>
-              <div className="loggedUser"> Zalogowany użytkownik <ShareButton /></div>
+              <div className="loggedUser"> Zalogowany użytkownik</div>
+              <div><ShareButton /></div>
             </div>
           </Toolbar>
         </AppBar>

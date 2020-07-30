@@ -15,4 +15,6 @@
 
 .loggedUser {
     letter-spacing: 0.2rem;
+    position: absolute;
+    right: 150px;
 }

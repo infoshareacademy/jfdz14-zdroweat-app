@@ -38,26 +38,29 @@ const useStyles = makeStyles((theme) => ({
 
 export default function RecipeReviewCard(props) {
   const classes = useStyles()
-
-  const [addedToFavourite, addToFavourite] = React.useState(true)
-
-  let favColor = () => {
-    if (!addedToFavourite) {
-      localStorage.setItem(`${props.title} color`, red[500])
-      return red[500]
-    } else {
-      localStorage.removeItem(`${props.title} color`)
-      return grey[500]
-    }
-  }
+  const [addToFavourite, addedToFavourite] = React.useState(true)
 
   const onClickHandler = () => {
-    addToFavourite(!addedToFavourite)
-
-    if (addedToFavourite) {
-      localStorage.setItem(props.title, props.title)
+    addedToFavourite(!addToFavourite)
+    
+    if (addToFavourite) {
+      localStorage.setItem(props.title, '')
     } else {
       localStorage.removeItem(props.title)
+    }
+  }
+  
+  let localStorageArray = [];
+
+  for(let i = 0; i < 30; i++){
+    localStorageArray.push(localStorage.key(i))
+  }
+
+  let favColor = () => {
+    if (localStorageArray.includes(props.title)){
+      return red[500]
+    } else {
+        return grey[500]
     }
   }
 
@@ -96,7 +99,6 @@ export default function RecipeReviewCard(props) {
             />
           </IconButton>
               <p className={styles.iconText}></p>
-
       </CardActions>
     </Card>
   )
