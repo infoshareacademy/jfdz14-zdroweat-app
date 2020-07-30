@@ -60,10 +60,12 @@ const DashboardWrapper = () => {
 
       <div className={styles.secondContainer}>
         <div className={styles.column2}>
-          <DashboardText
-            className={styles.containerTitle}
-            text="Z naszej aplikacji co roku korzysta coraz więcej osób!"
-          />
+          <div className={styles.teamSvg}>
+            <DashboardText
+              className={styles.containerTitleTwo}
+              text="Z naszej aplikacji co roku korzysta coraz więcej osób!"
+            />
+          </div>
         </div>
 
         <StackedAreaChart />
@@ -77,11 +79,14 @@ const DashboardWrapper = () => {
       </div>
 
       <div className={styles.mapContainer}>
-        <DashboardText
-          className={styles.mapText}
-          text="ZdrowEat jest dostępny na całym świecie!"
-          text2=" Zobacz, skąd pochodzą nasi użytkownicy."
-        />
+        <div className={styles.svg}>
+          <DashboardText
+            className={styles.mapText}
+            text="ZdrowEat jest dostępny na całym świecie!"
+            text2=" Zobacz, skąd pochodzą nasi użytkownicy."
+          />
+        </div>
+
         <Map />
       </div>
     </div>
