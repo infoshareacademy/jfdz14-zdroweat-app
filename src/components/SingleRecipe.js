@@ -11,9 +11,11 @@ import FavoriteIcon from '@material-ui/icons/Favorite'
 import IconButton from '@material-ui/core/IconButton'
 import AccessTimeIcon from '@material-ui/icons/AccessTime'
 import RestaurantIcon from '@material-ui/icons/Restaurant'
-
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney'
+import TimerIcon from '@material-ui/icons/Timer'
+import LocalDiningIcon from '@material-ui/icons/LocalDining'
 const SingleRecipe = (props) => {
-  const [addedToFavourite, addToFavourite] = React.useState(true)
+  const [addToFavourite, addedToFavourite] = React.useState(true)
 
   let { id } = useParams()
   const Recipe = recipes.find((item) => item.id.toString() === id)
@@ -21,26 +23,31 @@ const SingleRecipe = (props) => {
     return null
   }
 
-  let favColor = () => {
-    if (!addedToFavourite) {
-      localStorage.setItem(`${Recipe.name} color`, '#bb8588')
-      return '#bb8588'
-    } else {
-      localStorage.removeItem(`${Recipe.name} color`)
-      return grey[500]
-    }
-  }
 
   const onClickHandler = () => {
-    addToFavourite(!addedToFavourite)
-
-    if (addedToFavourite) {
-      localStorage.setItem(Recipe.name, Recipe.name)
+    addedToFavourite(!addToFavourite)
+    
+    if (addToFavourite) {
+      localStorage.setItem(Recipe.name, '')
     } else {
       localStorage.removeItem(Recipe.name)
     }
   }
+  
+  let localStorageArray = [];
 
+  for(let i = 0; i < 30; i++){
+    localStorageArray.push(localStorage.key(i))
+  }
+
+  let favColor = () => {
+    if (localStorageArray.includes(Recipe.name)){
+      return red[500]
+    } else {
+        return grey[500]
+    }
+  }
+  
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>{Recipe.name}</p>
@@ -49,19 +56,23 @@ const SingleRecipe = (props) => {
       </div>
       <div className={styles.row_wrapper}>
         <p>
-          <RestaurantIcon
+          <LocalDiningIcon
             style={{ fontSize: '2rem' }}
             className={styles.icon}
-          />{' '}
-          Porcje: {Recipe.servings}
+          />
+          : {Recipe.servings}
         </p>
         {/* <hr width="1" size="30" /> */}
         <p>
-          <AccessTimeIcon
+          <TimerIcon style={{ fontSize: '2rem' }} className={styles.icon} /> :{' '}
+          {`${Recipe.readyInMinutes} min`}
+        </p>
+        <p>
+          <AttachMoneyIcon
             style={{ fontSize: '2rem' }}
             className={styles.icon}
-          />{' '}
-          {`${Recipe.readyInMinutes} min`}
+          />
+          : {`${Recipe.price} zł`}
         </p>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
@@ -78,7 +89,6 @@ const SingleRecipe = (props) => {
           Sposób przygotowania
         </p>
         <p className={styles.recipe}> {Recipe.recipe}</p>
-        <p className={styles.end_text}>Smacznego!</p>
       </div>
     </div>
   )
