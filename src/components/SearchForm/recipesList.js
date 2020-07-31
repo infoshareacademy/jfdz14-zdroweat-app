@@ -3,21 +3,25 @@ import RecipeReviewCard from '../RecipeCard'
 import styles from "./search.module.css"
 
 const RecipesList = (props) => {
+    const lastIndex = props.currentPage * props.recipesPerPage
+    const firstIndex = lastIndex - props.recipesPerPage
+
     return (
         <div className={styles.recipesList}>
             {props.recipesList
-                .filter((recipe) => {
-                    return recipe.name
+                .filter(recipe => {
+                    return (recipe.name
                         .toLowerCase()
                         .includes(props.filter.toLowerCase())
+                    )
                 })
-                .filter((recipe) => {
+                .filter(recipe => {
                     return (
                         recipe.price >= props.priceMin &&
                         recipe.price <= props.priceMax
                     )
                 })
-                .filter((recipe) => {
+                .filter(recipe => {
                     switch (props.timeOfPreparation) {
 
                         case 10:
@@ -30,7 +34,9 @@ const RecipesList = (props) => {
                             return recipe;
                     }
                 })
-                .map((recipe) => {
+                .slice(firstIndex, lastIndex)
+                .map(recipe => {
+
                     return (
                         <RecipeReviewCard
                             className={styles.recipeItem}
@@ -44,7 +50,12 @@ const RecipesList = (props) => {
                             recipe={recipe.recipe}
                         />
                     )
-                })}
+                })
+
+
+            }
+
+
         </div>
     )
 }

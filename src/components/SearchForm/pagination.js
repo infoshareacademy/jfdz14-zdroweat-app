@@ -10,12 +10,23 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function BasicPagination() {
+export default function BasicPagination({ recipesPerPage, recipesLength, updatePage }) {
     const classes = useStyles();
+
+
+    const handleChange = (event, value) => {
+        updatePage(value)
+    }
+
+
     return (
         <div className={classes.root}>
 
-            <Pagination count={3} color="primary" />
+            <Pagination
+                count={Math.ceil(recipesLength / recipesPerPage)}
+
+                onChange={handleChange}
+                color="primary" />
 
         </div>
     );
