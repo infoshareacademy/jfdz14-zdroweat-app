@@ -16,3 +16,22 @@
     
     align-items: center;
 }
+
+.viewOption{
+display: flex;
+justify-content: center;
+font-size: 1.2em;
+}
+
+.link{
+     color: #0000EE;
+}
+
+.link:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    
+}
+
+
+   

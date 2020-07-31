@@ -24,7 +24,6 @@ export default function BasicPagination({ recipesPerPage, recipesLength, updateP
 
             <Pagination
                 count={Math.ceil(recipesLength / recipesPerPage)}
-
                 onChange={handleChange}
                 color="primary" />
 

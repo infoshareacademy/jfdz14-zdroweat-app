@@ -21,7 +21,9 @@ const RecipesList = (props) => {
                         recipe.price <= props.priceMax
                     )
                 })
-                .filter(recipe => {
+                .filter((recipe) => {
+
+
                     switch (props.timeOfPreparation) {
 
                         case 10:
@@ -33,9 +35,10 @@ const RecipesList = (props) => {
                         default:
                             return recipe;
                     }
+
                 })
                 .slice(firstIndex, lastIndex)
-                .map(recipe => {
+                .map((recipe) => {
 
                     return (
                         <RecipeReviewCard

@@ -26,28 +26,28 @@ const SingleRecipe = (props) => {
 
   const onClickHandler = () => {
     addedToFavourite(!addToFavourite)
-    
+
     if (addToFavourite) {
       localStorage.setItem(Recipe.name, '')
     } else {
       localStorage.removeItem(Recipe.name)
     }
   }
-  
+
   let localStorageArray = [];
 
-  for(let i = 0; i < 30; i++){
+  for (let i = 0; i < 30; i++) {
     localStorageArray.push(localStorage.key(i))
   }
 
   let favColor = () => {
-    if (localStorageArray.includes(Recipe.name)){
+    if (localStorageArray.includes(Recipe.name)) {
       return red[500]
     } else {
-        return grey[500]
+      return grey[500]
     }
   }
-  
+
   return (
     <div className={styles.wrapper}>
       <p className={styles.title}>{Recipe.name}</p>
