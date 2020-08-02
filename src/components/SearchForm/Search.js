@@ -60,7 +60,7 @@ class Search extends React.Component {
     })
   }
 
-  recipesAfterFiltering = (newLength) => {
+  updateRecipeLength = (newLength) => {
     this.setState({
       recipesLength: newLength
     })
@@ -89,7 +89,7 @@ class Search extends React.Component {
           />
 
         </div>
-        {/* <ViewOption onClickedRecipesPerPage={this.clickedRecipesPerPage} /> */}
+        <ViewOption onClickedRecipesPerPage={this.clickedRecipesPerPage} />
         <RecipesList
           recipesList={this.state.recipesList}
           filter={this.state.filter}
@@ -98,7 +98,7 @@ class Search extends React.Component {
           timeOfPreparation={this.state.timeToPrepare}
           currentPage={this.state.currentPage}
           recipesPerPage={this.state.recipesPerPage}
-          onRecipesAfterFiltering={this.recipesAfterFiltering}
+          recipesAfterFiltering={this.updateRecipeLength}
 
 
         />

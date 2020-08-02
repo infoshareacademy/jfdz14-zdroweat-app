@@ -23,7 +23,6 @@ const RecipesList = (props) => {
                 })
                 .filter((recipe) => {
 
-
                     switch (props.timeOfPreparation) {
 
                         case 10:
@@ -38,7 +37,8 @@ const RecipesList = (props) => {
 
                 })
                 .slice(firstIndex, lastIndex)
-                .map((recipe) => {
+                .map((recipe, index, arr) => {
+                    // props.recipesAfterFiltering(arr.length)
 
                     return (
                         <RecipeReviewCard
@@ -54,6 +54,7 @@ const RecipesList = (props) => {
                         />
                     )
                 })
+                .slice(firstIndex, lastIndex)
 
 
             }
