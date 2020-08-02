@@ -18,7 +18,7 @@ const theme = createMuiTheme({
     }
     },
         typography: {
-            fontFamily: ["Montserrat", 'Roboto'].join(',')
+            fontFamily: ['Mulish',"Montserrat", 'Roboto'].join(',')
     },
 });
 
