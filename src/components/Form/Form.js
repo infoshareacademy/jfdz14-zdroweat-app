@@ -34,10 +34,6 @@ export default function Form () {
         setValues(values => ({...values, [name]: value }))
     }
 
-    // const  handleOnClick = () => {
-    //     alert('Sukces! Przepis został wysłany do bazy danych')
-    // }
-
     return(
         <div className="mainContainer">
         <h1>PODZIEL SIĘ SWOIM PRZEPISEM</h1>  

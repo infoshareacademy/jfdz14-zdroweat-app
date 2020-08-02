@@ -7,7 +7,7 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
-    backgroundColor : '#4267b2',
+    backgroundColor : '#003028',
     color: 'white',
   },
 }));
