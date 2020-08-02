@@ -17,7 +17,7 @@ export default function Home () {
                     <i>" Dzięki ZdrowEat gotowanie stało się przyjemnością, a jedzenie śmieciowego jedzenia poszło w niepamięć. Odnalazłem radość w gotowaniu, a dodatkowo mogę dzielić się moimi eksperymentami w kuchni z innymi użytkownikami aplikacji. Dla mnie bomba! "</i>
 
                     <figcaption>
-                        &mdash; Mateusz Marzęcki, <cite>ISA</cite>  
+                        &mdash; Mateusz,  <cite>ISA</cite>  
                     </figcaption>
                 </figure>
             </div>
@@ -30,7 +30,7 @@ export default function Home () {
                     <i>" COOL ! Bardzo klawa apka 👍🏿"</i>
 
                     <figcaption>
-                        &mdash; Michał Michalczuk, <cite>ISA</cite>  
+                        &mdash; Michał,  <cite>ISA</cite>  
                     </figcaption>
                 </figure>
             </div>

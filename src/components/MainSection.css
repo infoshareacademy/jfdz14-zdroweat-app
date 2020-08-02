@@ -10,10 +10,11 @@
     justify-content: space-between;
     align-items: center;
     width: -webkit-fill-available;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat';
 }
 
 .loggedUser {
+    font-size: 1rem;
     letter-spacing: 0.2rem;
     position: absolute;
     right: 150px;
