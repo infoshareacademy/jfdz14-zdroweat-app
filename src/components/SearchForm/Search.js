@@ -6,7 +6,7 @@ import { recipes } from '../../data/Recipes'
 import RecipesList from "./recipesList"
 import styles from './search.module.css'
 import BasicPagination from './pagination'
-
+import ViewOption from './recipesPerPage'
 
 
 const getStartRange = recipes
@@ -18,7 +18,8 @@ const getStartRange = recipes
 class Search extends React.Component {
   state = {
 
-    recipesList: [],
+    recipesList: recipes,
+    recipesLength: recipes.length,
     filter: '',
     priceMin: getStartRange[0],
     priceMax: getStartRange[getStartRange.length - 1],
@@ -33,6 +34,7 @@ class Search extends React.Component {
       priceMin: upDateRange[0],
       priceMax: upDateRange[1],
     })
+
   }
 
   handleOnFormChange = (textFilter) => {
@@ -52,15 +54,19 @@ class Search extends React.Component {
     })
 
   }
-
-
-
-  componentDidMount() {
+  clickedRecipesPerPage = (value) => {
     this.setState({
-      recipesList: recipes,
-
+      recipesPerPage: value
     })
   }
+
+  recipesAfterFiltering = (newLength) => {
+    this.setState({
+      recipesLength: newLength
+    })
+  }
+
+
 
   render() {
     return (
@@ -81,7 +87,9 @@ class Search extends React.Component {
             onDropDownChange={this.handleOnDropDownChange}
             dropDown={this.state.timeToPrepare}
           />
+
         </div>
+        <ViewOption onClickedRecipesPerPage={this.clickedRecipesPerPage} />
         <RecipesList
           recipesList={this.state.recipesList}
           filter={this.state.filter}
@@ -90,12 +98,13 @@ class Search extends React.Component {
           timeOfPreparation={this.state.timeToPrepare}
           currentPage={this.state.currentPage}
           recipesPerPage={this.state.recipesPerPage}
+          onRecipesAfterFiltering={this.recipesAfterFiltering}
 
 
         />
         <BasicPagination
           recipesPerPage={this.state.recipesPerPage}
-          recipesLength={this.state.recipesList.length}
+          recipesLength={this.state.recipesLength}
           updatePage={this.pageChanged}
         />
       </>
