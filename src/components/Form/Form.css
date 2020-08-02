@@ -10,7 +10,8 @@ h1,h2 {
     height: 100%;
     width: 100%;
     padding: 0;
-    background-image: url(./images/food.png);
+    background-image: url(./images/cooking.svg);
+    background-size: 500px;
     background-repeat: no-repeat;
     background-position-y: center;
     
@@ -19,7 +20,7 @@ h1,h2 {
 
 .formContainer {
     background-color: white;
-    opacity: .9;
+    opacity: .95;
     border: 1px solid grey;
     max-width: 900px;
     height: 600px;
