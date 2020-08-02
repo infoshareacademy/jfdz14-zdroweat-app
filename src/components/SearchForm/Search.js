@@ -89,7 +89,7 @@ class Search extends React.Component {
           />
 
         </div>
-        {/* <ViewOption onClickedRecipesPerPage={this.clickedRecipesPerPage} /> */}
+        <ViewOption onClickedRecipesPerPage={this.clickedRecipesPerPage} />
         <RecipesList
           recipesList={this.state.recipesList}
           filter={this.state.filter}
