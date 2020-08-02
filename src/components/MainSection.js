@@ -124,7 +124,7 @@ export default function MainSection() {
             </IconButton>
             <div className="navContainer">
               <div className="header">ZdrowEat</div>
-              <div className="loggedUser"> Zalogowany użytkownik</div>
+              <div className="loggedUser"> Cześć, Marvel</div>
               <div>
                 <ShareButton />
               </div>
