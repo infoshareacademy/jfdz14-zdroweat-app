@@ -1,38 +1,37 @@
-import React from 'react'
-import clsx from 'clsx'
-import MenuList from './MenuList'
-import DashboardWrapper from './Dashboard/DashboardWrapper'
-import Search from './SearchForm/Search'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import MyFavouriteList from './MyFavouriteList'
-import ShareButton from './ShareButton';
-import Logo from './Logo'
-import Home from './Home/Home'
-import Form from './Form/Form';
-import './MainSection.css'
-import RecipeReviewCard from './RecipeCard'
-import SingleRecipe from './SingleRecipe';
+import React from "react";
+import clsx from "clsx";
+import MenuList from "./MenuList";
+import DashboardWrapper from "./Dashboard/DashboardWrapper";
+import Search from "./SearchForm/Search";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import MyFavouriteList from "./MyFavouriteList";
+import ShareButton from "./ShareButton";
+import Logo from "./Logo";
+import Home from "./Home/Home";
+import Form from "./Form/Form";
+import "./MainSection.css";
+import RecipeReviewCard from "./RecipeCard";
+import SingleRecipe from "./SingleRecipe";
 
-const drawerWidth = 300
+const drawerWidth = 300;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
+    display: "flex",
     paddingTop: 20,
     paddingLeft: 50,
     paddingRight: 50,
-
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
+    transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
@@ -40,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   appBarShift: {
     marginLeft: drawerWidth,
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
+    transition: theme.transitions.create(["width", "margin"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
@@ -49,35 +48,35 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 36,
   },
   hide: {
-    display: 'none',
+    display: "none",
   },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
-    whiteSpace: 'nowrap',
+    whiteSpace: "nowrap",
   },
   drawerOpen: {
     width: drawerWidth,
-    transition: theme.transitions.create('width', {
+    transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
   drawerClose: {
-    transition: theme.transitions.create('width', {
+    transition: theme.transitions.create("width", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
-    overflowX: 'hidden',
+    overflowX: "hidden",
     width: theme.spacing(7) + 1,
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up("sm")]: {
       width: theme.spacing(9) + 1,
     },
   },
   toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
@@ -86,20 +85,20 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(4),
   },
-}))
+}));
 
 export default function MainSection() {
-  const classes = useStyles()
-  const theme = useTheme()
-  const [open, setOpen] = React.useState(false)
+  const classes = useStyles();
+  const theme = useTheme();
+  const [open, setOpen] = React.useState(false);
 
   const handleDrawerOpen = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleDrawerClose = () => {
-    setOpen(false)
-  }
+    setOpen(false);
+  };
 
   return (
     <BrowserRouter>
@@ -126,7 +125,9 @@ export default function MainSection() {
             <div className="navContainer">
               <div className="header">ZdrowEat</div>
               <div className="loggedUser"> Zalogowany użytkownik</div>
-              <div><ShareButton /></div>
+              <div>
+                <ShareButton />
+              </div>
             </div>
           </Toolbar>
         </AppBar>
@@ -145,7 +146,7 @@ export default function MainSection() {
         >
           <div className={classes.toolbar}>
             <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'rtl' ? (
+              {theme.direction === "rtl" ? (
                 <ChevronRightIcon />
               ) : (
                 <ChevronLeftIcon />
@@ -157,20 +158,15 @@ export default function MainSection() {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Switch>
-            <Route
-              exact
-              path="/zdroweat-w-liczbach"
-              component={DashboardWrapper}
-            />
+            <Route exact path="/zdroweat-w-liczbach" component={DashboardWrapper} />
             <Route exact path="/" component={Search} />
             <Route exact path="/Formularz" component={Form} />
             <Route exact path="/Search/:id" component={SingleRecipe} />
             <Route exact path="/lista-ulubionych" component={MyFavouriteList} />
             <Route exact path="/nasi-fani" component={Home} />
-
           </Switch>
         </main>
       </div>
     </BrowserRouter>
-  )
+  );
 }
