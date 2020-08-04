@@ -38,13 +38,16 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)',
   },
 
-  button: {
-    margin: theme.spacing(1),
-    backgroundColor: 'rgba(209, 26, 42, 0.7)',
-    color: 'white',
-    padding: '0.75rem',
-    fontSize: '1rem'
+  cardTop: {
+    height: '100px'
   },
+
+  delIcon: {
+    position: 'relative',
+    top: '20px',
+    // right: '0px'
+  }
+
 }));
 
 export default function FullRecipeCard(props) {
@@ -56,7 +59,7 @@ export default function FullRecipeCard(props) {
     setExpanded(!expanded);
   };
 
-  const onClickHandlerButton = () => {
+  const onClickHandler = () => {
         localStorage.removeItem(props.title, props.title);
         window.location.reload(true);
      } 
@@ -67,11 +70,12 @@ export default function FullRecipeCard(props) {
     <Card className={classes.root} className={styles.singleCardMaterialUI}>
       <CardHeader
         action={
-          <IconButton aria-label="eco">
-            <EcoIcon color='primary'/>
+          <IconButton aria-label="delete from favourites" className={classes.delIcon}>
+            <DeleteIcon onClick = {onClickHandler} />
           </IconButton>
         }
         title={props.title}
+        className={classes.cardTop}
       />
 
       
@@ -81,35 +85,33 @@ export default function FullRecipeCard(props) {
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-            <div className={styles.paragraph}>
-                <TimerIcon style={{fontSize: '1.75rem'}} />: {props.readyInMinutes} min <hr/>
-                <LocalDiningIcon style={{fontSize: '1.75rem'}}/>: {props.servings} <hr/>
+            <div className={styles.cardBottom}>
+              <div className={styles.icons}>
+                <TimerIcon style={{fontSize: '1.75rem'}} />: {props.readyInMinutes} min
+              </div>
+              <div className={styles.icons}>
+                <LocalDiningIcon style={{fontSize: '1.75rem'}}/>: {props.servings}
+              </div>
+              <div className={styles.icons}>
                 <AttachMoneyIcon style={{fontSize: '1.75rem'}}/>: {props.price} zł
+              </div>
             </div>
 
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
+              <IconButton
         
-          <Button
-            onClick={onClickHandlerButton}
-            variant="contained"
-            color="secondary"
-            className={classes.button}
-            startIcon={<DeleteIcon />}
-          >
-            Usuń z ulubionych
-          </Button>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        > 
-          <ExpandMoreIcon />
-        </IconButton>
+                className={clsx(classes.expand, {
+                  [classes.expandOpen]: expanded,
+                })}
+                onClick={handleExpandClick}
+                aria-expanded={expanded}
+                aria-label="show more"
+              > 
+                <ExpandMoreIcon />
+              </IconButton>
+        
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
