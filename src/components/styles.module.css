@@ -14,9 +14,20 @@
   justify-content: center;
 }
 
-.paragraph {
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardBottom {
+  display: flex;
+  justify-content: space-evenly;
   font-size: 1.25rem;
- 
+  margin-top: 0.75rem;
+}
+
+.icons {
+  display: flex;
 }
 
 .link {
