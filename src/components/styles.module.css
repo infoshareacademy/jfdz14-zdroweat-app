@@ -3,8 +3,8 @@
 }
 
 .recipesList{
-    display: grid;
-    grid-template-columns:  repeat(4, 1fr);
+    display: flex;
+    flex-direction: column;
 }
 
 .recipeContainer {
@@ -45,4 +45,19 @@
 
 .iconText {
     font-size: 1.25rem;
+}
+
+@media (min-width: 576px) {
+  .recipesList{
+    display: grid;
+    grid-template-columns:  repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .recipesList{
+    display: grid;
+    grid-template-columns:  repeat(4, 1fr);
+  }
+
 }
