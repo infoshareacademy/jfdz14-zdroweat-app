@@ -2,6 +2,7 @@ import React from "react";
 import FullRecipeCard from './FullRecipeCard';
 import { recipes } from "../data/Recipes";
 import styles from './styles.module.css';
+import Auth from './Auth';
 
 const MyFavouriteList = () => {
     let favourites = [];
@@ -9,9 +10,8 @@ const MyFavouriteList = () => {
             favourites.push(localStorage.key(i));
         }
         
-    return (
-        <>
-
+    return (  
+        <Auth>         
             <h1 className={styles.header}>Twoje ulubione przepisy</h1>
             <div className={styles.recipesList}>
                 {
@@ -32,7 +32,7 @@ const MyFavouriteList = () => {
                     })
                 }
             </div>
-        </>
+        </Auth>
     )
 }
 
