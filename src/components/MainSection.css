@@ -19,4 +19,9 @@
     letter-spacing: 0.2rem;
     position: absolute;
     right: 250px;
+    top: 22px;
+}
+
+.signInShareButtons {
+    display: flex;
 }
