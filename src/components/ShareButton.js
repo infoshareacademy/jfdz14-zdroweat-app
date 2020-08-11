@@ -18,7 +18,7 @@ export default function IconLabelButtons() {
   return (
     <Button
       variant="contained"
-      color='primary'
+      color='default'
       size="small"
       className={classes.button}
       startIcon={<FacebookIcon />}
