@@ -12,6 +12,7 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import TimerIcon from '@material-ui/icons/Timer';
 import styles from './styles.module.css';
 import { Link } from 'react-router-dom';
+import AuthIcons from './AuthIcons';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -75,11 +76,14 @@ export default function RecipeReviewCard(props) {
       <CardHeader
         action={
           <IconButton aria-label="add to favorites" className={classes.favIcon}>
-            <FavoriteIcon
-              style={{ color: favColor() }}
-              onClick={onClickHandler}
-            />
+            <AuthIcons>
+              <FavoriteIcon
+                style={{ color: favColor() }}
+                onClick={onClickHandler}
+              />
+            </AuthIcons>
           </IconButton>
+
         }
         title={props.title}
         className={classes.cardTop}

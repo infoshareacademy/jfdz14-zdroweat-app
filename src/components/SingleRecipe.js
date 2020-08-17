@@ -2,7 +2,7 @@ import React from 'react'
 import { recipes } from '../data/Recipes'
 import { useParams } from 'react-router-dom'
 import CardActions from '@material-ui/core/CardActions'
-
+import AuthIcons from './AuthIcons';
 import { red, grey } from '@material-ui/core/colors'
 import styles from './SingleRecipe.module.css'
 
@@ -76,10 +76,12 @@ const SingleRecipe = (props) => {
         </p>
         <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
-            <FavoriteIcon
-              style={{ color: favColor() }}
-              onClick={onClickHandler}
-            />
+            <AuthIcons>
+              <FavoriteIcon
+                style={{ color: favColor() }}
+                onClick={onClickHandler}
+              />
+            </AuthIcons>
           </IconButton>
         </CardActions>
       </div>

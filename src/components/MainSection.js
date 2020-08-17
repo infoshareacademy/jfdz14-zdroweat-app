@@ -17,8 +17,9 @@ import Logo from "./Logo";
 import Home from "./Home/Home";
 import Form from "./Form/Form";
 import "./MainSection.css";
-import RecipeReviewCard from "./RecipeCard";
 import SingleRecipe from "./SingleRecipe";
+import SignIn from './SignIn';
+import SignInButton from './SignInButton';
 
 const drawerWidth = 300;
 
@@ -124,9 +125,9 @@ export default function MainSection() {
             </IconButton>
             <div className="navContainer">
               <div className="header">ZdrowEat</div>
-              <div className="loggedUser"> Cześć, Marvel</div>
-              <div>
+              <div className="signInShareButtons">
                 <ShareButton />
+                <SignInButton />
               </div>
             </div>
           </Toolbar>
@@ -164,6 +165,8 @@ export default function MainSection() {
             <Route exact path="/Search/:id" component={SingleRecipe} />
             <Route exact path="/lista-ulubionych" component={MyFavouriteList} />
             <Route exact path="/nasi-fani" component={Home} />
+            <Route path='/signin' component={SignIn} />
+            <Route path='/signup' component={() => <SignIn isSignUp />} /> 
           </Switch>
         </main>
       </div>
