@@ -26,7 +26,7 @@ const DashboardWrapper = () => {
           data={
             <FaceIcon
               className={styles.faceIcon}
-              style={{ fontSize: 60, color: '#DDBEA9' }}
+              style={{ fontSize: 40, color: '#DDBEA9' }}
             />
           }
         />
@@ -36,7 +36,7 @@ const DashboardWrapper = () => {
           data={
             <Favorite
               className={styles.favoriteIcon}
-              style={{ fontSize: 60, color: '#bb8588' }}
+              style={{ fontSize: 40, color: '#bb8588' }}
             />
           }
         />
@@ -47,28 +47,28 @@ const DashboardWrapper = () => {
           data={
             <SupervisedUserCircleIcon
               className={styles.userIcon}
-              style={{ fontSize: 60, color: '#a3a380' }}
+              style={{ fontSize: 40, color: '#a3a380' }}
             />
           }
         />
         <BasicContainer
           title="UDOSTĘPNIONO"
           text={<CountUp end={555} duration={3} />}
-          data={<ShareIcon style={{ fontSize: 60, color: '#D8A48F' }} />}
+          data={<ShareIcon style={{ fontSize: 40, color: '#D8A48F' }} />}
         />
       </div>
 
       <div className={styles.secondContainer}>
         <div className={styles.column2}>
-          <div className={styles.teamSvg}>
-            <DashboardText
-              className={styles.containerTitleTwo}
-              text="Z naszej aplikacji co roku korzysta coraz więcej osób!"
-            />
-          </div>
+          <DashboardText
+            className={styles.containerTitleTwo}
+            text="Z naszej aplikacji co roku korzysta coraz więcej osób!"
+          />
+          <div className={styles.teamSvg}></div>
         </div>
-
-        <StackedAreaChart />
+        <div className={styles.column}>
+          <StackedAreaChart />
+        </div>
       </div>
 
       <div className={styles.container}>
@@ -79,13 +79,10 @@ const DashboardWrapper = () => {
       </div>
 
       <div className={styles.mapContainer}>
-        <div className={styles.svg}>
-          <DashboardText
-            className={styles.mapText}
-            text="ZdrowEat jest dostępny na całym świecie!"
-            text2=" Zobacz, skąd pochodzą nasi użytkownicy."
-          />
-        </div>
+        <DashboardText
+          className={styles.mapText}
+          text="ZdrowEat jest dostępny na całym świecie!"
+        />
 
         <Map />
       </div>

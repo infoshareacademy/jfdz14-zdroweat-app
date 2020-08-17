@@ -5,7 +5,6 @@ const DashboardText = ({ className, text, text2 }) => {
     <>
       <div className={className}>
         <div>{text}</div>
-        <div>{text2}</div>
       </div>
     </>
   )
