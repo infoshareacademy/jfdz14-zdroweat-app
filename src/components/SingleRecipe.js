@@ -2,7 +2,7 @@ import React from 'react'
 import { recipes } from '../data/Recipes'
 import { useParams } from 'react-router-dom'
 import CardActions from '@material-ui/core/CardActions'
-import AuthIcons from './AuthIcons';
+import AuthIcons from './AuthIcons'
 import { red, grey } from '@material-ui/core/colors'
 import styles from './SingleRecipe.module.css'
 
@@ -23,7 +23,6 @@ const SingleRecipe = (props) => {
     return null
   }
 
-
   const onClickHandler = () => {
     addedToFavourite(!addToFavourite)
 
@@ -34,7 +33,7 @@ const SingleRecipe = (props) => {
     }
   }
 
-  let localStorageArray = [];
+  let localStorageArray = []
 
   for (let i = 0; i < 30; i++) {
     localStorageArray.push(localStorage.key(i))
@@ -87,9 +86,7 @@ const SingleRecipe = (props) => {
       </div>
 
       <div className={styles.main}>
-        <p className={styles.title} style={{ fontSize: '1.5rem' }}>
-          Sposób przygotowania
-        </p>
+        <p className={styles.title}>Sposób przygotowania</p>
         <p className={styles.recipe}> {Recipe.recipe}</p>
       </div>
     </div>
