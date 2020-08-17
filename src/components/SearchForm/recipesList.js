@@ -8,36 +8,9 @@ const RecipesList = (props) => {
 
     return (
         <div className={styles.recipesList}>
-            {props.recipesList
-                .filter(recipe => {
-                    return (recipe.name
-                        .toLowerCase()
-                        .includes(props.filter.toLowerCase())
-                    )
-                })
-                .filter(recipe => {
-                    return (
-                        recipe.price >= props.priceMin &&
-                        recipe.price <= props.priceMax
-                    )
-                })
-                .filter((recipe) => {
 
 
-                    switch (props.timeOfPreparation) {
-
-                        case 10:
-                            return recipe.readyInMinutes > 0 && recipe.readyInMinutes <= 30;
-                        case 20:
-                            return recipe.readyInMinutes >= 30 && recipe.readyInMinutes <= 45;
-                        case 30:
-                            return recipe.readyInMinutes >= 45;
-                        default:
-                            return recipe;
-                    }
-
-                })
-                .slice(firstIndex, lastIndex)
+            {props.recipesList.slice(firstIndex, lastIndex)
                 .map((recipe) => {
 
                     return (
@@ -55,8 +28,8 @@ const RecipesList = (props) => {
                     )
                 })
 
-
             }
+
 
 
         </div>

@@ -19,7 +19,7 @@ class Search extends React.Component {
   state = {
 
     recipesList: recipes,
-    recipesLength: recipes.length,
+
     filter: '',
     priceMin: getStartRange[0],
     priceMax: getStartRange[getStartRange.length - 1],
@@ -28,12 +28,46 @@ class Search extends React.Component {
     recipesPerPage: 8,
   }
 
+  applyFilter = () => {
+    this.setState({
+      recipesList: recipes.filter(recipe => {
+        return (recipe.name
+          .toLowerCase()
+          .includes(this.state.filter.toLowerCase())
+        )
+      })
+        .filter(recipe => {
+          return (
+            recipe.price >= this.state.priceMin &&
+            recipe.price <= this.state.priceMax
+          )
+        })
+        .filter((recipe) => {
+
+          switch (this.state.timeToPrepare) {
+
+            case 10:
+              return recipe.readyInMinutes > 0 && recipe.readyInMinutes <= 30;
+            case 20:
+              return recipe.readyInMinutes >= 30 && recipe.readyInMinutes <= 45;
+            case 30:
+              return recipe.readyInMinutes >= 45;
+            default:
+              return recipe;
+          }
+        }),
+      currentPage: 1
+    })
+  }
+
+
   handleOnSliderChange = (upDateRange) => {
 
     this.setState({
       priceMin: upDateRange[0],
       priceMax: upDateRange[1],
     })
+    this.applyFilter()
 
   }
 
@@ -41,11 +75,13 @@ class Search extends React.Component {
     this.setState({
       filter: textFilter,
     })
+    this.applyFilter()
   }
   handleOnDropDownChange = (dropDownValue) => {
     this.setState({
       timeToPrepare: dropDownValue
     })
+    this.applyFilter()
   }
 
   pageChanged = (pageNumber) => {
@@ -104,8 +140,9 @@ class Search extends React.Component {
         />
         <BasicPagination
           recipesPerPage={this.state.recipesPerPage}
-          recipesLength={this.state.recipesLength}
+          recipesLength={this.state.recipesList.length}
           updatePage={this.pageChanged}
+
         />
       </>
     )
