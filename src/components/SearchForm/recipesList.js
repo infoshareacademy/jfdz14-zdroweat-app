@@ -2,15 +2,13 @@ import React from 'react'
 import RecipeReviewCard from '../RecipeCard'
 import styles from "./search.module.css"
 
-const RecipesList = (props) => {
-    const lastIndex = props.currentPage * props.recipesPerPage
-    const firstIndex = lastIndex - props.recipesPerPage
+const RecipesList = ({ recipesList, currentPage, recipesPerPage }) => {
+    const lastIndex = currentPage * recipesPerPage
+    const firstIndex = lastIndex - recipesPerPage
 
     return (
         <div className={styles.recipesList}>
-
-
-            {props.recipesList.slice(firstIndex, lastIndex)
+            {recipesList.slice(firstIndex, lastIndex)
                 .map((recipe) => {
 
                     return (
@@ -29,9 +27,6 @@ const RecipesList = (props) => {
                 })
 
             }
-
-
-
         </div>
     )
 }

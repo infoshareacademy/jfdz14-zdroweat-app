@@ -2,35 +2,57 @@ import React from 'react'
 import RangeSlider from './slider'
 import ControlledOpenSelect from './dropdown'
 import BasicTextFields from './inputSearch'
-import { recipes } from '../../data/Recipes'
 import RecipesList from "./recipesList"
 import styles from './search.module.css'
 import BasicPagination from './pagination'
 import ViewOption from './recipesPerPage'
+import { DATABASE_URL } from '../../index'
 
 
-const getStartRange = recipes
-  .map((recipe) => {
-    return recipe.price
-  })
-  .sort((a, b) => a - b)
 
 class Search extends React.Component {
   state = {
 
-    recipesList: recipes,
-
+    recipesList: [],
+    filteredList: [],
     filter: '',
-    priceMin: getStartRange[0],
-    priceMax: getStartRange[getStartRange.length - 1],
+    priceMin: 0,
+    priceMax: 100,
     timeToPrepare: 0,
     currentPage: 1,
     recipesPerPage: 8,
   }
 
+
+  fetchData = () => {
+    fetch(`${DATABASE_URL}/recipes.json`)
+      .then(response => response.json())
+      .then(recipes => {
+        const arrayRecipes = recipes
+          ? Object
+            .keys(recipes)
+            .map(key => {
+              return {
+                id: key,
+                ...recipes[key]
+              }
+            })
+          : []
+
+        this.setState({
+          recipesList: arrayRecipes,
+          filteredList: arrayRecipes,
+        })
+      })
+  }
+  componentDidMount() {
+    this.fetchData()
+  }
+
+
   applyFilter = () => {
     this.setState({
-      recipesList: recipes.filter(recipe => {
+      filteredList: this.state.recipesList.filter(recipe => {
         return (recipe.name
           .toLowerCase()
           .includes(this.state.filter.toLowerCase())
@@ -68,7 +90,6 @@ class Search extends React.Component {
       priceMax: upDateRange[1],
     })
     this.applyFilter()
-
   }
 
   handleOnFormChange = (textFilter) => {
@@ -77,9 +98,9 @@ class Search extends React.Component {
     })
     this.applyFilter()
   }
-  handleOnDropDownChange = (dropDownValue) => {
+  handleOnDropDownChange = (newDropDownValue) => {
     this.setState({
-      timeToPrepare: dropDownValue
+      timeToPrepare: newDropDownValue
     })
     this.applyFilter()
   }
@@ -90,17 +111,13 @@ class Search extends React.Component {
     })
 
   }
-  clickedRecipesPerPage = (value) => {
+
+  recipesPerPageChanged = (value) => {
     this.setState({
       recipesPerPage: value
     })
   }
 
-  recipesAfterFiltering = (newLength) => {
-    this.setState({
-      recipesLength: newLength
-    })
-  }
 
 
 
@@ -115,32 +132,27 @@ class Search extends React.Component {
 
           <RangeSlider
             onSliderChange={this.handleOnSliderChange}
-            initialValueMin={this.state.priceMin}
-            initialValueMax={this.state.priceMax}
+            priceMin={this.state.priceMin}
+            priceMax={this.state.priceMax}
+
           />
 
           <ControlledOpenSelect
             onDropDownChange={this.handleOnDropDownChange}
-            dropDown={this.state.timeToPrepare}
+            dropDownValue={this.state.timeToPrepare}
           />
 
         </div>
-        <ViewOption onClickedRecipesPerPage={this.clickedRecipesPerPage} />
+        <ViewOption onClickedRecipesPerPage={this.recipesPerPageChanged} />
         <RecipesList
-          recipesList={this.state.recipesList}
-          filter={this.state.filter}
-          priceMin={this.state.priceMin}
-          priceMax={this.state.priceMax}
-          timeOfPreparation={this.state.timeToPrepare}
+          recipesList={this.state.filteredList}
           currentPage={this.state.currentPage}
           recipesPerPage={this.state.recipesPerPage}
-          onRecipesAfterFiltering={this.recipesAfterFiltering}
-
 
         />
         <BasicPagination
           recipesPerPage={this.state.recipesPerPage}
-          recipesLength={this.state.recipesList.length}
+          recipesLength={this.state.filteredList.length}
           updatePage={this.pageChanged}
 
         />
@@ -148,4 +160,5 @@ class Search extends React.Component {
     )
   }
 }
-export default Search
+
+export default Search 

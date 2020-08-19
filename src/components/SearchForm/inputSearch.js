@@ -12,18 +12,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const BasicTextFields = (props) => {
+const BasicTextFields = ({ onFormChange, filterValue }) => {
     const classes = useStyles()
 
     const handleOnChange = (event) => {
-        props.onFormChange(event.target.value)
+        onFormChange(event.target.value)
     }
 
 
     return (
         <form className={classes.root} noValidate autoComplete="off" >
 
-            <TextField id="outlined-basic" label="Wyszukaj przepis" variant="outlined" value={props.filterValue}
+            <TextField id="outlined-basic" label="Wyszukaj przepis" variant="outlined" value={filterValue}
                 onChange={handleOnChange} />
         </form>
     );
