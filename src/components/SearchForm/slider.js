@@ -16,13 +16,13 @@ function valuetext(value) {
 
 
 
-const RangeSlider = (props) => {
+const RangeSlider = ({ onSliderChange, priceMin, priceMax }) => {
     const classes = useStyles();
-    const [value, setValue] = React.useState([props.initialValueMin, props.initialValueMax]);
+    const [value, setValue] = React.useState([priceMin, priceMax]);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
-        props.onSliderChange(newValue);
+        onSliderChange(newValue);
 
     };
 
