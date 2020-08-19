@@ -20,6 +20,7 @@ import "./MainSection.css";
 import SingleRecipe from "./SingleRecipe";
 import SignIn from './SignIn';
 import SignInButton from './SignInButton';
+import RecipeCardProviderIndex from "./RecipeCardProviderIndex";
 
 const drawerWidth = 300;
 
@@ -167,6 +168,7 @@ export default function MainSection() {
             <Route exact path="/nasi-fani" component={Home} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={() => <SignIn isSignUp />} /> 
+            <Route exact path="/test" component={RecipeCardProviderIndex} />
           </Switch>
         </main>
       </div>

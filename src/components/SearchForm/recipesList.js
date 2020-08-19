@@ -1,6 +1,8 @@
 import React from 'react'
 import RecipeReviewCard from '../RecipeCard'
 import styles from "./search.module.css"
+import RecipeCardProvider from '../RecipeCardProvider';
+import RecipeData from '../RecipeData';
 
 const RecipesList = (props) => {
     const lastIndex = props.currentPage * props.recipesPerPage
@@ -52,6 +54,15 @@ const RecipesList = (props) => {
                             readyInMinutes={recipe.readyInMinutes}
                             recipe={recipe.recipe}
                         />
+
+                        //tutaj trzeba wsadzić coś takiego, tylko wtedy jest jakiś błąd przy filtrze i paginacji.
+                        //przykład tego jak to dziala w plikach RecipeCardProvider, RecipeCardProviderIndex i
+                        //RecupeData. Oraz pod adresem: http://localhost:3000/test
+                        // <RecipeCardProvider
+                        //     className={styles.recipeItem}
+                        //     renderComponent={RecipeData}
+                        //     url={'https://zdroweat-7d0b0.firebaseio.com/recipes.json'}
+                        // />
                     )
                 })
 
@@ -64,3 +75,4 @@ const RecipesList = (props) => {
 }
 
 export default RecipesList
+

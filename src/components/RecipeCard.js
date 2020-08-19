@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-export default function RecipeReviewCard(props) {
+const RecipeReviewCard = (props) => {
   const classes = useStyles()
   const [addToFavourite, addedToFavourite] = React.useState(true)
 
@@ -111,3 +111,7 @@ export default function RecipeReviewCard(props) {
     </Card>
   )
 }
+
+export default RecipeReviewCard;
+
+
