@@ -20,6 +20,7 @@ import "./MainSection.css";
 import SingleRecipe from "./SingleRecipe";
 import SignIn from './SignIn';
 import SignInButton from './SignInButton';
+import SignInEmail from './SignInEmail';
 
 const drawerWidth = 300;
 
@@ -166,7 +167,7 @@ export default function MainSection() {
             <Route exact path="/lista-ulubionych" component={MyFavouriteList} />
             <Route exact path="/nasi-fani" component={Home} />
             <Route path='/signin' component={SignIn} />
-            <Route path='/signup' component={() => <SignIn isSignUp />} /> 
+            <Route path='/signup' component={() => <SignInEmail isSignUp />} /> 
           </Switch>
         </main>
       </div>
