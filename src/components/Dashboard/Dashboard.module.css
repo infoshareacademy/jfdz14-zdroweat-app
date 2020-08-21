@@ -149,7 +149,7 @@
   }
   /* Basic container  */
   .basic {
-    width: calc(23% - 0.5rem);
+    width: calc(20% - 0.5rem);
     margin: 0.5rem;
   }
 

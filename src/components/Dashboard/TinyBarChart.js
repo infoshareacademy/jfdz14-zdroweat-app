@@ -22,7 +22,6 @@ const TinyBarChart = () => {
       data={data}
       style={{
         fontSize: '1rem',
-        paddingBottom: '1rem',
       }}
     >
       <Bar barSize={25} dataKey="wege" fill="#BB8588" />
@@ -31,7 +30,7 @@ const TinyBarChart = () => {
       <Legend
         verticalAlign="bottom"
         align="center"
-        style={{ paddingTop: '6rem' }}
+        style={{ marginTop: '2rem' }}
       />
     </BarChart>
   )
