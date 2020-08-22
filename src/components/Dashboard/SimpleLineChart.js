@@ -12,10 +12,10 @@ const data = [
 const SimpleLineChart = () => {
   return (
     <LineChart
-      width={350}
+      width={250}
       height={160}
       data={data}
-      margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+      margin={{ top: 10, right: 10, left: 0, bottom: 10 }}
     >
       <XAxis dataKey="name" />
       <YAxis />
