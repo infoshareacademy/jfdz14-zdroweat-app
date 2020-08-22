@@ -17,7 +17,6 @@ import AuthIcons from './AuthIcons';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
   },
   media: {
     height: 0,
@@ -39,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   favIcon: {
     position: 'relative',
     top: '20px',
-   
+
   }
 }))
 
@@ -49,47 +48,47 @@ export default function RecipeReviewCard(props) {
 
   const onClickHandler = () => {
     addedToFavourite(!addToFavourite)
-    
+
     if (addToFavourite) {
       localStorage.setItem(props.title, '')
     } else {
       localStorage.removeItem(props.title)
     }
   }
-  
+
   let localStorageArray = [];
 
-  for(let i = 0; i < 30; i++){
+  for (let i = 0; i < 30; i++) {
     localStorageArray.push(localStorage.key(i))
   }
 
   let favColor = () => {
-    if (localStorageArray.includes(props.title)){
+    if (localStorageArray.includes(props.title)) {
       return red[500]
     } else {
-        return grey[500]
+      return grey[500]
     }
   }
 
   return (
     <Card className={classes.root} className={styles.singleCardMaterialUI}>
-      
-        <CardHeader
-          action={
-            <IconButton aria-label="add to favorites" className={classes.favIcon}>
-              <AuthIcons>
-                <FavoriteIcon 
-                  style={{ color: favColor()}} 
-                  onClick={onClickHandler}
-                />
-              </AuthIcons>
-            </IconButton>
 
-          }
-          title={props.title}
-          className={classes.cardTop}
-        />
-      
+      <CardHeader
+        action={
+          <IconButton aria-label="add to favorites" className={classes.favIcon}>
+            <AuthIcons>
+              <FavoriteIcon
+                style={{ color: favColor() }}
+                onClick={onClickHandler}
+              />
+            </AuthIcons>
+          </IconButton>
+
+        }
+        title={props.title}
+        className={classes.cardTop}
+      />
+
       <Link to={`Search/${props.id}`} className={styles.link}>
         <CardMedia className={classes.media} image={props.photoURL} />
       </Link>
@@ -102,9 +101,9 @@ export default function RecipeReviewCard(props) {
             </div>
             <div className={styles.icons}>
               <AttachMoneyIcon style={{ fontSize: '1.75rem' }} />: {props.price}{' '}
-              zł 
+              zł
             </div>
-            
+
           </div>
         </Typography>
       </CardContent>

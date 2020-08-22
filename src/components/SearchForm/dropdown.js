@@ -18,14 +18,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ControlledOpenSelect = (props) => {
+const ControlledOpenSelect = ({ onDropDownChange, dropDownValue }) => {
     const classes = useStyles();
-    const [age, setAge] = React.useState('');
+    const [age, setAge] = React.useState(dropDownValue);
     const [open, setOpen] = React.useState(false);
 
     const handleChange = (event) => {
         setAge(event.target.value);
-        props.onDropDownChange(event.target.value)
+        onDropDownChange(event.target.value)
     };
 
     const handleClose = () => {

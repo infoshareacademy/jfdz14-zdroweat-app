@@ -1,25 +1,27 @@
-import React from 'react'
-import clsx from 'clsx'
-import MenuList from './MenuList'
-import DashboardWrapper from './Dashboard/DashboardWrapper'
-import Search from './SearchForm/Search'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
-import Drawer from '@material-ui/core/Drawer'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import IconButton from '@material-ui/core/IconButton'
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft'
-import ChevronRightIcon from '@material-ui/icons/ChevronRight'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import MyFavouriteList from './MyFavouriteList'
-import ShareButton from './ShareButton'
-import Logo from './Logo'
-import Home from './Home/Home'
-import Form from './Form/Form'
-import './MainSection.css'
-import SingleRecipe from './SingleRecipe'
-import SignIn from './SignIn'
-import SignInButton from './SignInButton'
+
+import React from "react";
+import clsx from "clsx";
+import MenuList from "./MenuList";
+import DashboardWrapper from "./Dashboard/DashboardWrapper";
+import Search from "./SearchForm/Search";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import MyFavouriteList from "./MyFavouriteList";
+import ShareButton from "./ShareButton";
+import Logo from "./Logo";
+import Home from "./Home/Home";
+import Form from "./Form/Form";
+import "./MainSection.css";
+import SingleRecipe from "./SingleRecipe";
+import SignIn from './SignIn';
+import SignInButton from './SignInButton';
+import SignInEmail from './SignInEmail';
 
 const drawerWidth = 300
 
@@ -169,8 +171,13 @@ export default function MainSection() {
             <Route exact path="/Search/:id" component={SingleRecipe} />
             <Route exact path="/lista-ulubionych" component={MyFavouriteList} />
             <Route exact path="/nasi-fani" component={Home} />
+
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={() => <SignIn isSignUp />} />
+
+            <Route path='/signin' component={SignIn} />
+            <Route path='/signup' component={() => <SignInEmail isSignUp />} /> 
+
           </Switch>
         </main>
       </div>
