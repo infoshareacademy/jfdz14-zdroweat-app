@@ -9,8 +9,6 @@ import styles from './SingleRecipe.module.css'
 // icons
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import IconButton from '@material-ui/core/IconButton'
-import AccessTimeIcon from '@material-ui/icons/AccessTime'
-import RestaurantIcon from '@material-ui/icons/Restaurant'
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney'
 import TimerIcon from '@material-ui/icons/Timer'
 import LocalDiningIcon from '@material-ui/icons/LocalDining'
