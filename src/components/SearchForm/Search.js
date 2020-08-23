@@ -126,7 +126,7 @@ class Search extends React.Component {
 
   render() {
     return (
-      <>
+      <div style={{ marginBottom: '20px' }}>
         <div className={styles.flexBar}>
           <BasicTextFields
             onFormChange={this.handleOnFormChange}
@@ -167,7 +167,7 @@ class Search extends React.Component {
           </>
         }
 
-      </>
+      </div>
     )
   }
 }
