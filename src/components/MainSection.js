@@ -172,9 +172,6 @@ export default function MainSection() {
             <Route exact path="/lista-ulubionych" component={MyFavouriteList} />
             <Route exact path="/nasi-fani" component={Home} />
 
-            <Route path="/signin" component={SignIn} />
-            <Route path="/signup" component={() => <SignIn isSignUp />} />
-
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={() => <SignInEmail isSignUp />} /> 
 
