@@ -1,5 +1,6 @@
 .flexBar{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     border-bottom: 2px black solid;
     margin-bottom: 15px;
@@ -34,4 +35,17 @@ font-size: 1.2em;
 }
 
 
-   
+
+   @media (max-width: 1024px){
+    .recipesList{
+        display: grid;
+        grid-template-columns:  repeat(3, 1fr);;
+    }
+   }
+   @media (max-width: 800px){
+    .recipesList{
+        display: grid;
+        grid-template-columns:  repeat(1, 1fr);;
+    }
+   }
+ 

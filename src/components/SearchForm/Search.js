@@ -5,6 +5,8 @@ import BasicTextFields from './inputSearch'
 import RecipesList from "./recipesList"
 import styles from './search.module.css'
 import BasicPagination from './pagination'
+import PageWrapper from './pagewrapper'
+import CircularProgress from '@material-ui/core/CircularProgress';
 import ViewOption from './recipesPerPage'
 import { DATABASE_URL } from '../../index'
 
@@ -20,6 +22,7 @@ class Search extends React.Component {
     timeToPrepare: 0,
     currentPage: 1,
     recipesPerPage: 8,
+    isLoading: true
   }
 
   fetchData = () => {
@@ -40,6 +43,7 @@ class Search extends React.Component {
         this.setState({
           recipesList: arrayRecipes,
           filteredList: arrayRecipes,
+          isLoading: false
         })
       })
   }
@@ -143,18 +147,26 @@ class Search extends React.Component {
 
         </div>
         <ViewOption onClickedRecipesPerPage={this.recipesPerPageChanged} />
-        <RecipesList
-          recipesList={this.state.filteredList}
-          currentPage={this.state.currentPage}
-          recipesPerPage={this.state.recipesPerPage}
+        {this.state.isLoading
+          ?
+          <PageWrapper><CircularProgress /></PageWrapper>
+          :
+          <>
+            <RecipesList
+              recipesList={this.state.filteredList}
+              currentPage={this.state.currentPage}
+              recipesPerPage={this.state.recipesPerPage}
 
-        />
-        <BasicPagination
-          recipesPerPage={this.state.recipesPerPage}
-          recipesLength={this.state.filteredList.length}
-          updatePage={this.pageChanged}
+            />
+            <BasicPagination
+              recipesPerPage={this.state.recipesPerPage}
+              recipesLength={this.state.filteredList.length}
+              updatePage={this.pageChanged}
 
-        />
+            />
+          </>
+        }
+
       </>
     )
   }

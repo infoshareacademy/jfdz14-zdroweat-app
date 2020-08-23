@@ -10,11 +10,11 @@ import Select from '@material-ui/core/Select';
 const useStyles = makeStyles((theme) => ({
     button: {
         display: 'block',
-        marginTop: theme.spacing(2),
+        marginTop: theme.spacing(1),
     },
     formControl: {
         margin: theme.spacing(1),
-        minWidth: 250,
+        minWidth: '300px',
     },
 }));
 
@@ -38,7 +38,7 @@ const ControlledOpenSelect = ({ onDropDownChange, dropDownValue }) => {
     };
 
     return (
-        <div>
+        <>
 
             <FormControl className={classes.formControl}>
                 <InputLabel id="demo-controlled-open-select-label">Czas przygotowywania</InputLabel>
@@ -58,7 +58,7 @@ const ControlledOpenSelect = ({ onDropDownChange, dropDownValue }) => {
                     <MenuItem value={30}>&gt; 45 minut</MenuItem>
                 </Select>
             </FormControl>
-        </div>
+        </>
     );
 }
 
