@@ -13,9 +13,6 @@ function valuetext(value) {
     return `${value} PLN`;
 }
 
-
-
-
 const RangeSlider = ({ onSliderChange, priceMin, priceMax }) => {
     const classes = useStyles();
     const [value, setValue] = React.useState([priceMin, priceMax]);
@@ -23,10 +20,7 @@ const RangeSlider = ({ onSliderChange, priceMin, priceMax }) => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
         onSliderChange(newValue);
-
     };
-
-
 
     return (
         <div className={classes.root}>

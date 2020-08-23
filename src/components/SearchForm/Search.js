@@ -12,7 +12,6 @@ import { DATABASE_URL } from '../../index'
 
 class Search extends React.Component {
   state = {
-
     recipesList: [],
     filteredList: [],
     filter: '',
@@ -22,7 +21,6 @@ class Search extends React.Component {
     currentPage: 1,
     recipesPerPage: 8,
   }
-
 
   fetchData = () => {
     fetch(`${DATABASE_URL}/recipes.json`)
@@ -45,10 +43,10 @@ class Search extends React.Component {
         })
       })
   }
+
   componentDidMount() {
     this.fetchData()
   }
-
 
   applyFilter = () => {
     this.setState({
@@ -84,25 +82,29 @@ class Search extends React.Component {
 
 
   handleOnSliderChange = (upDateRange) => {
-
     this.setState({
       priceMin: upDateRange[0],
       priceMax: upDateRange[1],
+    }, () => {
+      this.applyFilter()
     })
-    this.applyFilter()
   }
 
   handleOnFormChange = (textFilter) => {
     this.setState({
       filter: textFilter,
+    }, () => {
+      this.applyFilter()
     })
-    this.applyFilter()
   }
+
   handleOnDropDownChange = (newDropDownValue) => {
     this.setState({
       timeToPrepare: newDropDownValue
+    }, () => {
+      this.applyFilter()
     })
-    this.applyFilter()
+
   }
 
   pageChanged = (pageNumber) => {
@@ -117,9 +119,6 @@ class Search extends React.Component {
       recipesPerPage: value
     })
   }
-
-
-
 
   render() {
     return (
