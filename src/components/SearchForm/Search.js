@@ -149,7 +149,7 @@ class Search extends React.Component {
         <ViewOption onClickedRecipesPerPage={this.recipesPerPageChanged} />
         {this.state.isLoading
           ?
-          <PageWrapper><CircularProgress /></PageWrapper>
+          <PageWrapper><CircularProgress size="350px" /></PageWrapper>
           :
           <>
             <RecipesList
