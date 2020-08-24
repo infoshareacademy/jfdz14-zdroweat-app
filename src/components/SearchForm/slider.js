@@ -5,16 +5,13 @@ import Slider from '@material-ui/core/Slider';
 
 const useStyles = makeStyles({
     root: {
-        width: 300,
+        width: '300px'
     },
 });
 
 function valuetext(value) {
     return `${value} PLN`;
 }
-
-
-
 
 const RangeSlider = ({ onSliderChange, priceMin, priceMax }) => {
     const classes = useStyles();
@@ -23,9 +20,7 @@ const RangeSlider = ({ onSliderChange, priceMin, priceMax }) => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
         onSliderChange(newValue);
-
     };
-
 
 
     return (

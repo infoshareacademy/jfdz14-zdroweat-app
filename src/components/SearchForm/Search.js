@@ -5,6 +5,8 @@ import BasicTextFields from './inputSearch'
 import RecipesList from "./recipesList"
 import styles from './search.module.css'
 import BasicPagination from './pagination'
+import PageWrapper from './pagewrapper'
+import CircularProgress from '@material-ui/core/CircularProgress';
 import ViewOption from './recipesPerPage'
 import { DATABASE_URL } from '../../index'
 
@@ -12,7 +14,6 @@ import { DATABASE_URL } from '../../index'
 
 class Search extends React.Component {
   state = {
-
     recipesList: [],
     filteredList: [],
     filter: '',
@@ -21,8 +22,8 @@ class Search extends React.Component {
     timeToPrepare: 0,
     currentPage: 1,
     recipesPerPage: 8,
+    isLoading: true
   }
-
 
   fetchData = () => {
     fetch(`${DATABASE_URL}/recipes.json`)
@@ -42,13 +43,14 @@ class Search extends React.Component {
         this.setState({
           recipesList: arrayRecipes,
           filteredList: arrayRecipes,
+          isLoading: false
         })
       })
   }
+
   componentDidMount() {
     this.fetchData()
   }
-
 
   applyFilter = () => {
     this.setState({
@@ -84,25 +86,29 @@ class Search extends React.Component {
 
 
   handleOnSliderChange = (upDateRange) => {
-
     this.setState({
       priceMin: upDateRange[0],
       priceMax: upDateRange[1],
+    }, () => {
+      this.applyFilter()
     })
-    this.applyFilter()
   }
 
   handleOnFormChange = (textFilter) => {
     this.setState({
       filter: textFilter,
+    }, () => {
+      this.applyFilter()
     })
-    this.applyFilter()
   }
+
   handleOnDropDownChange = (newDropDownValue) => {
     this.setState({
       timeToPrepare: newDropDownValue
+    }, () => {
+      this.applyFilter()
     })
-    this.applyFilter()
+
   }
 
   pageChanged = (pageNumber) => {
@@ -118,12 +124,9 @@ class Search extends React.Component {
     })
   }
 
-
-
-
   render() {
     return (
-      <>
+      <div style={{ marginBottom: '20px' }}>
         <div className={styles.flexBar}>
           <BasicTextFields
             onFormChange={this.handleOnFormChange}
@@ -144,19 +147,27 @@ class Search extends React.Component {
 
         </div>
         <ViewOption onClickedRecipesPerPage={this.recipesPerPageChanged} />
-        <RecipesList
-          recipesList={this.state.filteredList}
-          currentPage={this.state.currentPage}
-          recipesPerPage={this.state.recipesPerPage}
+        {this.state.isLoading
+          ?
+          <PageWrapper><CircularProgress size="350px" /></PageWrapper>
+          :
+          <>
+            <RecipesList
+              recipesList={this.state.filteredList}
+              currentPage={this.state.currentPage}
+              recipesPerPage={this.state.recipesPerPage}
 
-        />
-        <BasicPagination
-          recipesPerPage={this.state.recipesPerPage}
-          recipesLength={this.state.filteredList.length}
-          updatePage={this.pageChanged}
+            />
+            <BasicPagination
+              recipesPerPage={this.state.recipesPerPage}
+              recipesLength={this.state.filteredList.length}
+              updatePage={this.pageChanged}
 
-        />
-      </>
+            />
+          </>
+        }
+
+      </div>
     )
   }
 }
