@@ -19,6 +19,22 @@
   height: 150px;
   padding-top: 1.5%;
 }
+.button {
+  padding: 1rem;
+  justify-items: flex-end;
+  margin-left: 95%;
+  text-align: center;
+  align-self: center;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #bb8588;
+}
+
 .title {
   letter-spacing: 0.25rem;
 

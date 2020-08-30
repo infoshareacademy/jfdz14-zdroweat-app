@@ -5,8 +5,9 @@ import CardActions from '@material-ui/core/CardActions'
 import AuthIcons from './AuthIcons'
 import { red, grey } from '@material-ui/core/colors'
 import styles from './SingleRecipe.module.css'
-
+import { Link } from 'react-router-dom'
 // icons
+import CloseIcon from '@material-ui/icons/Close'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import IconButton from '@material-ui/core/IconButton'
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney'
@@ -47,6 +48,12 @@ const SingleRecipe = (props) => {
 
   return (
     <div className={styles.wrapper}>
+      <Link to={`/`} className={styles.link}>
+        <button className={styles.button}>
+          <CloseIcon />
+        </button>
+      </Link>
+
       <p className={styles.title}>{Recipe.name}</p>
       <div className={styles.img_wrapper}>
         <img src={Recipe.photoURL} className={styles.img} />

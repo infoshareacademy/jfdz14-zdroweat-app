@@ -11,18 +11,17 @@ import SimpleLineChart from './SimpleLineChart'
 import TinyBarChart from './TinyBarChart'
 import BasicContainerTwo from './BasicContainerTwo'
 import { DATABASE_URL } from '../../index'
+import firebase from 'firebase'
 // icons
-import Favorite from '@material-ui/icons/Favorite'
-import FaceIcon from '@material-ui/icons/Face'
+import Restaurant from '@material-ui/icons/Restaurant'
+import TimerIcon from '@material-ui/icons/Timer'
 import ShareIcon from '@material-ui/icons/Share'
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle'
 
 class DashboardWrapper extends React.Component {
   state = {
     recipesCount: 1,
-    favouritesCount: 1,
-    guestsCount: 1,
-    shareCount: 1,
+    minTime: 1,
   }
 
   fetchData = () => {
@@ -37,11 +36,20 @@ class DashboardWrapper extends React.Component {
               }
             })
           : []
+        const minimumTime = Math.min.apply(
+          null,
+          arrayRecipes.map((item) => {
+            return item.readyInMinutes
+          }),
+        )
+
         this.setState({
           recipesCount: arrayRecipes.length,
+          minTime: minimumTime,
         })
       })
   }
+
   componentDidMount() {
     this.fetchData()
   }
@@ -54,17 +62,17 @@ class DashboardWrapper extends React.Component {
             title="PRZEPISY"
             text={<CountUp duration={6} end={this.state.recipesCount} />}
             data={
-              <FaceIcon
+              <Restaurant
                 className={styles.faceIcon}
                 style={{ fontSize: 40, color: '#DDBEA9' }}
               />
             }
           />
           <BasicContainer
-            title="ULUBIONE"
-            text={<CountUp duration={3} end={2555} />}
+            title="NAJKRÓTSZY CZAS"
+            text={<CountUp duration={6} end={this.state.minTime} />}
             data={
-              <Favorite
+              <TimerIcon
                 className={styles.favoriteIcon}
                 style={{ fontSize: 40, color: '#bb8588' }}
               />
