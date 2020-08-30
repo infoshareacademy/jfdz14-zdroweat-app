@@ -83,7 +83,8 @@ export default function RecipeReviewCard(props) {
       'name': props.title
     })
   } else {
-    console.log('Usunięto')
+    let databaseRef = await firebase.database().ref(currentUser.uid).child('Favourites')
+    databaseRef.remove()
   }
 }
 

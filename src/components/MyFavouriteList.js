@@ -70,14 +70,10 @@ class MyFavouriteList extends React.Component {
         const currentUser = await firebase.auth().currentUser
 
         firebase.database().ref(currentUser.uid).child('Favourites').once('value').then((snapshot) => {
-            // console.log(snapshot.val())
-            
-
+            console.log(snapshot.val())
             this.setState({
                 favouriteList: snapshot.val()
             })
-
-            console.log(this.state.favouriteList)
         })
     }
 
@@ -85,11 +81,9 @@ class MyFavouriteList extends React.Component {
         return (  
             <Auth>         
                 <h1 className={styles.header}>Twoje ulubione przepisy</h1>
-                {/* {
-                    this.state.favouriteList.map((recipe) => {
-                        return <div>{recipe.name}</div>
-                    })
-                } */}
+                <div>
+                    
+                </div>
             </Auth>
         )
     }  
