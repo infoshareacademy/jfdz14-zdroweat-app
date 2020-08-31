@@ -13,15 +13,16 @@ import BasicContainerTwo from './BasicContainerTwo'
 import { DATABASE_URL } from '../../index'
 import firebase from 'firebase'
 // icons
+import AttachMoneyIcon from '@material-ui/icons/AttachMoney'
 import Restaurant from '@material-ui/icons/Restaurant'
 import TimerIcon from '@material-ui/icons/Timer'
-import ShareIcon from '@material-ui/icons/Share'
 import SupervisedUserCircleIcon from '@material-ui/icons/SupervisedUserCircle'
 
 class DashboardWrapper extends React.Component {
   state = {
     recipesCount: 1,
     minTime: 1,
+    minPrice: 1,
   }
 
   fetchData = () => {
@@ -36,16 +37,20 @@ class DashboardWrapper extends React.Component {
               }
             })
           : []
+
         const minimumTime = Math.min.apply(
           null,
-          arrayRecipes.map((item) => {
-            return item.readyInMinutes
-          }),
+          arrayRecipes.map((item) => item.readyInMinutes),
+        )
+        const minimumPrice = Math.min.apply(
+          null,
+          arrayRecipes.map((item) => item.price),
         )
 
         this.setState({
           recipesCount: arrayRecipes.length,
           minTime: minimumTime,
+          minPrice: minimumPrice,
         })
       })
   }
@@ -59,8 +64,8 @@ class DashboardWrapper extends React.Component {
       <div>
         <div className={styles.container}>
           <BasicContainer
-            title="PRZEPISY"
-            text={<CountUp duration={6} end={this.state.recipesCount} />}
+            title="NASZE PRZEPISY"
+            text={<CountUp duration={3} end={this.state.recipesCount} />}
             data={
               <Restaurant
                 className={styles.faceIcon}
@@ -69,8 +74,8 @@ class DashboardWrapper extends React.Component {
             }
           />
           <BasicContainer
-            title="NAJKRÓTSZY CZAS"
-            text={<CountUp duration={6} end={this.state.minTime} />}
+            title="MINIMALNY CZAS"
+            text={<CountUp duration={3} end={this.state.minTime} />}
             data={
               <TimerIcon
                 className={styles.favoriteIcon}
@@ -80,19 +85,14 @@ class DashboardWrapper extends React.Component {
           />
 
           <BasicContainer
-            title="ODWIEDZAJĄCY"
-            text={<CountUp duration={3} end={567} />}
+            title="NAJNIŻSZA CENA"
+            text={<CountUp duration={3} end={this.state.minPrice} />}
             data={
-              <SupervisedUserCircleIcon
+              <AttachMoneyIcon
                 className={styles.userIcon}
                 style={{ fontSize: 40, color: '#a3a380' }}
               />
             }
-          />
-          <BasicContainer
-            title="UDOSTĘPNIONO"
-            text={<CountUp end={555} duration={3} />}
-            data={<ShareIcon style={{ fontSize: 40, color: '#D8A48F' }} />}
           />
         </div>
 
@@ -104,14 +104,23 @@ class DashboardWrapper extends React.Component {
             />
             <div className={styles.teamSvg}></div>
           </div>
-          <div className={styles.column}>
+          {/* <div className={styles.column}>
             <StackedAreaChart />
-          </div>
+          </div> */}
         </div>
 
         <div className={styles.container}>
           <BasicContainerTwo title="NOWE PRZEPISY" data={<SimpleLineChart />} />
-          <BasicContainerTwo title="TOP PRZEPISY" data={<TinyBarChart />} />
+          <BasicContainerTwo
+            title="TOP PRZEPISY"
+            data={
+              <TinyBarChart
+                wege={this.state.wege}
+                vegan={this.state.vegan}
+                meat={this.state.meat}
+              />
+            }
+          />
 
           <BasicContainerTwo
             title="ZADOWOLENI UŻYTKOWNICY"
