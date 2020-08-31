@@ -23,14 +23,14 @@ class TinyBarChart extends React.Component {
           : []
         const meatCount = arrayRecipes
           .map((item) => item.type)
-          .filter((filtered) => filtered.includes('meat')).length
+          .filter((filtered) => filtered.includes('mięso')).length
         const wegeCount = arrayRecipes
           .map((item) => item.type)
           .filter((filtered) => filtered.includes('wege')).length
 
         const veganCount = arrayRecipes
           .map((item) => item.type)
-          .filter((filtered) => filtered.includes('vegan')).length
+          .filter((filtered) => filtered.includes('wegańskie')).length
 
         this.setState({
           meat: meatCount,
@@ -45,9 +45,9 @@ class TinyBarChart extends React.Component {
   }
   render() {
     const data = [
-      { name: 'Wege', wege: this.state.wege },
-      { name: 'Mięsko', mięsko: this.state.meat },
-      { name: 'wegańskie', wegańskie: this.state.vegan },
+      { name: 'Wege', Wege: this.state.wege },
+      { name: 'Mięso', Mięso: this.state.meat },
+      { name: 'Wegańskie', Wegańskie: this.state.vegan },
     ]
     return (
       <BarChart
@@ -58,9 +58,9 @@ class TinyBarChart extends React.Component {
           fontSize: '1rem',
         }}
       >
-        <Bar barSize={25} dataKey="wege" fill="#BB8588" />
-        <Bar barSize={25} dataKey="mięsko" fill="#D6CE93" />
-        <Bar barSize={25} dataKey="wegańskie" fill="#D8A48F" />
+        <Bar barSize={25} dataKey="Wege" fill="#BB8588" />
+        <Bar barSize={25} dataKey="Mięso" fill="#D6CE93" />
+        <Bar barSize={25} dataKey="Wegańskie" fill="#D8A48F" />
         <Legend
           verticalAlign="bottom"
           align="center"
