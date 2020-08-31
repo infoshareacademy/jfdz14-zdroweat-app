@@ -133,12 +133,13 @@ class Search extends React.Component {
             filterValue={this.state.filter}
           />
 
-          <RangeSlider
+          <div className={styles.slider}><RangeSlider
             onSliderChange={this.handleOnSliderChange}
             priceMin={this.state.priceMin}
             priceMax={this.state.priceMax}
 
           />
+          </div>
 
           <ControlledOpenSelect
             onDropDownChange={this.handleOnDropDownChange}

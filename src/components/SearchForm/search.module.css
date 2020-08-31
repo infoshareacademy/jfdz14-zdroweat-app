@@ -34,6 +34,9 @@ font-size: 1.2em;
     
 }
 
+.slider{
+    width: 300px;
+}
 .radio{
     margin-left: auto;
     margin-right: auto;
@@ -48,6 +51,10 @@ font-size: 1.2em;
         display: block;
         text-align: center;
         margin-top: 20px;
+    }
+    .slider{
+        margin-left: auto;
+        margin-right: auto;
     }
    }
    @media (max-width: 800px){
