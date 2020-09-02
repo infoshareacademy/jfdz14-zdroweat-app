@@ -7,7 +7,7 @@ import styles from './search.module.css'
 import BasicPagination from './pagination'
 import PageWrapper from './pagewrapper'
 import CircularProgress from '@material-ui/core/CircularProgress';
-import ViewOption from './recipesPerPage'
+import RadioButtonsGroup from './recipesPerPage'
 import { DATABASE_URL } from '../../index'
 
 
@@ -146,7 +146,7 @@ class Search extends React.Component {
           />
 
         </div>
-        <ViewOption onClickedRecipesPerPage={this.recipesPerPageChanged} />
+        <div style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}><RadioButtonsGroup onRecipesPerPageChanged={this.recipesPerPageChanged} /></div>
         {this.state.isLoading
           ?
           <PageWrapper><CircularProgress size="350px" /></PageWrapper>

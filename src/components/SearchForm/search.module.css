@@ -34,12 +34,20 @@ font-size: 1.2em;
     
 }
 
-
+.radio{
+    margin-left: auto;
+    margin-right: auto;
+}
 
    @media (max-width: 1024px){
     .recipesList{
         display: grid;
         grid-template-columns:  repeat(3, 1fr);;
+    }
+    .flexBar{
+        display: block;
+        text-align: center;
+        margin-top: 20px;
     }
    }
    @media (max-width: 800px){
@@ -47,5 +55,6 @@ font-size: 1.2em;
         display: grid;
         grid-template-columns:  repeat(1, 1fr);;
     }
+    
    }
  
