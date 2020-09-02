@@ -25,3 +25,10 @@
 .signInShareButtons {
     display: flex;
 }
+
+@media (max-width: 1024px){
+    .navContainer{
+        flex-direction: column;
+    }
+    
+}

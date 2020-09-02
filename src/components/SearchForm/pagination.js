@@ -17,6 +17,7 @@ export default function BasicPagination({ recipesPerPage, recipesLength, updateP
     const handleChange = (event, value) => {
         updatePage(value)
         setPage(value)
+        window.scrollTo(0, 0);
     }
 
 

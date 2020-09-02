@@ -110,8 +110,7 @@ export default function MainSection() {
           position="fixed"
           className={clsx(classes.appBar, {
             [classes.appBarShift]: open,
-          })}
-        >
+          })}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -152,8 +151,8 @@ export default function MainSection() {
               {theme.direction === 'rtl' ? (
                 <ChevronRightIcon />
               ) : (
-                <ChevronLeftIcon />
-              )}
+                  <ChevronLeftIcon />
+                )}
             </IconButton>
           </div>
           <MenuList />
@@ -173,7 +172,7 @@ export default function MainSection() {
             <Route exact path="/nasi-fani" component={Home} />
 
             <Route path='/signin' component={SignIn} />
-            <Route path='/signup' component={() => <SignInEmail isSignUp />} /> 
+            <Route path='/signup' component={() => <SignInEmail isSignUp />} />
 
           </Switch>
         </main>
