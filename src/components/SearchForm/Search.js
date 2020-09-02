@@ -150,6 +150,7 @@ class Search extends React.Component {
             />
           </div>
         </div>
+        <hr className={styles.borderLine} />
         <div style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}><RadioButtonsGroup onRecipesPerPageChanged={this.recipesPerPageChanged} /></div>
         {
           this.state.isLoading

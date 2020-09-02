@@ -10,10 +10,10 @@ import Select from '@material-ui/core/Select';
 const useStyles = makeStyles((theme) => ({
     button: {
         display: 'block',
-        marginTop: theme.spacing(1),
+
     },
     formControl: {
-        margin: theme.spacing(1),
+
         width: '100%',
     },
 }));

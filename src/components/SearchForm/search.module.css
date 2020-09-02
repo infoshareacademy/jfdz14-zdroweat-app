@@ -2,9 +2,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    border-bottom: 2px black solid;
-    margin-bottom: 15px;
+    margin-bottom: 32px;
+    margin-top: 24px;
     
+}
+
+.borderLine{
+    height: 4px;
+    width: 96%;
+    background-color: darkcyan;
+
 }
 
 .recipesList{
@@ -27,8 +34,9 @@ font-size: 1.2em;
 .slider,
 .inputForm,
 .dropdown{
-    width: 25vw
+    width: 25vw;
 }
+
 
 .radio{
     margin-left: auto;
