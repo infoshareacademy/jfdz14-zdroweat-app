@@ -46,8 +46,8 @@ const useStyles = makeStyles((theme) => ({
 export default function RecipeReviewCard(props) {
   const classes = useStyles()
   const [addToFavourite, addedToFavourite] = React.useState(true)
-  
-  
+
+
 
   // const onClickHandler = () => {
   //   addedToFavourite(!addToFavourite)
@@ -77,29 +77,29 @@ export default function RecipeReviewCard(props) {
     const currentUser = await firebase.auth().currentUser
     addedToFavourite(!addToFavourite)
 
-  if (addToFavourite) {
-    let databaseRef = await firebase.database().ref(currentUser.uid).child('Favourites').push();
-    databaseRef.set({
-      'name': props.title
-    })
-  } else {
-    console.log('Usunięto')
+    if (addToFavourite) {
+      let databaseRef = await firebase.database().ref(currentUser.uid).child('Favourites').push();
+      databaseRef.set({
+        'name': props.title
+      })
+    } else {
+      console.log('Usunięto')
+    }
   }
-}
 
-// let localStorageArray = [];
+  // let localStorageArray = [];
 
-// for (let i = 0; i < 30; i++) {
-//   localStorageArray.push(localStorage.key(i))
-// }
+  // for (let i = 0; i < 30; i++) {
+  //   localStorageArray.push(localStorage.key(i))
+  // }
 
-// let favColor = () => {
-//   if (localStorageArray.includes(props.title)) {
-//     return red[500]
-//   } else {
-//     return grey[500]
-//   }
-// }
+  // let favColor = () => {
+  //   if (localStorageArray.includes(props.title)) {
+  //     return red[500]
+  //   } else {
+  //     return grey[500]
+  //   }
+  // }
 
   return (
     <Card className={classes.root} className={styles.singleCardMaterialUI}>
@@ -124,7 +124,7 @@ export default function RecipeReviewCard(props) {
         <CardMedia className={classes.media} image={props.photoURL} />
       </Link>
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body2" color="textSecondary" component="div">
           <div className={styles.cardBottom}>
             <div className={styles.icons}>
               <TimerIcon style={{ fontSize: '1.75rem' }} />:{' '}

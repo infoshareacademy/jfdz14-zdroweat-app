@@ -128,10 +128,12 @@ class Search extends React.Component {
     return (
       <div style={{ marginBottom: '20px' }}>
         <div className={styles.flexBar}>
-          <BasicTextFields
-            onFormChange={this.handleOnFormChange}
-            filterValue={this.state.filter}
-          />
+          <div className={styles.inputForm}>
+            <BasicTextFields
+              onFormChange={this.handleOnFormChange}
+              filterValue={this.state.filter}
+            />
+          </div>
 
           <div className={styles.slider}><RangeSlider
             onSliderChange={this.handleOnSliderChange}
@@ -141,34 +143,36 @@ class Search extends React.Component {
           />
           </div>
 
-          <ControlledOpenSelect
-            onDropDownChange={this.handleOnDropDownChange}
-            dropDownValue={this.state.timeToPrepare}
-          />
-
+          <div className={styles.dropdown}>
+            <ControlledOpenSelect
+              onDropDownChange={this.handleOnDropDownChange}
+              dropDownValue={this.state.timeToPrepare}
+            />
+          </div>
         </div>
         <div style={{ marginLeft: "auto", marginRight: "auto", textAlign: "center" }}><RadioButtonsGroup onRecipesPerPageChanged={this.recipesPerPageChanged} /></div>
-        {this.state.isLoading
-          ?
-          <PageWrapper><CircularProgress size="350px" /></PageWrapper>
-          :
-          <>
-            <RecipesList
-              recipesList={this.state.filteredList}
-              currentPage={this.state.currentPage}
-              recipesPerPage={this.state.recipesPerPage}
+        {
+          this.state.isLoading
+            ?
+            <PageWrapper><CircularProgress size="350px" /></PageWrapper>
+            :
+            <>
+              <RecipesList
+                recipesList={this.state.filteredList}
+                currentPage={this.state.currentPage}
+                recipesPerPage={this.state.recipesPerPage}
 
-            />
-            <BasicPagination
-              recipesPerPage={this.state.recipesPerPage}
-              recipesLength={this.state.filteredList.length}
-              updatePage={this.pageChanged}
+              />
+              <BasicPagination
+                recipesPerPage={this.state.recipesPerPage}
+                recipesLength={this.state.filteredList.length}
+                updatePage={this.pageChanged}
 
-            />
-          </>
+              />
+            </>
         }
 
-      </div>
+      </div >
     )
   }
 }

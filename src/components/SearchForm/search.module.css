@@ -1,7 +1,7 @@
 .flexBar{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
     border-bottom: 2px black solid;
     margin-bottom: 15px;
     
@@ -24,19 +24,12 @@ justify-content: center;
 font-size: 1.2em;
 }
 
-.link{
-     color: #004d34;
+.slider,
+.inputForm,
+.dropdown{
+    width: 25vw
 }
 
-.link:hover{
-    text-decoration: underline;
-    cursor: pointer;
-    
-}
-
-.slider{
-    width: 300px;
-}
 .radio{
     margin-left: auto;
     margin-right: auto;
@@ -49,15 +42,17 @@ font-size: 1.2em;
     }
     .flexBar{
         display: block;
-        text-align: center;
         margin-top: 20px;
     }
-    .slider{
+    .inputForm,
+    .slider,
+    .dropdown{
         margin-left: auto;
         margin-right: auto;
+        width: 75vw;
     }
    }
-   @media (max-width: 800px){
+   @media (max-width: 600px){
     .recipesList{
         display: grid;
         grid-template-columns:  repeat(1, 1fr);;
