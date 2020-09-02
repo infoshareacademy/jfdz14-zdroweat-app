@@ -1,5 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
+import Pagewrapper from './SearchForm/pagewrapper'
+import styles from './styles.module.css';
 
 class Auth extends React.Component {
     state = {
@@ -25,7 +27,9 @@ class Auth extends React.Component {
         return(
             this.state.user
             ? this.props.children
-            : <h1>Aby wyświetlić tę stronę, musisz się zalogować</h1>
+            : <Pagewrapper>
+                <h1>Aby wyświetlić tę stronę, musisz się zalogować</h1>
+            </Pagewrapper>
         )
     }
 }

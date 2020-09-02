@@ -8,6 +8,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: '#4267b2',
     color: 'white',
+    position: 'relative',
+    bottom: '7px'
   },
 }));
 
@@ -18,7 +20,7 @@ export default function IconLabelButtons() {
     <Button
       variant="contained"
       color='primary'
-      size="small"
+      size="medium"
       className={classes.button}
       startIcon={<FacebookIcon />}
       target='blank'

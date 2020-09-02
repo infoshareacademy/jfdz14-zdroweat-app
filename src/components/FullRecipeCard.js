@@ -90,7 +90,7 @@ const FullRecipeCard = ({id, title, photoURL, readyInMinutes, servings, price, r
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-            <div className={styles.cardBottom}>
+            <div className={styles.cardBottomFav}>
               <div className={styles.icons}>
                 <TimerIcon style={{fontSize: '1.75rem'}} />: {readyInMinutes} min
               </div>

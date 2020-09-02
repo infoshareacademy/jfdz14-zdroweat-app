@@ -19,16 +19,34 @@
     letter-spacing: 0.2rem;
     position: absolute;
     right: 250px;
-    top: 22px;
+    top: -5px;
 }
+
 
 .signInShareButtons {
     display: flex;
+    position: absolute;
+    top: 15px;
+    right: 10px
 }
 
-@media (max-width: 1024px){
+@media (max-width: 1000px){
+    .loggedUser {
+        display: none;
+    }
+}
+
+@media (max-width: 800px){
     .navContainer{
         flex-direction: column;
+        justify-content: space-between;
+        margin: 0
+    }
+
+    .signInShareButtons {
+        position: static;
+        margin-top: 10px
     }
     
+
 }
