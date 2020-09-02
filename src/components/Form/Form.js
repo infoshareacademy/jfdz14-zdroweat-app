@@ -8,6 +8,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import done from "./images/done.gif";
 import Auth from "../Auth";
 import { DATABASE_URL } from '../../index'
+import firebase from 'firebase';
 
 // const useStyles = makeStyles((theme) => ({
 //   button: {
@@ -20,6 +21,7 @@ import { DATABASE_URL } from '../../index'
 // }));
 
 const initialState = {
+    file: null,
     name: '', 
     servings: '', 
     readyInMinutes: '', 
@@ -51,6 +53,30 @@ class Form extends React.Component {
         }).then(() => {
             this.resetForm();
         })
+    }
+
+    
+    handleOnInputFile = (event) => {
+        this.setState({
+            file: event.target.files[0]
+        })
+    }
+
+    fetchFile = () => {
+        firebase.storage().ref('recipes/')
+            .getDownloadURL()
+            .then(photoURL => {
+                this.setState({
+                    photoURL
+                })
+            })
+    }
+
+    handleOnAddFile = () => {
+        firebase.storage().ref('recipes/')
+            .put(this.state.file)
+            .then(() => this.fetchFile())
+            
     }
   
   
@@ -109,12 +135,20 @@ class Form extends React.Component {
                 value={this.state.recipe}
                 onChange={this.handleOnChange}
               />
-              <UploadButton />
+              <div className="photo">
+                <input type='file' onChange={this.handleOnInputFile}/>
+                <Button
+                variant="contained"
+                color="primary"
+                onClick={this.handleOnAddFile}
+              >
+                Dodaj zdjęcie
+              </Button>
+              </div>
               <Button
                 type="submit"
                 variant="contained"
                 color="primary"
-                // className={classes.button}
               >
                 Prześlij przepis
               </Button>
@@ -128,7 +162,7 @@ class Form extends React.Component {
                     <img src={done} alt="success icon" height="60px" />
                   </div>
                   <h2>
-                    Dziękujemy za przesłanie przepisu na {values.recipeName}{" "}
+                    Dziękujemy za przesłanie przepisu na {values.name}{" "}
                   </h2>
                 </div>
               </Backdrop> */}
