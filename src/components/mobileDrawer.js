@@ -52,7 +52,7 @@ export default function TemporaryDrawer() {
         <div>
 
             {['left'].map((anchor) => (
-                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" >
+                <IconButton key={anchor} edge="start" className={classes.menuButton} color="inherit" aria-label="menu" >
                     <MenuIcon onClick={toggleDrawer(anchor, true)} />
                     <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
                         {list(anchor)}
