@@ -1,9 +1,8 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import { NavLink } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
+import { red, grey } from '@material-ui/core/colors';
 import firebase from 'firebase';
-
 
 class SignInButton extends React.Component {
     state = {
@@ -32,15 +31,17 @@ class SignInButton extends React.Component {
     render() {
         return (
             <div>
-                {/* <div className='loggedUser'>
+                <div className='loggedUser'>
                     {this.state.user && `Cześć ${this.state.user.email}`}
-                </div> */}
+                </div>
 
                 {
                     this.state.user
-                        ? <Button color='primary' variant='contained' onClick={this.handleOnSignOut} >Wyloguj się</Button>
-                        : <Button color='secondary' variant='contained' component={NavLink} to='/signin'>Zaloguj się</Button>
+                        ? <Button color='default' variant='contained' onClick={this.handleOnSignOut} >Wyloguj się</Button>
+                        : <Button color='default' variant='contained' component={NavLink} to='/signin'>Zaloguj się</Button>
                 }
+
+
             </div>
         )
     }

@@ -9,14 +9,13 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import EcoIcon from '@material-ui/icons/Eco';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 import TimerIcon from '@material-ui/icons/Timer';
 import LocalDiningIcon from '@material-ui/icons/LocalDining';
 import styles from './styles.module.css';
+import firebase from 'firebase';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,7 +49,8 @@ const useStyles = makeStyles((theme) => ({
 
 }));
 
-export default function FullRecipeCard(props) {
+
+const FullRecipeCard = ({id, title, photoURL, readyInMinutes, servings, price, recipe, onDelete}) => {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
 
@@ -59,11 +59,16 @@ export default function FullRecipeCard(props) {
     setExpanded(!expanded);
   };
 
-  const onClickHandler = () => {
-        localStorage.removeItem(props.title, props.title);
-        window.location.reload(true);
-     } 
+  const handleOnDeleteClick = () => {
+    const currentUser = firebase.auth().currentUser
 
+    fetch(`https://zdroweat-7d0b0.firebaseio.com/${currentUser.uid}/${id}.json`, {
+            method: 'DELETE'
+    })
+    .then(() => {
+          onDelete();
+        })
+  }
   
 
   return (
@@ -71,29 +76,29 @@ export default function FullRecipeCard(props) {
       <CardHeader
         action={
           <IconButton aria-label="delete from favourites" className={classes.delIcon}>
-            <DeleteIcon onClick = {onClickHandler} />
+            <DeleteIcon onClick = {handleOnDeleteClick} />
           </IconButton>
         }
-        title={props.title}
+        title={title}
         className={classes.cardTop}
       />
 
       
       <CardMedia
         className={classes.media}
-        image={props.photoURL}
+        image={photoURL}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-            <div className={styles.cardBottom}>
+            <div className={styles.cardBottomFav}>
               <div className={styles.icons}>
-                <TimerIcon style={{fontSize: '1.75rem'}} />: {props.readyInMinutes} min
+                <TimerIcon style={{fontSize: '1.75rem'}} />: {readyInMinutes} min
               </div>
               <div className={styles.icons}>
-                <LocalDiningIcon style={{fontSize: '1.75rem'}}/>: {props.servings}
+                <LocalDiningIcon style={{fontSize: '1.75rem'}}/>: {servings}
               </div>
               <div className={styles.icons}>
-                <AttachMoneyIcon style={{fontSize: '1.75rem'}}/>: {props.price} zł
+                <AttachMoneyIcon style={{fontSize: '1.75rem'}}/>: {price} zł
               </div>
             </div>
 
@@ -117,7 +122,7 @@ export default function FullRecipeCard(props) {
         <CardContent>
           <Typography paragraph>Przepis:  </Typography>
           <Typography paragraph>
-              {props.recipe}
+              {recipe}
           </Typography>
 
         </CardContent>
@@ -125,3 +130,5 @@ export default function FullRecipeCard(props) {
     </Card>
   );
 }
+
+export default FullRecipeCard

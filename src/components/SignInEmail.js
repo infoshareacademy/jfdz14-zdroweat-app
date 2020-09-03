@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import firebase from 'firebase';
+import styles from './styles.module.css';
 
 
 class SignInEmail extends React.Component {
@@ -71,7 +72,7 @@ class SignInEmail extends React.Component {
 
         return (
             <Container component="main" maxWidth="xs">
-                <h1>
+                <h1 className={styles.loginHeader}>
                     {
                         this.props.isSignUp
                         ? "Zarejestruj się"

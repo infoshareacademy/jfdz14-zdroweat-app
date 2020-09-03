@@ -39,7 +39,6 @@ const useStyles = makeStyles((theme) => ({
   favIcon: {
     position: 'relative',
     top: '20px',
-
   }
 }))
 
@@ -47,59 +46,31 @@ export default function RecipeReviewCard(props) {
   const classes = useStyles()
   const [addToFavourite, addedToFavourite] = React.useState(true)
 
-
-
-  // const onClickHandler = () => {
-  //   addedToFavourite(!addToFavourite)
-
-  //   if (addToFavourite) {
-  //     localStorage.setItem(props.title, '')
-  //   } else {
-  //     localStorage.removeItem(props.title)
-  //   }
-  // }
-
-  // let localStorageArray = [];
-
-  // for (let i = 0; i < 30; i++) {
-  //   localStorageArray.push(localStorage.key(i))
-  // }
-
-  // let favColor = () => {
-  //   if (localStorageArray.includes(props.title)) {
-  //     return red[500]
-  //   } else {
-  //     return grey[500]
-  //   }
-  // }
-
   const onClickHandler = async () => {
     const currentUser = await firebase.auth().currentUser
     addedToFavourite(!addToFavourite)
 
     if (addToFavourite) {
-      let databaseRef = await firebase.database().ref(currentUser.uid).child('Favourites').push();
+      let databaseRef = await firebase.database().ref(currentUser.uid).push();
+
       databaseRef.set({
-        'name': props.title
+        'name': props.title,
+        'photoURL': props.photoURL,
+        'price': props.price,
+        'readyInMinutes': props.readyInMinutes,
+        'recipe': props.recipe,
+        'servings': props.servings,
       })
-    } else {
-      console.log('Usunięto')
     }
   }
 
-  // let localStorageArray = [];
-
-  // for (let i = 0; i < 30; i++) {
-  //   localStorageArray.push(localStorage.key(i))
-  // }
-
-  // let favColor = () => {
-  //   if (localStorageArray.includes(props.title)) {
-  //     return red[500]
-  //   } else {
-  //     return grey[500]
-  //   }
-  // }
+  let favColor = () => {
+    if (!addedToFavourite) {
+      return red[500]
+    } else {
+      return grey[500]
+    }
+  }
 
   return (
     <Card className={classes.root} className={styles.singleCardMaterialUI}>
@@ -109,7 +80,7 @@ export default function RecipeReviewCard(props) {
           <IconButton aria-label="add to favorites" className={classes.favIcon}>
             <AuthIcons>
               <FavoriteIcon
-                // style={{ color: favColor() }}
+                style={{ color: favColor() }}
                 onClick={onClickHandler}
               />
             </AuthIcons>

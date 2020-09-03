@@ -61,3 +61,16 @@ h1,h2 {
     align-items: center;
 }
 
+@media (max-width: 768px) {
+
+    .formContainer{
+    display:flex;
+    flex-direction: column;
+    border: none;
+    }
+
+    .input, .recipeInput {
+        width: 90vw;
+    }
+}
+
