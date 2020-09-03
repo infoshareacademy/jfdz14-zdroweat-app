@@ -42,7 +42,6 @@ class MyFavouriteList extends React.Component {
                     favouriteList: arrayFavourites,
                     isLoading: false
                 })
-                // console.log(this.state.favouriteList)
             })
     }
 
@@ -60,6 +59,7 @@ class MyFavouriteList extends React.Component {
                                 .map(recipe => recipe.id === this.state.editId
                                     ? ""
                                     : (
+                                        
                                         <FullRecipeCard
                                             className={styles.singleCardMaterialUI}
                                             key={recipe.id}

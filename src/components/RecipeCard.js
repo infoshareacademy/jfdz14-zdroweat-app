@@ -14,6 +14,7 @@ import styles from './styles.module.css';
 import { Link } from 'react-router-dom';
 import AuthIcons from './AuthIcons';
 import firebase from 'firebase';
+import HeartIcon from './HeartIcon';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,73 +37,42 @@ const useStyles = makeStyles((theme) => ({
   cardTop: {
     height: '100px'
   },
-  favIcon: {
-    position: 'relative',
-    top: '20px',
-  }
+
 }))     
 
-export default function RecipeReviewCard(props) {
+const RecipeReviewCard = ({title, photoURL, price, readyInMinutes, recipe, servings, id }) => {
   const classes = useStyles()
-  const [addToFavourite, addedToFavourite] = React.useState(true)
-  
-  const onClickHandler = async () => {
-    const currentUser = await firebase.auth().currentUser
-    addedToFavourite(!addToFavourite)
-
-    if (addToFavourite) {
-      let databaseRef = await firebase.database().ref(currentUser.uid).push();
-      
-      databaseRef.set({
-        'name': props.title,
-        'photoURL': props.photoURL,
-        'price': props.price,
-        'readyInMinutes': props.readyInMinutes,
-        'recipe': props.recipe,
-        'servings': props.servings,
-      })
-    }
-  }
-
-  let favColor = () => {
-    if(!addedToFavourite) {
-      return red[500]
-    } else {
-      return grey[500]
-    }
-  }
 
   return (
     <Card className={classes.root} className={styles.singleCardMaterialUI}>
 
       <CardHeader
         action={
-          <IconButton aria-label="add to favorites" className={classes.favIcon}>
-            <AuthIcons>
-              <FavoriteIcon
-                style={{ color: favColor() }}
-                onClick={onClickHandler}
-              />
-            </AuthIcons>
-          </IconButton>
-
+          <HeartIcon 
+            title={title}
+            photoURL={photoURL}
+            price={price}
+            readyInMinutes={readyInMinutes}
+            recipe={recipe}
+            servings={servings}
+          />
         }
-        title={props.title}
+        title={title}
         className={classes.cardTop}
       />
 
-      <Link to={`Search/${props.id}`} className={styles.link}>
-        <CardMedia className={classes.media} image={props.photoURL} />
+      <Link to={`Search/${id}`} className={styles.link}>
+        <CardMedia className={classes.media} image={photoURL} />
       </Link>
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
           <div className={styles.cardBottom}>
             <div className={styles.icons}>
               <TimerIcon style={{ fontSize: '1.75rem' }} />:{' '}
-              {props.readyInMinutes} min
+              {readyInMinutes} min
             </div>
             <div className={styles.icons}>
-              <AttachMoneyIcon style={{ fontSize: '1.75rem' }} />: {props.price}{' '}
+              <AttachMoneyIcon style={{ fontSize: '1.75rem' }} />: {price}{' '}
               zł
             </div>
 
@@ -112,3 +82,5 @@ export default function RecipeReviewCard(props) {
     </Card>
   )
 }
+
+export default RecipeReviewCard;
