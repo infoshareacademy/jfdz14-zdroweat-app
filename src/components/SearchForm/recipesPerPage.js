@@ -7,7 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 
 export default function RadioButtonsGroup({ onRecipesPerPageChanged }) {
-    const [value, setValue] = React.useState('female');
+    const [value, setValue] = React.useState('8');
 
 
     const handleChange = (event) => {

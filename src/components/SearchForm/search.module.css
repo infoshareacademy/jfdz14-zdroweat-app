@@ -1,10 +1,17 @@
 .flexBar{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
-    border-bottom: 2px black solid;
-    margin-bottom: 15px;
+    justify-content: space-around;
+    margin-bottom: 32px;
+    margin-top: 24px;
     
+}
+
+.borderLine{
+    height: 4px;
+    width: 96%;
+    background-color: darkcyan;
+
 }
 
 .recipesList{
@@ -23,15 +30,12 @@ justify-content: center;
 font-size: 1.2em;
 }
 
-.link{
-     color: #004d34;
+.slider,
+.inputForm,
+.dropdown{
+    width: 25vw;
 }
 
-.link:hover{
-    text-decoration: underline;
-    cursor: pointer;
-    
-}
 
 .radio{
     margin-left: auto;
@@ -45,11 +49,18 @@ font-size: 1.2em;
     }
     .flexBar{
         display: block;
-        text-align: center;
-        margin-top: 20px;
+        margin-top: 5px;
+    }
+    .inputForm,
+    .slider,
+    .dropdown{
+        margin-left: auto;
+        margin-right: auto;
+        width: 75vw;
+        margin-top: 15px;
     }
    }
-   @media (max-width: 800px){
+   @media (max-width: 600px){
     .recipesList{
         display: grid;
         grid-template-columns:  repeat(1, 1fr);;

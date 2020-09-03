@@ -7,6 +7,7 @@ import Search from "./SearchForm/Search";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 import AppBar from "@material-ui/core/AppBar";
+import Hidden from '@material-ui/core/Hidden'
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
@@ -22,6 +23,7 @@ import SingleRecipe from "./SingleRecipe";
 import SignIn from './SignIn';
 import SignInButton from './SignInButton';
 import SignInEmail from './SignInEmail';
+import ButtonAppBar from './MainSectionMobile'
 
 const drawerWidth = 300
 
@@ -105,58 +107,64 @@ export default function MainSection() {
 
   return (
     <BrowserRouter>
+      <Hidden xlUp>
+        <ButtonAppBar />
+
+      </Hidden>
       <div className={classes.root}>
-        <AppBar
-          position="fixed"
-          className={clsx(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}>
-          <Toolbar>
-            <IconButton
-              color="inherit"
-              fontSize="large"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, {
-                [classes.hide]: open,
-              })}
-            >
-              <Logo />
-            </IconButton>
-            <div className="navContainer">
-              <div className="header">ZdrowEat</div>
-              <div className="signInShareButtons">
-                <ShareButton />
-                <SignInButton />
+        <Hidden smDown>
+          <AppBar
+            position="fixed"
+            className={clsx(classes.appBar, {
+              [classes.appBarShift]: open,
+            })}>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                fontSize="large"
+                aria-label="open drawer"
+                onClick={handleDrawerOpen}
+                edge="start"
+                className={clsx(classes.menuButton, {
+                  [classes.hide]: open,
+                })}
+              >
+                <Logo />
+              </IconButton>
+              <div className="navContainer">
+                <div className="header">ZdrowEat</div>
+                <div className="signInShareButtons">
+                  <ShareButton />
+                  <SignInButton />
+                </div>
               </div>
-            </div>
-          </Toolbar>
-        </AppBar>
-        <Drawer
-          variant="permanent"
-          className={clsx(classes.drawer, {
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          })}
-          classes={{
-            paper: clsx({
+            </Toolbar>
+          </AppBar>
+          <Drawer
+            variant="permanent"
+            className={clsx(classes.drawer, {
               [classes.drawerOpen]: open,
               [classes.drawerClose]: !open,
-            }),
-          }}
-        >
-          <div className={classes.toolbar}>
-            <IconButton onClick={handleDrawerClose}>
-              {theme.direction === 'rtl' ? (
-                <ChevronRightIcon />
-              ) : (
-                  <ChevronLeftIcon />
-                )}
-            </IconButton>
-          </div>
-          <MenuList />
-        </Drawer>
+            })}
+            classes={{
+              paper: clsx({
+                [classes.drawerOpen]: open,
+                [classes.drawerClose]: !open,
+              }),
+            }}
+          >
+            <div className={classes.toolbar}>
+              <IconButton onClick={handleDrawerClose}>
+                {theme.direction === 'rtl' ? (
+                  <ChevronRightIcon />
+                ) : (
+                    <ChevronLeftIcon />
+                  )}
+              </IconButton>
+            </div>
+            <MenuList />
+          </Drawer>
+        </Hidden>
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Switch>

@@ -40,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 }))     
 
+
 const RecipeReviewCard = ({title, photoURL, price, readyInMinutes, recipe, servings, id }) => {
   const classes = useStyles()
 
@@ -65,7 +66,7 @@ const RecipeReviewCard = ({title, photoURL, price, readyInMinutes, recipe, servi
         <CardMedia className={classes.media} image={photoURL} />
       </Link>
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body2" color="textSecondary" component="div">
           <div className={styles.cardBottom}>
             <div className={styles.icons}>
               <TimerIcon style={{ fontSize: '1.75rem' }} />:{' '}
