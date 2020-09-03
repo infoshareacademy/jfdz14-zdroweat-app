@@ -1,100 +1,87 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@material-ui/core/styles'
-import './Form.css'
-import UploadButton from './UploadButton'
-import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
-import Backdrop from '@material-ui/core/Backdrop'
-import done from './images/done.gif'
-import InputLabel from '@material-ui/core/InputLabel'
-import MenuItem from '@material-ui/core/MenuItem'
-import FormControl from '@material-ui/core/FormControl'
-import Select from '@material-ui/core/Select'
-import Auth from '../Auth'
-import { DATABASE_URL } from '../../index'
-import firebase from 'firebase'
-
-// const useStyles = makeStyles((theme) => ({
-//   button: {
-//     margin: theme.spacing(1),
-//   },
-//   backdrop: {
-//     zIndex: theme.zIndex.drawer + 1,
-//     color: "#fff",
-//   },
-// }));
+import React from "react";
+import "./Form.css";
+import UploadButton from "./UploadButton";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import Auth from "../Auth";
+import { DATABASE_URL } from "../../index";
+import firebase from "firebase";
 
 const initialState = {
   file: null,
-  name: '',
-  servings: '',
-  readyInMinutes: '',
-  price: '',
-  recipe: '',
-  photoURL: '',
-  type: '',
+  name: "",
+  servings: "",
+  readyInMinutes: "",
+  price: "",
+  recipe: "",
+  photoURL: "",
+  type: "",
   setOpenDropdown: false,
-}
+};
 
 class Form extends React.Component {
-  state = initialState
+  state = initialState;
 
   handleOnChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,
-    })
-  }
+    });
+  };
 
   resetForm = () => {
-    this.setState(initialState)
-  }
+    this.setState(initialState);
+  };
 
   handleOnSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     fetch(`${DATABASE_URL}/recipes.json`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(this.state),
     }).then(() => {
-      this.resetForm()
-    })
-  }
+      this.resetForm();
+    });
+  };
 
   handleOnInputFile = (event) => {
     this.setState({
       file: event.target.files[0],
-    })
-  }
+    });
+  };
 
   fetchFile = () => {
     firebase
       .storage()
-      .ref('recipes/')
+      .ref("recipes/")
       .getDownloadURL()
       .then((photoURL) => {
         this.setState({
           photoURL,
-        })
-      })
-  }
+        });
+      });
+  };
 
   handleOnAddFile = () => {
     firebase
       .storage()
-      .ref('recipes/')
+      .ref("recipes/")
       .put(this.state.file)
-      .then(() => this.fetchFile())
-  }
+      .then(() => this.fetchFile());
+  };
   handleCloseDropdown = () => {
     this.setState({
       setOpenDropdown: false,
-    })
-  }
+    });
+  };
 
   handleOpenDropdown = () => {
     this.setState({
       setOpenDropdown: true,
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -176,58 +163,35 @@ class Form extends React.Component {
                 onChange={this.handleOnChange}
               />
               <div className="photo">
-                <input type="file" onChange={this.handleOnInputFile} />
-                <Button
+                <label for="file-upload" class="custom-file-upload">
+                 <UploadButton />
+                </label>
+                <input id="file-upload" type="file" onChange={this.handleOnInputFile}/>
+
+                {/* <Button
+                  className="button"
                   variant="contained"
                   color="primary"
                   onClick={this.handleOnAddFile}
                 >
                   Dodaj zdjęcie
-                </Button>
+                </Button> */}
               </div>
-              <Button type="submit" variant="contained" color="primary">
+              <Button
+                className="button"
+                type="submit"
+                variant="contained"
+                color="primary"
+                onClick={this.handleOnAddFile}
+              >
                 Prześlij przepis
               </Button>
-              {/* <Backdrop
-                className={classes.backdrop}
-                open={open}
-                onClick={handleClose}
-              >
-                <div className="backdropMessage">
-                  <div>
-                    <img src={done} alt="success icon" height="60px" />
-                  </div>
-                  <h2>
-                    Dziękujemy za przesłanie przepisu na {values.name}{" "}
-                  </h2>
-                </div>
-              </Backdrop> */}
             </div>
           </form>
         </div>
       </Auth>
-    )
+    );
   }
 }
 
-// export default function Form () {
-//     const classes = useStyles();
-//     const [values, setValues] = useState ({recipeName: '', servings: '', readyInMinutes: '', price: '', recipe:''});
-
-//     const [open, setOpen] = React.useState(false);
-//     const handleClose = () => {
-//         setOpen(false);
-//     };
-//      const handleOnClick = () => {
-//         setOpen(!open);
-//     };
-
-//     const handleChange = (event) => {
-//         const { name , value } = event.target;
-//         setValues(values => ({...values, [name]: value }))
-//     }
-
-//     return
-// }
-
-export default Form
+export default Form;
