@@ -2,10 +2,11 @@ import React from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
 import List from '@material-ui/core/List';
 import ShareButton from "./ShareButton"
 import MenuList from './MenuList'
+import IconButton from '@material-ui/core/IconButton';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles({
     list: {
@@ -19,13 +20,11 @@ const useStyles = makeStyles({
 export default function TemporaryDrawer() {
     const classes = useStyles();
     const [state, setState] = React.useState({
-        top: false,
-        left: false,
-        bottom: false,
-        right: false,
+        left: false
     });
 
     const toggleDrawer = (anchor, open) => (event) => {
+        console.log(anchor)
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
@@ -51,13 +50,14 @@ export default function TemporaryDrawer() {
 
     return (
         <div>
-            {['left', 'right', 'top', 'bottom'].map((anchor) => (
-                <React.Fragment key={anchor}>
-                    <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
+
+            {['left'].map((anchor) => (
+                <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" >
+                    <MenuIcon onClick={toggleDrawer(anchor, true)} />
                     <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
                         {list(anchor)}
                     </Drawer>
-                </React.Fragment>
+                </IconButton>
             ))}
         </div>
     );
