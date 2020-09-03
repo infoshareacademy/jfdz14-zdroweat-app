@@ -40,19 +40,19 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     top: '20px',
   }
-}))     
+}))
 
 export default function RecipeReviewCard(props) {
   const classes = useStyles()
   const [addToFavourite, addedToFavourite] = React.useState(true)
-  
+
   const onClickHandler = async () => {
     const currentUser = await firebase.auth().currentUser
     addedToFavourite(!addToFavourite)
 
     if (addToFavourite) {
       let databaseRef = await firebase.database().ref(currentUser.uid).push();
-      
+
       databaseRef.set({
         'name': props.title,
         'photoURL': props.photoURL,
@@ -65,7 +65,7 @@ export default function RecipeReviewCard(props) {
   }
 
   let favColor = () => {
-    if(!addedToFavourite) {
+    if (!addedToFavourite) {
       return red[500]
     } else {
       return grey[500]
@@ -95,7 +95,7 @@ export default function RecipeReviewCard(props) {
         <CardMedia className={classes.media} image={props.photoURL} />
       </Link>
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography variant="body2" color="textSecondary" component="div">
           <div className={styles.cardBottom}>
             <div className={styles.icons}>
               <TimerIcon style={{ fontSize: '1.75rem' }} />:{' '}

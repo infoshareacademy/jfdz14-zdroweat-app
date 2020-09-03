@@ -29,19 +29,19 @@ class SignInButton extends React.Component {
     }
 
     render() {
-        return(
+        return (
             <div>
                 <div className='loggedUser'>
                     {this.state.user && `Cześć ${this.state.user.email}`}
                 </div>
-               
+
                 {
-                    this.state.user 
-                    ? <Button color='default' variant='contained' onClick={this.handleOnSignOut} >Wyloguj się</Button>
-                    : <Button color='default' variant='contained' component={NavLink} to='/signin'>Zaloguj się</Button>
+                    this.state.user
+                        ? <Button color='default' variant='contained' onClick={this.handleOnSignOut} >Wyloguj się</Button>
+                        : <Button color='default' variant='contained' component={NavLink} to='/signin'>Zaloguj się</Button>
                 }
-                
-                
+
+
             </div>
         )
     }
