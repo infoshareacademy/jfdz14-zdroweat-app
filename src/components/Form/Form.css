@@ -4,6 +4,7 @@ h1,h2 {
     font-weight: lighter;
     letter-spacing: 0.2rem;
     text-align: center;
+
 }
 
 .mainContainer {
@@ -38,12 +39,23 @@ h1,h2 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: min-content;
+    margin-bottom: 20px;
 
+}
+
+.button {
+    margin-bottom: 16px !important
 }
 
 .input {
     width: 30ch;
 }
+
+input[type="file"] {
+    display: none;
+}
+
 
 .recipeInput {
     width: 60ch;
@@ -67,10 +79,27 @@ h1,h2 {
     display:flex;
     flex-direction: column;
     border: none;
+    justify-content: center;
+    height: auto;
     }
 
     .input, .recipeInput {
-        width: 90vw;
+        width: 35ch;
+    }
+
+    h1 {
+        font-size:1.2rem;
+        margin-top:60px;
+        margin-bottom: 60px;
+    }
+
+    .formContainer_block {
+
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-between;
+    
     }
 }
 
