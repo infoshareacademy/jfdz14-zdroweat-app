@@ -22,11 +22,6 @@ const entries = [
         url: "/zdroweat-w-liczbach"
     },
     {
-        name: 'Nasi Fani',
-        icon: GroupIcon,
-        url: "/nasi-fani"
-    },
-    {
         name: 'Twoje ulubione przepisy',
         icon: FavoriteBorderOutlinedIcon,
         url: "/lista-ulubionych"
