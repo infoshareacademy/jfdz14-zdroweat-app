@@ -177,7 +177,7 @@ export default function MainSection() {
             <Route exact path="/Formularz" component={Form} />
             <Route exact path="/Search/:id" component={SingleRecipe} />
             <Route exact path="/lista-ulubionych" component={MyFavouriteList} />
-            <Route exact path="/nasi-fani" component={Home} />
+
 
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={() => <SignInEmail isSignUp />} />
