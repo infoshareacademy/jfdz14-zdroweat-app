@@ -162,21 +162,32 @@ class Form extends React.Component {
                 value={this.state.recipe}
                 onChange={this.handleOnChange}
               />
-              <div className="photo">
+              {/* <div className="formContainer_block"> */}
+              <TextField
+                className="photo"
+                name="photoURL"
+                type="text"
+                variant="outlined"
+                label="Podaj URL zdjęcia"
+                value={this.state.photoURL}
+                onChange={this.handleOnChange}
+              />
+              {/* </div> */}
+              {/* <div className="photo">
                 <label for="file-upload" class="custom-file-upload">
                  <UploadButton />
                 </label>
                 <input id="file-upload" type="file" onChange={this.handleOnInputFile}/>
 
-                {/* <Button
+                <Button
                   className="button"
                   variant="contained"
                   color="primary"
                   onClick={this.handleOnAddFile}
                 >
                   Dodaj zdjęcie
-                </Button> */}
-              </div>
+                </Button>
+              </div>  */}
               <Button
                 className="button"
                 type="submit"
