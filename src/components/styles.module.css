@@ -3,6 +3,11 @@
 
 }
 
+.favIcon {
+  position: relative;
+  top: 20px
+}
+
 .recipesList{
   display: grid;
   grid-template-columns:  repeat(4, 1fr);
