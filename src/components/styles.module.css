@@ -52,6 +52,7 @@
 .header {
     text-transform: uppercase;
     margin-left: 2rem;
+    margin-top: 2rem;
 }
 
 .loginHeader {
@@ -74,13 +75,13 @@
 @media (max-width: 800px) {
   .recipesList{
     display: grid;
-    grid-template-columns:  repeat(1, 1fr);
+    grid-template-columns:  repeat(2, 1fr);
     padding: 0 0.5rem
   }
 
   .header {
-    margin-top: 3rem;
-    font-size: 1.5rem
+    font-size: 1.25rem;
+    margin-bottom: 20px;
   }
 
   .loginHeader {
@@ -88,4 +89,12 @@
     font-size: 1.5rem
   }
 
+}
+
+@media (max-width: 600px) {
+  .recipesList{
+    display: grid;
+    grid-template-columns:  repeat(1, 1fr);
+    padding: 0 0.5rem
+  }
 }

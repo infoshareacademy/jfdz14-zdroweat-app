@@ -30,23 +30,8 @@
     right: 10px
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1024px){
     .loggedUser {
         display: none;
     }
-}
-
-@media (max-width: 800px){
-    .navContainer{
-        flex-direction: column;
-        justify-content: space-between;
-        margin: 0
-    }
-
-    .signInShareButtons {
-        position: static;
-        margin-top: 10px
-    }
-    
-
 }
