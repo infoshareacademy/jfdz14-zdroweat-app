@@ -29,13 +29,14 @@ class Search extends React.Component {
     fetch(`${DATABASE_URL}/recipes.json`)
       .then(response => response.json())
       .then(recipes => {
+        
         const arrayRecipes = recipes
           ? Object
             .keys(recipes)
             .map(key => {
               return {
-                id: key,
-                ...recipes[key]
+                ...recipes[key],
+                id: key
               }
             })
           : []
