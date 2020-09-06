@@ -11,6 +11,8 @@ import Auth from "../Auth";
 import { DATABASE_URL } from "../../index";
 import firebase from "firebase";
 
+
+
 const initialState = {
   file: '',
   name: "",
@@ -78,6 +80,10 @@ class Form extends React.Component {
       setOpenDropdown: true,
     });
   };
+
+  handleOnClick = () => {
+    alert('Dziękujemy za wysłanie przepisu')
+  }
 
   render() {
     return (
@@ -174,9 +180,11 @@ class Form extends React.Component {
                 type="submit"
                 variant="contained"
                 color="primary"
+                onClick={this.handleOnClick}
               >
                 Prześlij przepis
               </Button>
+              
             </div>
           </form>
         </div>
