@@ -1,6 +1,6 @@
 import React from 'react'
 import CardActions from '@material-ui/core/CardActions'
-import AuthIcons from './AuthIcons'
+
 import HeartIcon from './HeartIcon'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
@@ -8,11 +8,9 @@ import CircularProgress from '@material-ui/core/CircularProgress'
 import styles from './SingleRecipe.module.css'
 import { Link } from 'react-router-dom'
 import { DATABASE_URL } from '../index'
-import firebase from 'firebase'
+
 // icons
 import CloseIcon from '@material-ui/icons/Close'
-import FavoriteIcon from '@material-ui/icons/Favorite'
-import IconButton from '@material-ui/core/IconButton'
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney'
 import TimerIcon from '@material-ui/icons/Timer'
 import LocalDiningIcon from '@material-ui/icons/LocalDining'
