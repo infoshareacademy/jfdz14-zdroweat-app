@@ -28,7 +28,7 @@ class SingleRecipe extends React.Component {
   }
 
   componentDidMount() {
-    fetch(`${DATABASE_URL}/recipes/${this.props.match.params.id - 1}.json`)
+    fetch(`${DATABASE_URL}/recipes/${this.props.match.params.id}.json`)
       .then((response) => response.json())
       .then((data) => {
         this.setState({
