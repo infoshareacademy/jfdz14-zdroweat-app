@@ -40,6 +40,7 @@ export default function TemporaryDrawer() {
             role="presentation"
             onClick={toggleDrawer(anchor, false)}
             onKeyDown={toggleDrawer(anchor, false)}
+            dismissible
         >
             <List>
                 <MenuList />

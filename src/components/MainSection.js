@@ -30,7 +30,7 @@ const drawerWidth = 300
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    paddingTop: 20,
+    paddingTop: 0,
     // paddingLeft: 50,
     // paddingRight: 50,
   },
