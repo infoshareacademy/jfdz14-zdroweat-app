@@ -3,7 +3,7 @@
   display: flex;
   box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
   margin-bottom: 3rem;
-  margin: 1rem;
+  margin: 0rem 0 3rem;
   border-radius: 0.5rem;
   padding: 1rem;
   background-color: #d6ce93;
@@ -16,9 +16,8 @@
   display: flex;
   background-color: #faf9f0;
   box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
-  margin-bottom: 3rem;
+  margin: 0rem 0 3rem;
   border-radius: 0.5rem;
-  margin: 1rem;
   border-radius: 0.5rem;
   padding: 1rem;
   flex-direction: column;
@@ -29,7 +28,7 @@
   box-shadow: 0px 0px 76px -25px rgba(0, 0, 0, 0.75);
   border-radius: 0.5rem;
   padding: 1rem;
-  margin: 0 1rem 1rem 1rem;
+  margin: 0rem 0rem 3rem;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -141,7 +140,9 @@
 }
 
 @media (min-width: 1024px) {
-  .container {
+  .container,
+  .secondContainer,
+  .mapContainer {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
