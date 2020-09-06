@@ -13,7 +13,7 @@ const ErrorDiv = () => {
         <Router>
             <PageWrapper title={text}>
                 <h1>Pomóż nam rozwijać naszą apkę i dodaj go!</h1>
-                <Link component={Form} />
+                {/* <Link component={Form} /> */}
                 {/* <Button color="primary" component={NavLink} to='/Formularz'>Przejdź do formularza</Button> */}
             </PageWrapper>
         </Router>
