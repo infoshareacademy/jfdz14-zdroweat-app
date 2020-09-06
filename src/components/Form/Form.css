@@ -4,6 +4,7 @@ h1,h2 {
     font-weight: lighter;
     letter-spacing: 0.2rem;
     text-align: center;
+    margin:auto;
 
 }
 
@@ -52,9 +53,9 @@ h1,h2 {
     width: 30ch;
 }
 
-input[type="file"] {
+/* input[type="file"] {
     display: none;
-}
+} */
 
 
 .recipeInput {

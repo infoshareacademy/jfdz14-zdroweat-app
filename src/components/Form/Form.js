@@ -12,7 +12,7 @@ import { DATABASE_URL } from "../../index";
 import firebase from "firebase";
 
 const initialState = {
-  file: null,
+  file: '',
   name: "",
   servings: "",
   readyInMinutes: "",
@@ -47,30 +47,26 @@ class Form extends React.Component {
   };
 
   handleOnInputFile = (event) => {
+    console.log(event.target)
     this.setState({
       file: event.target.files[0],
     });
   };
 
-  fetchFile = () => {
+  handleOnAddFile = () => {
     firebase
       .storage()
-      .ref("recipes/")
-      .getDownloadURL()
-      .then((photoURL) => {
-        this.setState({
-          photoURL,
+      .ref("recipes/" + Math.floor(Math.random() * 1000))
+      .put(this.state.file)
+      .then((snapshot) => {
+        snapshot.ref.getDownloadURL().then((photoURL) => {
+          this.setState({
+            photoURL,
+          });
         });
       });
   };
 
-  handleOnAddFile = () => {
-    firebase
-      .storage()
-      .ref("recipes/")
-      .put(this.state.file)
-      .then(() => this.fetchFile());
-  };
   handleCloseDropdown = () => {
     this.setState({
       setOpenDropdown: false,
@@ -163,26 +159,21 @@ class Form extends React.Component {
                 onChange={this.handleOnChange}
               />
               <div className="photo">
-                <label for="file-upload" class="custom-file-upload">
-                 <UploadButton />
-                </label>
-                <input id="file-upload" type="file" onChange={this.handleOnInputFile}/>
-
-                {/* <Button
+                <input  type="file" onChange={this.handleOnInputFile} />
+                <Button
                   className="button"
                   variant="contained"
                   color="primary"
                   onClick={this.handleOnAddFile}
                 >
                   Dodaj zdjęcie
-                </Button> */}
+                </Button>
               </div>
               <Button
                 className="button"
                 type="submit"
                 variant="contained"
                 color="primary"
-                onClick={this.handleOnAddFile}
               >
                 Prześlij przepis
               </Button>
