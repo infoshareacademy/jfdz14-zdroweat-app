@@ -2,6 +2,8 @@ import React from 'react'
 import CardActions from '@material-ui/core/CardActions'
 import AuthIcons from './AuthIcons'
 import HeartIcon from './HeartIcon'
+import CircularProgress from '@material-ui/core/CircularProgress'
+
 // import { red, grey } from '@material-ui/core/colors'
 import styles from './SingleRecipe.module.css'
 import { Link } from 'react-router-dom'
@@ -25,6 +27,7 @@ class SingleRecipe extends React.Component {
     servings: null,
     addedToFavourite: true,
     addToFavourite: true,
+    isLoading: true,
   }
 
   componentDidMount() {
@@ -33,19 +36,13 @@ class SingleRecipe extends React.Component {
       .then((data) => {
         this.setState({
           ...data,
+          isLoading: false,
         })
-        console.log(data)
       })
   }
   render() {
-    return (
-      <div className={styles.wrapper}>
-        <Link to={`/`} className={styles.link}>
-          <button className={styles.button}>
-            <CloseIcon />
-          </button>
-        </Link>
-
+    const recipeLoaded = (
+      <>
         <p className={styles.title}>{this.state.name}</p>
         <div className={styles.img_wrapper}>
           <img src={this.state.photoURL} className={styles.img} />
@@ -93,6 +90,22 @@ class SingleRecipe extends React.Component {
           <p className={styles.title}>Sposób przygotowania</p>
           <p className={styles.recipe}> {this.state.recipe}</p>
         </div>
+      </>
+    )
+    return (
+      <div className={styles.wrapper}>
+        <Link to={`/`} className={styles.link}>
+          <button className={styles.button}>
+            <CloseIcon />
+          </button>
+        </Link>
+        {this.state.isLoading ? (
+          <div>
+            <CircularProgress size="350px" />
+          </div>
+        ) : (
+          recipeLoaded
+        )}
       </div>
     )
   }
